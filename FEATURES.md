@@ -5,13 +5,13 @@
 - Persistence
 
 ## Section 2: Headlining Features
-
-
-## Section 3: Power Ups
-
+- Task Queue
+- Themes
 
 ## Section 3: Power Ups
-
+- Quotes & Notes
+- Mini Viewer
+- Takesie-backsies
 
 ## Section 4: Quality of Life
 
