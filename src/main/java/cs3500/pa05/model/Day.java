@@ -2,6 +2,9 @@ package cs3500.pa05.model;
 
 import java.util.List;
 
+/**
+ * represents a day of the week
+ */
 public class Day {
   private DayOfWeek day;
   private List<Event> events;
