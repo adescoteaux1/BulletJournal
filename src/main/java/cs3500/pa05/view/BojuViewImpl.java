@@ -5,7 +5,7 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
-public class BojuViewImpl {
+public class BojuViewImpl implements BojuView {
   private final FXMLLoader loader;
 
   /**
