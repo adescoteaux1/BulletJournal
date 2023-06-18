@@ -28,4 +28,13 @@ public class Task extends Action {
     this.isComplete = complete;
   }
 
+  /**
+   * returns if the task is completed
+   *
+   * @return if the task is completed
+   */
+  public boolean getIsComplete() {
+    return this.isComplete;
+  }
+
 }
