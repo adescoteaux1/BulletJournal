@@ -21,6 +21,10 @@ public class Week {
     numTasks = 0;
   }
 
+  public List<Day> getDays() {
+    return days;
+  }
+
   /**
    * sets this week's task limit
    *

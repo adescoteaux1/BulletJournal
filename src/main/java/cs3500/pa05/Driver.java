@@ -1,7 +1,5 @@
 package cs3500.pa05;
 
-import static javafx.application.Application.launch;
-
 import cs3500.pa05.controller.BojuController;
 import cs3500.pa05.controller.BojuControllerImpl;
 import cs3500.pa05.view.BojuView;
