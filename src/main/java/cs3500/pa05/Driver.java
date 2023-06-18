@@ -4,6 +4,7 @@ import cs3500.pa05.controller.BojuController;
 import cs3500.pa05.controller.BojuControllerImpl;
 import cs3500.pa05.view.BojuView;
 import cs3500.pa05.view.BojuViewImpl;
+import cs3500.pa05.view.MainMenuGui;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -35,11 +36,7 @@ public class Driver extends Application {
     BojuController bojuController = new BojuControllerImpl(stage);
 
     // instantiate a simple Whack-a-Mole GUI view
-    BojuView bv = new BojuViewImpl(bojuController);
-
     try {
-      // load and place the view's scene onto the stage
-      stage.setScene(bv.load());
 
       // fetch the view's controller
       bojuController.run();
