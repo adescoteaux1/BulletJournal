@@ -5,16 +5,16 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
-public class MainMenuGui implements BojuView {
+public class UserInputView implements BojuView {
   private final FXMLLoader loader;
 
   /**
    * Loads an instance of a GUI layout from disk.
    */
-  public MainMenuGui(BojuController controller) {
+  public UserInputView(BojuController controller) {
     // look up and store the layout
     this.loader = new FXMLLoader();
-    this.loader.setLocation(getClass().getClassLoader().getResource("mainMenu.fxml"));
+    this.loader.setLocation(getClass().getClassLoader().getResource("UserInput.fxml"));
     this.loader.setController(controller);
   }
 

@@ -2,9 +2,6 @@ package cs3500.pa05;
 
 import cs3500.pa05.controller.BojuController;
 import cs3500.pa05.controller.BojuControllerImpl;
-import cs3500.pa05.view.BojuView;
-import cs3500.pa05.view.BojuViewImpl;
-import cs3500.pa05.view.MainMenuGui;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.stage.Stage;
