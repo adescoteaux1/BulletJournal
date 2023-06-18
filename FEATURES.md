@@ -14,6 +14,8 @@
 - Takesie-backsies
 
 ## Section 4: Quality of Life
+- Mind Changes
+- Links
 
 
 ## Section 5: Extra Credit
