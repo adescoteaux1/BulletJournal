@@ -10,16 +10,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+/**
+ * represents the main View class
+ */
 public class BojuViewImpl implements BojuView {
   private final FXMLLoader loader;
-  private List<Task> taskQueue;
 
   @FXML
-  private VBox sideBar;
+  private final VBox sideBar;
 
 
   /**
    * Loads an instance of a GUI layout from disk.
+   *
+   * @param controller is the controller
    */
   public BojuViewImpl(BojuController controller) {
     // look up and store the layout

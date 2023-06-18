@@ -5,8 +5,8 @@
 - Persistence
 
 ## Section 2: Headlining Features
-- Task Queue
-- Themes
+- Task Queue -> in BojuView
+- Themes -> enum theme and additions
 
 ## Section 3: Power Ups
 - Quotes & Notes

@@ -12,6 +12,7 @@ public class Week {
   private int eventLimit;
   private int numEvents;
   private int numTasks;
+  private Theme selectedTheme; // default is always light
 
   /**
    * constructor for Week
@@ -27,6 +28,7 @@ public class Week {
     this.eventLimit = eventLimit;
     numEvents = 0;
     numTasks = 0;
+    selectedTheme = Theme.LIGHT;
   }
 
   /**
@@ -86,6 +88,24 @@ public class Week {
       System.out.println("Extending event limit."); //delete for MVC?
       setTaskLimit(numTasks);
     }
+  }
+
+  /**
+   * gets the selected theme of the week
+   *
+   * @return the selected theme
+   */
+  public Theme getSelectedTheme() {
+    return selectedTheme;
+  }
+
+  /**
+   * sets the selected theme of the week
+   *
+   * @param selectedTheme is the current theme
+   */
+  public void setSelectedTheme(Theme selectedTheme) {
+    this.selectedTheme = selectedTheme;
   }
 
 
