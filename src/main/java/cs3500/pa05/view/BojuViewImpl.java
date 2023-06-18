@@ -9,8 +9,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -26,6 +28,14 @@ public class BojuViewImpl implements BojuView {
 
   @FXML
   private TextArea quoteOrNote;
+
+  @FXML
+  private Label eventOrTask;
+
+  @FXML
+  private TextField details;
+
+
 
 
   /**
@@ -96,6 +106,9 @@ public class BojuViewImpl implements BojuView {
       Stage stage = new Stage();
       stage.initModality(Modality.APPLICATION_MODAL);
       stage.setTitle("Event Details");
+      eventOrTask.setText("Selected Event: " + event.getName());
+      details.setText(event.getDescription() + "\n Start Time: "
+      + event.getStartTime() + "\n Duration: " + event.getDuration());
       stage.setScene(new Scene(root));
       stage.showAndWait();
     } catch (IOException e) {
@@ -114,6 +127,9 @@ public class BojuViewImpl implements BojuView {
       Stage stage = new Stage();
       stage.initModality(Modality.APPLICATION_MODAL);
       stage.setTitle("Task Details");
+      eventOrTask.setText("Selected Task: " + task.getName());
+      details.setText(task.getDescription() + "\n Status: "
+          + task.getIsComplete());
       stage.setScene(new Scene(root));
       stage.showAndWait();
     } catch (IOException e) {

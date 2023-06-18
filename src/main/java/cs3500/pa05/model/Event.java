@@ -33,12 +33,28 @@ public class Event extends Action {
   }
 
   /**
+   * gets starting time of event
+   *
+   */
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  /**
    * sets duration of event
    *
    * @param duration the length of the event
    */
   public void setDuration(String duration) {
     this.duration = duration;
+  }
+
+  /**
+   * gets duration time of event
+   *
+   */
+  public String getDuration() {
+    return this.duration;
   }
 
 }
