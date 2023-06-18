@@ -67,7 +67,8 @@ public class Week {
       day.addEvent(e);
       numEvents++;
     } else {
-      //TODO: what are we doing when they exceed the limit
+      System.out.println("Extending event limit."); //delete for MVC?
+      setEventLimit(numEvents);
     }
   }
 
@@ -82,7 +83,8 @@ public class Week {
       day.addTask(t);
       numTasks++;
     } else {
-      //TODO: what are we doing when they exceed the limit
+      System.out.println("Extending event limit."); //delete for MVC?
+      setTaskLimit(numTasks);
     }
   }
 
