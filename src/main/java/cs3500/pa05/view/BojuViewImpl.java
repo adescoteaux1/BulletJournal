@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 
 /**
@@ -18,6 +19,9 @@ public class BojuViewImpl implements BojuView {
 
   @FXML
   private final VBox sideBar;
+
+  @FXML
+  private TextArea quoteOrNote;
 
 
   /**
@@ -31,6 +35,7 @@ public class BojuViewImpl implements BojuView {
     this.loader.setLocation(getClass().getClassLoader().getResource("WeekView.fxml"));
     this.loader.setController(controller);
     this.sideBar = new VBox();
+    this.quoteOrNote = new TextArea();
   }
 
   /**
@@ -62,4 +67,15 @@ public class BojuViewImpl implements BojuView {
       sideBar.getChildren().add(name);
     }
   }
+
+  /**
+   * Sets the quote or note in the view
+   *
+   * @param text the quote or note text
+   */
+  public void setQuoteOrNote(String text) {
+    quoteOrNote.equals(text);
+  }
+
+
 }

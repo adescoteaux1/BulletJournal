@@ -13,6 +13,7 @@ public class Week {
   private int numEvents;
   private int numTasks;
   private Theme selectedTheme; // default is always light
+  private String quoteOrNote;
 
   /**
    * constructor for Week
@@ -29,6 +30,7 @@ public class Week {
     numEvents = 0;
     numTasks = 0;
     selectedTheme = Theme.LIGHT;
+    quoteOrNote = "";
   }
 
   /**
@@ -106,6 +108,10 @@ public class Week {
    */
   public void setSelectedTheme(Theme selectedTheme) {
     this.selectedTheme = selectedTheme;
+  }
+
+  public void setQuoteOrNote(String text) {
+    this.quoteOrNote = text;
   }
 
 
