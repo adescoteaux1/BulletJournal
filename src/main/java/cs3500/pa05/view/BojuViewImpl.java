@@ -14,7 +14,7 @@ public class BojuViewImpl implements BojuView {
   public BojuViewImpl(BojuController controller) {
     // look up and store the layout
     this.loader = new FXMLLoader();
-    this.loader.setLocation(getClass().getClassLoader().getResource("board.fxml"));
+    this.loader.setLocation(getClass().getClassLoader().getResource("WeekView.fxml"));
     this.loader.setController(controller);
   }
 
