@@ -1,15 +1,19 @@
 package cs3500.pa05.view;
 
 import cs3500.pa05.controller.BojuController;
+import cs3500.pa05.model.Event;
 import cs3500.pa05.model.Task;
 import java.io.IOException;
 import java.util.List;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * represents the main View class
@@ -75,6 +79,46 @@ public class BojuViewImpl implements BojuView {
    */
   public void setQuoteOrNote(String text) {
     quoteOrNote.equals(text);
+  }
+
+  //these methods are to simulate a mini viewer
+  //not really sure if this part is correct
+  //this part would need to be implemented with controllers
+  //there might be an easier approach
+  public void openEventWindow(Event event) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("EventWindow.fxml"));
+      Parent root = loader.load();
+
+      //EventWindowController controller = loader.getController();
+      //controller.setEvent(event);
+
+      Stage stage = new Stage();
+      stage.initModality(Modality.APPLICATION_MODAL);
+      stage.setTitle("Event Details");
+      stage.setScene(new Scene(root));
+      stage.showAndWait();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void openTaskWindow(Task task) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("TaskWindow.fxml"));
+      Parent root = loader.load();
+
+      //TaskWindowController controller = loader.getController();
+      //controller.setTask(task);
+
+      Stage stage = new Stage();
+      stage.initModality(Modality.APPLICATION_MODAL);
+      stage.setTitle("Task Details");
+      stage.setScene(new Scene(root));
+      stage.showAndWait();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
 

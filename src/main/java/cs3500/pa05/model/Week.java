@@ -110,8 +110,51 @@ public class Week {
     this.selectedTheme = selectedTheme;
   }
 
+  /**
+   * sets the quote or note to a string
+   *
+   * @param text string quote/note should be set to
+   */
   public void setQuoteOrNote(String text) {
     this.quoteOrNote = text;
+  }
+
+  /**
+   * gets an event by the name; event is identified
+   * by the name to pop up in the mini viewer
+   *
+   * @param name of the event
+   *
+   * @return the event
+   */
+  public Event getEventByName(String name) {
+    for (Day day : days) {
+      for (Event event : day.getEvents()) {
+        if (event.getName().equals(name)) {
+          return event;
+        }
+      }
+    }
+    return null; // Event not found
+  }
+
+  /**
+   * gets a task by the name; task is identified
+   * by the name to pop up in the mini viewer
+   *
+   * @param name of the task
+   *
+   * @return the task
+   */
+  public Task getTaskByName(String name) {
+    for (Day day : days) {
+      for (Task task : day.getTasks()) {
+        if (task.getName().equals(name)) {
+          return task;
+        }
+      }
+    }
+    return null; // Task not found
   }
 
 

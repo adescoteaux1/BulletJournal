@@ -9,8 +9,8 @@
 - Themes -> enum theme and additions 
 
 ## Section 3: Power Ups
-- Quotes & Notes
-- Mini Viewer
+- Quotes & Notes -> in week and view
+- Mini Viewer -> in view and week, might need to change
 - Takesie-backsies -> with removes
 
 ## Section 4: Quality of Life
