@@ -13,6 +13,14 @@ public class Week {
   private int numEvents;
   private int numTasks;
 
+  /**
+   * constructor for Week
+   *
+   * @param days days of the week
+   * @param taskLimit upper bound on number of tasks
+   * @param eventLimit upper bound on number of events
+   */
+
   public Week(List<Day> days, int taskLimit, int eventLimit) {
     this.days = days;
     this.taskLimit = taskLimit;
@@ -21,6 +29,11 @@ public class Week {
     numTasks = 0;
   }
 
+  /**
+   * returns the days
+   *
+   * @return teh days
+   */
   public List<Day> getDays() {
     return days;
   }
