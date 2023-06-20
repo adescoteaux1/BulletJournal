@@ -10,6 +10,7 @@ import static cs3500.pa05.model.DayOfWeek.WEDNESDAY;
 
 import cs3500.pa05.model.Action;
 import cs3500.pa05.model.Task;
+import cs3500.pa05.model.Event;
 import cs3500.pa05.model.BujoWriter;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.FileAppendable;
@@ -58,6 +59,10 @@ public class BojuControllerImpl implements BojuController {
   private TextField descriptionInput;
   @FXML
   private ChoiceBox dayBox;
+  @FXML
+  private TextField startInput;
+  @FXML
+  private TextField durationInput;
 
 
 
@@ -93,7 +98,13 @@ public class BojuControllerImpl implements BojuController {
         throw new RuntimeException(ex);
       }
     });
-    addEvent.setOnAction(e -> addEvent());
+    addEvent.setOnAction(e -> {
+      try {
+        addEvent();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
+    });
     addNote.setOnAction(e -> Note());
     changeTheme.setOnAction(e -> newTheme());
     //removeTask.setOnAction(e -> deleteTask());
@@ -122,13 +133,31 @@ public class BojuControllerImpl implements BojuController {
 
   }
 
-  private void addEvent() {
+  private void addEvent() throws IOException {
     UserInputView uiv = new UserInputView(this);
     stage.setScene(uiv.load());
     enterTitle.setText("Enter the new Event");
 
-    enterButton.setOnAction(e -> {String newEvent = enterField.getText();
-      writer.write(newEvent);});
+    FXMLLoader loader = new FXMLLoader(
+        getClass().getClassLoader().getResource("newEvent.fxml"));
+    loader.setController(this);
+    Scene s = loader.load();
+    popup.getContent().add((Node)s.getRoot());
+    enterButton.setOnAction(e -> {
+      String name = nameInput.getText();
+      String desc = descriptionInput.getText();
+      Object day = dayBox.getSelectionModel().getSelectedItem();
+      String start = startInput.getText();
+      String duration = durationInput.getText();
+      Action newEvent = new Event(name, desc, (Day) day, start, duration);
+      writer.write(newEvent.toString());
+      popup.hide();
+    });
+
+    popup.getContent().add(enterButton);
+
+    //enterButton.setOnAction(e -> {String newEvent = enterField.getText();
+      //writer.write(newEvent);});
     //call method to add event to bujo
   }
 

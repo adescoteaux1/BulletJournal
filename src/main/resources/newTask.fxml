@@ -18,7 +18,7 @@
                <ChoiceBox id="dayBox" fx:id="dayBox" layoutX="50.0" layoutY="138.0" prefHeight="26.0" prefWidth="88.0" />
                <Label layoutX="14.0" layoutY="6.0" text="New Task" />
                <Label layoutX="14.0" layoutY="142.0" text="Day" />
-               <Button fx:id="createTaskButton" layoutX="138.0" layoutY="173.0" mnemonicParsing="false" text="Enter" />
+               <Button fx:id="enterButton" layoutX="138.0" layoutY="173.0" mnemonicParsing="false" text="Enter" />
             </children></AnchorPane>
         </Scene>
     </scene>
