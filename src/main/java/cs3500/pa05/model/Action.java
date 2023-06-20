@@ -1,5 +1,7 @@
 package cs3500.pa05.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * represents an action
  */
@@ -15,7 +17,9 @@ public abstract class Action {
    * @param description of the action
    * @param day of when the action is
    */
-  public Action(String name, String description, Day day) {
+  public Action(@JsonProperty("name") String name,
+                @JsonProperty("description") String description,
+                @JsonProperty("day") Day day) {
     this.name = name;
     this.description = description;
     this.day = day;
@@ -37,6 +41,15 @@ public abstract class Action {
    */
   public String getDescription() {
     return  this.description;
+  }
+
+  /**
+   * gets the day of this action
+   *
+   * @return the day
+   */
+  public Day getDay() {
+    return this.day;
   }
 
   /**
