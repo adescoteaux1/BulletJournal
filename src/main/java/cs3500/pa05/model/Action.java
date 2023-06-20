@@ -17,9 +17,9 @@ public abstract class Action {
    * @param description of the action
    * @param day of when the action is
    */
-  public Action(@JsonProperty String name,
-                @JsonProperty String description,
-                @JsonProperty Day day) {
+  public Action(@JsonProperty("name") String name,
+                @JsonProperty("description") String description,
+                @JsonProperty("day") Day day) {
     this.name = name;
     this.description = description;
     this.day = day;
