@@ -75,11 +75,21 @@ public class BojuControllerImpl implements BojuController {
   }
 
   private void deleteEvent() {
-    //To-Do
+    UserInputView uiv = new UserInputView(this);
+    stage.setScene(uiv.load());
+    enterTitle.setText("Enter Event to delete");
+
+    enterButton.setOnAction(e -> {String eventToDelete = enterField.getText();});
+    //call method to delete event to bujo
   }
 
   private void deleteTask() {
-    //To-Do
+    UserInputView uiv = new UserInputView(this);
+    stage.setScene(uiv.load());
+    enterTitle.setText("Enter Task to delete");
+
+    enterButton.setOnAction(e -> {String taskToDelete = enterField.getText();});
+    //call method to delete task to bujo
 
   }
 
