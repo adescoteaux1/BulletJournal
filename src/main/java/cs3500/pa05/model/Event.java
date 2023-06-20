@@ -1,5 +1,7 @@
 package cs3500.pa05.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * represents an event in the Bujo
  */
@@ -16,7 +18,11 @@ public class Event extends Action {
    * @param startTime when the event starts
    * @param duration how long the event is
    */
-  public Event(String name, String description, Day day, String startTime, String duration) {
+  public Event(@JsonProperty String name,
+               @JsonProperty String description,
+               @JsonProperty Day day,
+               @JsonProperty String startTime,
+               @JsonProperty String duration) {
     super(name, description, day);
     this.startTime = startTime;
     this.duration = duration;
