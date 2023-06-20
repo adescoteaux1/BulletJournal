@@ -1,8 +1,12 @@
 package cs3500.pa05.controller;
 
+import cs3500.pa05.model.BujoWriter;
+import cs3500.pa05.model.FileAppendable;
+import cs3500.pa05.model.Writer;
 import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
 import java.io.IOException;
+import java.nio.file.Paths;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,6 +32,7 @@ public class BojuControllerImpl implements BojuController {
   private ToggleButton changeTheme;
   @FXML
   private Button addNote;
+  Writer writer;
 
 
 
@@ -49,14 +54,14 @@ public class BojuControllerImpl implements BojuController {
 
   public void WeekView() {
     //call method to read bujo file then setup view using bujo file
-
+    Appendable output = new FileAppendable(Paths.get(bujoPath).toFile());
+    writer = new BujoWriter(output);
 
     //button actions
-
-    //addTask.setOnAction(e -> addTask());
-    //addEvent.setOnAction(e -> addEvent());
-    //addNote.setOnAction(e -> Note());
-    //changeTheme.setOnAction(e -> newTheme());
+    addTask.setOnAction(e -> addTask());
+    addEvent.setOnAction(e -> addEvent());
+    addNote.setOnAction(e -> Note());
+    changeTheme.setOnAction(e -> newTheme());
     //removeTask.setOnAction(e -> deleteTask());
     //removeEvent.setOnAction(e -> deleteEvent());
   }
@@ -88,7 +93,8 @@ public class BojuControllerImpl implements BojuController {
     stage.setScene(uiv.load());
     enterTitle.setText("Enter the new Event");
 
-    enterButton.setOnAction(e -> {String newEvent = enterField.getText();});
+    enterButton.setOnAction(e -> {String newEvent = enterField.getText();
+      writer.write(newEvent);});
     //call method to add event to bujo
   }
 
@@ -97,7 +103,10 @@ public class BojuControllerImpl implements BojuController {
     stage.setScene(uiv.load());
     enterTitle.setText("Enter the new Task");
 
-    enterButton.setOnAction(e -> {String newTask = enterField.getText();});
+    enterButton.setOnAction(e -> {String newTask = enterField.getText();
+      writer.write(newTask);});
     //call method to add task to bujo
+
+
   }
 }
