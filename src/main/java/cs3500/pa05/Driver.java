@@ -2,7 +2,10 @@ package cs3500.pa05;
 
 import cs3500.pa05.controller.BojuController;
 import cs3500.pa05.controller.BojuControllerImpl;
+import cs3500.pa05.model.BujoWriter;
 import cs3500.pa05.model.FileAppendable;
+import cs3500.pa05.view.BojuView;
+import cs3500.pa05.view.UserInputView;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -32,10 +35,13 @@ public class Driver extends Application {
     stage.setTitle("Weekly Bujo");
 
     BojuController bojuController = new BojuControllerImpl(stage);
+    BojuView uiv = new UserInputView(bojuController);
+
 
     // instantiate a simple GUI view
     try {
 
+      stage.setScene(uiv.load());
       // fetch the view's controller
       bojuController.run();
 

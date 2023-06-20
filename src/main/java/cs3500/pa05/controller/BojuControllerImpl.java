@@ -15,6 +15,8 @@ import cs3500.pa05.model.BujoWriter;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.FileAppendable;
 import cs3500.pa05.model.Writer;
+import cs3500.pa05.view.BojuView;
+import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -75,12 +77,12 @@ public class BojuControllerImpl implements BojuController {
 
   @Override
   public void run() throws IllegalStateException, IOException {
-    UserInputView uiv = new UserInputView(this);
-    stage.setScene(uiv.load());
-    enterTitle.setText("Enter a .bujo file");
+    BojuView bvi = new BojuViewImpl(this);
+    enterTitle.setText("Enter a .boju file");
 
     enterButton.setOnAction(e -> {bujoPath = enterField.getText();
-    WeekView();});
+      stage.setScene(bvi.load());
+      WeekView();});
 
 
   }
