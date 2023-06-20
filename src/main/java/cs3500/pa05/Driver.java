@@ -21,7 +21,7 @@ public class Driver extends Application {
   }
 
   /**
-   * Starts the GUI for a game of Whack-A-Mole.
+   * Starts the GUI for a bulletJournal
    *
    * @param stage the JavaFX stage to add elements to
    */
@@ -32,7 +32,7 @@ public class Driver extends Application {
 
     BojuController bojuController = new BojuControllerImpl(stage);
 
-    // instantiate a simple Whack-a-Mole GUI view
+    // instantiate a simple GUI view
     try {
 
       // fetch the view's controller
