@@ -107,8 +107,8 @@ public class BojuControllerImpl implements BojuController {
         throw new RuntimeException(ex);
       }
     });
-    addNote.setOnAction(e -> Note());
-    changeTheme.setOnAction(e -> newTheme());
+    //addNote.setOnAction(e -> Note());
+    //changeTheme.setOnAction(e -> newTheme());
     //removeTask.setOnAction(e -> deleteTask());
     //removeEvent.setOnAction(e -> deleteEvent());
   }
@@ -146,14 +146,16 @@ public class BojuControllerImpl implements BojuController {
   }
 
   private void addEvent() throws IOException {
-    UserInputView uiv = new UserInputView(this);
-    stage.setScene(uiv.load());
-    enterTitle.setText("Enter the new Event");
+    //UserInputView uiv = new UserInputView(this);
+    //stage.setScene(uiv.load());
+
 
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("newEvent.fxml"));
     loader.setController(this);
     Scene s = loader.load();
+    stage.setScene(s);
+    enterTitle.setText("Enter the new Event");
     popup.getContent().add((Node)s.getRoot());
     enterButton.setOnAction(e -> {
       String name = nameInput.getText();
@@ -174,20 +176,22 @@ public class BojuControllerImpl implements BojuController {
   }
 
   private void addTask() throws IOException {
-    UserInputView uiv = new UserInputView(this);
-    stage.setScene(uiv.load());
-    enterTitle.setText("Enter the new Task");
+    //UserInputView uiv = new UserInputView(this);
+    //stage.setScene(uiv.load());
 
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("newTask.fxml"));
     loader.setController(this);
     Scene s = loader.load();
+    stage.setScene(s);
+    enterTitle.setText("Enter the new Task");
     popup.getContent().add((Node)s.getRoot());
     enterButton.setOnAction(e -> {
       String name = nameInput.getText();
       String desc = descriptionInput.getText();
       Object day = dayBox.getSelectionModel().getSelectedItem();
       Action newTask = new Task(name, desc, (Day) day, false);
+
       writer.write(newTask.toString());
       popup.hide();
     });
