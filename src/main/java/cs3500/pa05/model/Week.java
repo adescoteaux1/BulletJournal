@@ -157,7 +157,8 @@ public class Week {
     return null; // Task not found
   }
 
-  //edit this if it's not working correctly
+
+  // edit
   /**
    * adds an event to the week
    *
