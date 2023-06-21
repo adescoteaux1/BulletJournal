@@ -80,8 +80,6 @@ public class BojuControllerImpl implements BojuController {
   private Button setTaskLimit;
   @FXML
   private Button setEventLimit;
-  @FXML
-  private Button save;
 
 
 
@@ -111,7 +109,7 @@ public class BojuControllerImpl implements BojuController {
   }
 
   public void save() throws IOException {
-    bujoPath = WriteToFile.write(bujoPath, week);
+    WriteToFile.write(bujoPath, week);
   }
 
   public void WeekView() {
@@ -150,14 +148,6 @@ public class BojuControllerImpl implements BojuController {
       bvi.makePopup(limitPopup, stage);
       try {
         setEventLimit();
-      } catch (IOException ex) {
-        throw new RuntimeException(ex);
-      }
-    });
-
-    save.setOnAction(e -> {
-      try {
-        save();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
