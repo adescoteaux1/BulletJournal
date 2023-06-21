@@ -74,6 +74,12 @@ public class BojuControllerImpl implements BojuController {
   private Button finish;
   @FXML
   private TextField userQnote;
+  @FXML
+  private Button save;
+  @FXML
+  private Button setTaskLimit;
+  @FXML
+  private Button setEventLimit;
 
 
 
@@ -125,6 +131,16 @@ public class BojuControllerImpl implements BojuController {
         throw new RuntimeException(ex);
       }
     });
+    save.setOnAction(e -> {
+      try {
+        save();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
+    });
+    setEventLimit.setOnAction(e -> setEventLimit());
+    setEventLimit.setOnAction(e -> setTaskLimit());
+
     //addNote.setOnAction(e -> Note());
     //changeTheme.setOnAction(e -> newTheme());
     //removeTask.setOnAction(e -> deleteTask());
@@ -133,6 +149,24 @@ public class BojuControllerImpl implements BojuController {
 
   private void newTheme() {
     //To-Do
+  }
+
+  private void setTaskLimit() {
+    enterTitle.setText("Enter the Task Limit");
+
+    enterButton.setOnAction(e -> {int taskLimit = Integer.parseInt(enterField.getText());
+      stage.setScene(bvi.load());
+      week.setTaskLimit(taskLimit);
+      WeekView();});
+  }
+
+  private void setEventLimit() {
+    enterTitle.setText("Enter the Event Limit");
+
+    enterButton.setOnAction(e -> {int eventLimit = Integer.parseInt(enterField.getText());
+      stage.setScene(bvi.load());
+      week.setTaskLimit(eventLimit);
+      WeekView();});
   }
 
   private void Note() {
