@@ -54,6 +54,7 @@ public class BojuControllerImpl implements BojuController {
   private Popup eventPopup;
   private Popup taskPopup;
   private Popup limitPopup;
+  private Popup qnotePopup;
   @FXML
   private Button createTaskButton;
   @FXML
@@ -71,7 +72,6 @@ public class BojuControllerImpl implements BojuController {
   private GridPane weekGrid;
   @FXML
   private Button addQnote;
-  private Popup qnotePopup;
   @FXML
   private Button finish;
   @FXML
@@ -88,8 +88,8 @@ public class BojuControllerImpl implements BojuController {
     this.eventPopup = new Popup();
     this.taskPopup = new Popup();
     this.limitPopup = new Popup();
-    bvi = new BojuViewImpl(this);
     this.qnotePopup = new Popup();
+    bvi = new BojuViewImpl(this);
   }
 
   @Override
@@ -297,6 +297,8 @@ public class BojuControllerImpl implements BojuController {
       qnotePopup.hide();
       String qnote = userQnote.getText();
       bvi.addQuotOrNote(qnote);
+      week.setQuoteOrNote(qnote);
+      WeekView();
     });
 
   }
