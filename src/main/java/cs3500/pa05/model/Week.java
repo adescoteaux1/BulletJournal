@@ -94,24 +94,6 @@ public class Week {
   }
 
   /**
-   * gets the selected theme of the week
-   *
-   * @return the selected theme
-   */
-  public Theme getSelectedTheme() {
-    return selectedTheme;
-  }
-
-  /**
-   * sets the selected theme of the week
-   *
-   * @param selectedTheme is the current theme
-   */
-  public void setSelectedTheme(Theme selectedTheme) {
-    this.selectedTheme = selectedTheme;
-  }
-
-  /**
    * sets the quote or note to a string
    *
    * @param text string quote/note should be set to
