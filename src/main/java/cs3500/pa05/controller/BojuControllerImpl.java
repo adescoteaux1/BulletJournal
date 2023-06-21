@@ -47,6 +47,8 @@ public class BojuControllerImpl implements BojuController {
   @FXML
   private Button addEvent;
   @FXML
+  private ToggleButton changeTheme;
+  @FXML
   private Button addNote;
   private Writer writer;
   private Popup eventPopup;
@@ -149,7 +151,14 @@ public class BojuControllerImpl implements BojuController {
       }
     });
 
-    //addNote.setOnAction(e -> Note());
+    addQnote.setOnAction(e -> {
+      try {
+        addQnote();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
+    });
+
     //removeTask.setOnAction(e -> deleteTask());
     //removeEvent.setOnAction(e -> deleteEvent());
   }
@@ -188,6 +197,9 @@ public class BojuControllerImpl implements BojuController {
       WeekView();});
 
     limitPopup.getContent().add(enterButton);
+  }
+  private void newTheme() {
+    //To-Do
   }
 
   private void Note() {

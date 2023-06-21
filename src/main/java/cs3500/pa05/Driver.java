@@ -18,7 +18,7 @@ public class Driver extends Application {
    *
    * @param args the command line arguments
    */
-  // -> /User/sonalgupta/OOD/pa05-alpacas/src/main/java/cs3500.pa05/testOutput
+
   public static void main(String[] args) {
     launch();
   }
