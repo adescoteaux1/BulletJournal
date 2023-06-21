@@ -1,5 +1,6 @@
 package cs3500.pa05.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -208,4 +209,22 @@ public class Week {
   }
 
 
+  /**
+   * changes the order of the days based on the given start day
+   * @param day the given start day
+   */
+  public void setStartDay(DayOfWeek day) {
+    List<Day> newDays;
+    int shiftedAmount = 0;
+    for (int i = 0; i < days.size(); i++) {
+      if (days.get(i).getDayOfWeek().equals(day)) {
+        shiftedAmount = i;
+      }
+    }
+
+    newDays = new ArrayList<>(days.subList(shiftedAmount, days.size()));
+    newDays.addAll(days.subList(0, shiftedAmount));
+
+    days = newDays;
+  }
 }

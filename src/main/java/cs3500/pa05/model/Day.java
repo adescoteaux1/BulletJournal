@@ -10,6 +10,11 @@ public class Day {
   private List<Event> events;
   private List<Task> tasks;
 
+  /**
+   * @param name the day of the week
+   * @param e the events on this day
+   * @param t the tasks on this day
+   */
   public Day(DayOfWeek name, List<Event> e, List<Task> t) {
     day = name;
     events = e;
