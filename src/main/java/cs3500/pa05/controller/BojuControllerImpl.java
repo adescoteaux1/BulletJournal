@@ -134,7 +134,7 @@ public class BojuControllerImpl implements BojuController {
     setTaskLimit.setOnAction(e -> {
       bvi.makePopup(limitPopup, stage);
       try {
-        setEventLimit();
+        setTaskLimit();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
