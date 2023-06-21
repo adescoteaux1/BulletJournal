@@ -92,10 +92,7 @@ public class BojuViewImpl implements BojuView {
     quoteOrNote.equals(text);
   }
 
-  //these methods are to simulate a mini viewer
-  //not really sure if this part is correct
-  //this part would need to be implemented with controllers
-  //there might be an easier approach
+  //these methods are to simulate a mini viewer -> might need edits
   public void openEventWindow(Event event) {
     try {
       FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("event.fxml"));

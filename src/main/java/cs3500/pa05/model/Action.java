@@ -8,21 +8,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public abstract class Action {
   private final String name;
   private final String description;
-  private Day day;
+  private DayOfWeek dayOfWeek;
 
   /**
    * constructor for action
    *
    * @param name of the action
    * @param description of the action
-   * @param day of when the action is
+   * @param dayOfWeek of when the action is
    */
   public Action(@JsonProperty("name") String name,
                 @JsonProperty("description") String description,
-                @JsonProperty("day") Day day) {
+                @JsonProperty("dayOfWeek") DayOfWeek dayOfWeek) {
     this.name = name;
     this.description = description;
-    this.day = day;
+    this.dayOfWeek = dayOfWeek;
   }
 
   /**
@@ -48,16 +48,16 @@ public abstract class Action {
    *
    * @return the day
    */
-  public Day getDay() {
-    return this.day;
+  public DayOfWeek getDayOfWeek() {
+    return this.dayOfWeek;
   }
 
   /**
    * sets the day of an action
    *
-   * @param day of action
+   * @param dayOfWeek of action
    */
-  public void setDay(Day day) {
-    this.day = day;
+  public void setDayOfWeek(DayOfWeek dayOfWeek) {
+    this.dayOfWeek = dayOfWeek;
   }
 }

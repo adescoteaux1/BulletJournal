@@ -37,7 +37,6 @@ public class Driver extends Application {
     BojuController bojuController = new BojuControllerImpl(stage);
     BojuView uiv = new UserInputView(bojuController);
 
-
     // instantiate a simple GUI view
     try {
 

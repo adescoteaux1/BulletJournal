@@ -13,14 +13,14 @@ public class Task extends Action {
    *
    * @param name of task
    * @param description what task is about
-   * @param day when the task needs to be done
+   * @param dayOfWeek when the task needs to be done
    * @param isComplete if the task is complete
    */
   public Task(@JsonProperty("name") String name,
               @JsonProperty("description") String description,
-              @JsonProperty("day") Day day,
+              @JsonProperty("dayOfWeek") DayOfWeek dayOfWeek,
               @JsonProperty("isComplete") boolean isComplete) {
-    super(name, description, day);
+    super(name, description, dayOfWeek);
     this.isComplete = isComplete;
   }
 

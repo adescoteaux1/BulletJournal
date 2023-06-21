@@ -9,6 +9,7 @@ import static cs3500.pa05.model.DayOfWeek.TUESDAY;
 import static cs3500.pa05.model.DayOfWeek.WEDNESDAY;
 
 import cs3500.pa05.model.Action;
+import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.EventJson;
 import cs3500.pa05.model.JsonUtils;
 import cs3500.pa05.model.Task;
@@ -171,7 +172,7 @@ public class BojuControllerImpl implements BojuController {
       Object day = dayBox.getSelectionModel().getSelectedItem();
       String start = startInput.getText();
       String duration = durationInput.getText();
-      Event newEvent = new Event(name, desc, (Day) day, start, duration);
+      Event newEvent = new Event(name, desc, (DayOfWeek) day, start, duration);
       writer.write(JsonUtils.serializeRecord(new EventJson(newEvent)).toString());
     });
 
@@ -198,7 +199,7 @@ public class BojuControllerImpl implements BojuController {
       String name = nameInput.getText();
       String desc = descriptionInput.getText();
       Object day = dayBox.getSelectionModel().getSelectedItem();
-      Task newTask = new Task(name, desc, (Day) day, false);
+      Task newTask = new Task(name, desc, (DayOfWeek) day, false);
       writer.write(JsonUtils.serializeRecord(new TaskJson(newTask)).toString());
     });
 

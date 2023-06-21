@@ -14,16 +14,16 @@ public class Event extends Action {
    *
    * @param name of event
    * @param description what the event is about
-   * @param day which day the event is
+   * @param dayOfWeek which day the event is
    * @param startTime when the event starts
    * @param duration how long the event is
    */
   public Event(@JsonProperty("name") String name,
                @JsonProperty("description") String description,
-               @JsonProperty("day") Day day,
+               @JsonProperty("dayOfWeek") DayOfWeek dayOfWeek,
                @JsonProperty("startTime") String startTime,
                @JsonProperty("duration") String duration) {
-    super(name, description, day);
+    super(name, description, dayOfWeek);
     this.startTime = startTime;
     this.duration = duration;
   }
