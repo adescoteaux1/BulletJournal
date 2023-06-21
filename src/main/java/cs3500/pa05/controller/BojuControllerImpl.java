@@ -66,6 +66,13 @@ public class BojuControllerImpl implements BojuController {
   private BojuViewImpl bvi;
   @FXML
   private GridPane weekGrid;
+  @FXML
+  private Button addQnote;
+  private Popup qnotePopup;
+  @FXML
+  private Button finish;
+  @FXML
+  private TextField userQnote;
 
 
 
@@ -74,6 +81,7 @@ public class BojuControllerImpl implements BojuController {
     this.eventPopup = new Popup();
     this.taskPopup = new Popup();
     bvi = new BojuViewImpl(this);
+    this.qnotePopup = new Popup();
   }
 
   @Override
@@ -211,5 +219,18 @@ public class BojuControllerImpl implements BojuController {
     weekGrid.add(new Label(action.getName()), day.getValue(), 2);
   }
 
+  private void addQnote() throws IOException {
+    FXMLLoader loader = new FXMLLoader(
+        getClass().getClassLoader().getResource("newQnote.fxml"));
+    loader.setController(this);
+    Scene s = loader.load();
+    qnotePopup.getContent().add((Node)s.getRoot());
+    finish.setOnAction(e -> {
+      qnotePopup.hide();
+      String qnote = userQnote.getText();
+      bvi.addQuotOrNote(qnote);
+    });
+
+  }
 
 }

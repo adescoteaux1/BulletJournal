@@ -12,9 +12,9 @@
         <Scene>
             <AnchorPane prefHeight="258.0" prefWidth="340.0">
             <children>
-               <TextField layoutX="37.0" layoutY="62.0" prefHeight="135.0" prefWidth="261.0" />
+               <TextField fx:id="userQnote" layoutX="37.0" layoutY="62.0" prefHeight="135.0" prefWidth="261.0" />
                <Label layoutX="40.0" layoutY="34.0" text="New Text:" />
-               <Button layoutX="37.0" layoutY="210.0" mnemonicParsing="false" text="Finish" />
+               <Button fx:id="finish" layoutX="37.0" layoutY="210.0" mnemonicParsing="false" text="Finish" />
             </children></AnchorPane>
         </Scene>
     </scene>
