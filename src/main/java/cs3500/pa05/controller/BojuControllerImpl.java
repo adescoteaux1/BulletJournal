@@ -151,8 +151,14 @@ public class BojuControllerImpl implements BojuController {
       }
     });
 
-    //addNote.setOnAction(e -> Note());
-    //changeTheme.setOnAction(e -> newTheme());
+    addQnote.setOnAction(e -> {
+      try {
+        addQnote();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
+    });
+
     //removeTask.setOnAction(e -> deleteTask());
     //removeEvent.setOnAction(e -> deleteEvent());
   }
