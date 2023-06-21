@@ -43,9 +43,6 @@ public class BojuViewImpl implements BojuView {
 
 
 
-
-
-
   /**
    * Loads an instance of a GUI layout from disk.
    *
@@ -90,53 +87,6 @@ public class BojuViewImpl implements BojuView {
     }
   }
 
-
-  /*
-  //these methods are to simulate a mini viewer -> might need edits
-  public void openEventWindow(Event event) {
-    try {
-      FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("event.fxml"));
-      Parent root = loader.load();
-
-      //EventWindowController controller = loader.getController();
-      //controller.setEvent(event);
-
-      Stage stage = new Stage();
-      stage.initModality(Modality.APPLICATION_MODAL);
-      stage.setTitle("Event Details");
-      eventOrTask.setText("Selected Event: " + event.getName());
-      details.setText(event.getDescription() + "\n Start Time: "
-      + event.getStartTime() + "\n Duration: " + event.getDuration());
-      stage.setScene(new Scene(root));
-      stage.showAndWait();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  public void openTaskWindow(Task task) {
-    try {
-      FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("TaskWindow.fxml"));
-      Parent root = loader.load();
-
-      //TaskWindowController controller = loader.getController();
-      //controller.setTask(task);
-
-      Stage stage = new Stage();
-      stage.initModality(Modality.APPLICATION_MODAL);
-      stage.setTitle("Task Details");
-      eventOrTask.setText("Selected Task: " + task.getName());
-      details.setText(task.getDescription() + "\n Status: "
-          + task.getIsComplete());
-      stage.setScene(new Scene(root));
-      stage.showAndWait();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-*/
-
   /**
    * makes a popup
    *
@@ -158,8 +108,7 @@ public class BojuViewImpl implements BojuView {
    * updates the quote/note area with user input
    * @param userStatement
    */
-  public void addQuotOrNote(String userStatement, Stage stage) {
-    stage.setTitle("Text Area Button Example");
+  public void addQuotOrNote(String userStatement) {
     quoteOrNote.setText(userStatement);
   }
 
