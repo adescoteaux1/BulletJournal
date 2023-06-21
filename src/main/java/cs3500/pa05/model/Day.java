@@ -70,4 +70,13 @@ public class Day {
     return tasks;
   }
 
+  /**
+   * returns the day of the week
+   *
+   * @return the day of the week
+   */
+  public DayOfWeek getDayOfWeek() {
+    return this.getDayOfWeek();
+  }
+
 }

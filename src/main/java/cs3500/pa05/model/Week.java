@@ -157,5 +157,32 @@ public class Week {
     return null; // Task not found
   }
 
+  //edit this if it's not working correctly
+  /**
+   * adds an event to the week
+   *
+   * @param e an event we want to add
+   */
+  public void addEvent(Event e) {
+    for (Day d : days) {
+      d.getDayOfWeek();
+      List<Event> events = d.getEvents();
+      events.add(e);
+    }
+  }
+
+  /**
+   * adds a task to the week
+   *
+   * @param t an event we want to add
+   */
+  public void addTask(Task t) {
+    for (Day d : days) {
+      d.getDayOfWeek();
+      List<Task> tasks = d.getTasks();
+      tasks.add(t);
+    }
+  }
+
 
 }

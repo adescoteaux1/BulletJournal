@@ -4,6 +4,8 @@ import cs3500.pa05.model.Week;
 import java.io.File;
 import javafx.stage.FileChooser;
 
+//model??
+//is this needed - edit
 /**
  * class to handle persistence
  */
