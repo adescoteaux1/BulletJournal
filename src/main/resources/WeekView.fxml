@@ -15,6 +15,7 @@
 
 <?import javafx.collections.FXCollections?>
 <?import cs3500.pa05.model.DayOfWeek?>
+
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane prefHeight="478.0" prefWidth="880.0" style="-fx-background-color: rgba(160, 167, 224, 0.4);">
         <children>
