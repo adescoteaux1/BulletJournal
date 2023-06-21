@@ -16,6 +16,7 @@ import cs3500.pa05.model.Event;
 import cs3500.pa05.model.BujoWriter;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.FileAppendable;
+import cs3500.pa05.model.TaskJson;
 import cs3500.pa05.model.Writer;
 import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
@@ -193,13 +194,12 @@ public class BojuControllerImpl implements BojuController {
     enterTitle.setText("Enter the new Task");
     taskPopup.getContent().add((Node)s.getRoot());
     enterButton.setOnAction(e -> {
+      taskPopup.hide();
       String name = nameInput.getText();
       String desc = descriptionInput.getText();
       Object day = dayBox.getSelectionModel().getSelectedItem();
-      Action newTask = new Task(name, desc, (Day) day, false);
-
-      writer.write(newTask.toString());
-      taskPopup.hide();
+      Task newTask = new Task(name, desc, (Day) day, false);
+      writer.write(JsonUtils.serializeRecord(new TaskJson(newTask)).toString());
     });
 
     taskPopup.getContent().add(enterButton);
