@@ -32,6 +32,9 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
+/**
+ * Represents a bullet journal controller implementation
+ */
 public class BojuControllerImpl implements BojuController {
   Stage stage;
   String bujoPath;
@@ -90,6 +93,11 @@ public class BojuControllerImpl implements BojuController {
   private ChoiceBox<DayOfWeek> startDay;
 
 
+  /**
+   * initializes a bujo controller implementation
+   *
+   * @param stage the current stage
+   */
   public BojuControllerImpl(Stage stage) {
     this.stage = stage;
     this.eventPopup = new Popup();
@@ -213,7 +221,7 @@ public class BojuControllerImpl implements BojuController {
         getClass().getClassLoader().getResource("newEvent.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    eventPopup.getContent().add((Node)s.getRoot());
+    eventPopup.getContent().add(s.getRoot());
 
     enterButton.setOnAction(e -> {
       eventPopup.hide();
@@ -244,7 +252,7 @@ public class BojuControllerImpl implements BojuController {
         getClass().getClassLoader().getResource("newTask.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    taskPopup.getContent().add((Node)s.getRoot());
+    taskPopup.getContent().add(s.getRoot());
     enterButton.setOnAction(e -> {
       taskPopup.hide();
       String name = nameInput.getText();
@@ -269,7 +277,7 @@ public class BojuControllerImpl implements BojuController {
         getClass().getClassLoader().getResource("newQnote.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    qnotePopup.getContent().add((Node)s.getRoot());
+    qnotePopup.getContent().add(s.getRoot());
     finish.setOnAction(e -> {
       qnotePopup.hide();
       String qnote = userQnote.getText();
