@@ -6,7 +6,7 @@
 
 ## Section 2: Headlining Features
 - Task Queue -> in BojuView
-- Themes -> enum theme and additions 
+- Menu Bar and ShortCuts -> enum theme and additions 
 
 ## Section 3: Power Ups
 - Quotes & Notes -> in week and view
@@ -15,7 +15,7 @@
 
 ## Section 4: Quality of Life
 - Mind Changes
-- Links
+- Week Start
 
 
 ## Section 5: Extra Credit
