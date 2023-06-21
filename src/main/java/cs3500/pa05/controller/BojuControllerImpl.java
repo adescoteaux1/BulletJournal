@@ -81,6 +81,7 @@ public class BojuControllerImpl implements BojuController {
 
 
 
+
   public BojuControllerImpl(Stage stage) {
     this.stage = stage;
     this.eventPopup = new Popup();
