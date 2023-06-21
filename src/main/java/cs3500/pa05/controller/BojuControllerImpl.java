@@ -297,6 +297,8 @@ public class BojuControllerImpl implements BojuController {
       qnotePopup.hide();
       String qnote = userQnote.getText();
       bvi.addQuotOrNote(qnote);
+      week.setQuoteOrNote(qnote);
+      WeekView();
     });
 
   }
