@@ -5,6 +5,7 @@ import cs3500.pa05.model.Action;
 import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Event;
 import cs3500.pa05.model.Task;
+import cs3500.pa05.model.Week;
 import java.io.IOException;
 import java.util.List;
 import javafx.fxml.FXML;
@@ -113,6 +114,7 @@ public class BojuViewImpl implements BojuView {
   }
 
 
-
-
+  public void displayWeek(Week week) {
+    //TODO:
+  }
 }
