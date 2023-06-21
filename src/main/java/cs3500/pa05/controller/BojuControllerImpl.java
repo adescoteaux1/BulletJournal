@@ -134,7 +134,7 @@ public class BojuControllerImpl implements BojuController {
     setTaskLimit.setOnAction(e -> {
       bvi.makePopup(limitPopup, stage);
       try {
-        setEventLimit();
+        setTaskLimit();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
@@ -150,6 +150,7 @@ public class BojuControllerImpl implements BojuController {
     });
 
     addQnote.setOnAction(e -> {
+      bvi.makePopup(qnotePopup, stage);
       try {
         addQnote();
       } catch (IOException ex) {
@@ -166,9 +167,8 @@ public class BojuControllerImpl implements BojuController {
         getClass().getClassLoader().getResource("UserInput.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    limitPopup.getContent().add((Node)s.getRoot());
-
     enterTitle.setText("Enter the Task Limit");
+    limitPopup.getContent().add((Node)s.getRoot());
 
     enterButton.setOnAction(e -> {
       limitPopup.hide();
@@ -184,9 +184,8 @@ public class BojuControllerImpl implements BojuController {
         getClass().getClassLoader().getResource("UserInput.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    limitPopup.getContent().add((Node)s.getRoot());
-
     enterTitle.setText("Enter the Event Limit");
+    limitPopup.getContent().add((Node)s.getRoot());
 
     enterButton.setOnAction(e -> {
       int eventLimit = Integer.parseInt(enterField.getText());
@@ -267,6 +266,7 @@ public class BojuControllerImpl implements BojuController {
     loader.setController(this);
     Scene s = loader.load();
     taskPopup.getContent().add((Node)s.getRoot());
+
     enterButton.setOnAction(e -> {
       taskPopup.hide();
       String name = nameInput.getText();
@@ -292,6 +292,7 @@ public class BojuControllerImpl implements BojuController {
     loader.setController(this);
     Scene s = loader.load();
     qnotePopup.getContent().add((Node)s.getRoot());
+
     finish.setOnAction(e -> {
       qnotePopup.hide();
       String qnote = userQnote.getText();
