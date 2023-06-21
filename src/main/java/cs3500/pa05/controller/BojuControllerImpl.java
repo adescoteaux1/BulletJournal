@@ -1,29 +1,18 @@
 package cs3500.pa05.controller;
 
-import static cs3500.pa05.model.DayOfWeek.FRIDAY;
-import static cs3500.pa05.model.DayOfWeek.MONDAY;
-import static cs3500.pa05.model.DayOfWeek.SATURDAY;
-import static cs3500.pa05.model.DayOfWeek.SUNDAY;
-import static cs3500.pa05.model.DayOfWeek.THURSDAY;
-import static cs3500.pa05.model.DayOfWeek.TUESDAY;
-import static cs3500.pa05.model.DayOfWeek.WEDNESDAY;
-
-import cs3500.pa05.model.Action;
 import cs3500.pa05.model.DayOfWeek;
-import cs3500.pa05.model.EventJson;
-import cs3500.pa05.model.JsonUtils;
+import cs3500.pa05.model.json.EventJson;
+import cs3500.pa05.model.json.JsonUtils;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Event;
-import cs3500.pa05.model.BujoWriter;
-import cs3500.pa05.model.Day;
-import cs3500.pa05.model.FileAppendable;
-import cs3500.pa05.model.TaskJson;
-import cs3500.pa05.model.Writer;
+import cs3500.pa05.model.writer.BujoWriter;
+import cs3500.pa05.model.writer.FileAppendable;
+import cs3500.pa05.model.json.TaskJson;
+import cs3500.pa05.model.writer.Writer;
 import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
 import java.io.IOException;
 import java.nio.file.Paths;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

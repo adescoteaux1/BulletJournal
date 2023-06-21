@@ -1,5 +1,6 @@
-package cs3500.pa05.model;
+package cs3500.pa05.model.writer;
 
+import cs3500.pa05.model.writer.Writer;
 import java.io.IOException;
 import java.util.Objects;
 
