@@ -31,10 +31,15 @@ public class BojuViewImpl implements BojuView {
   private TextArea quoteOrNote;
 
   @FXML
+  private Button addQnote;
+
+  @FXML
   private Label eventOrTask;
 
   @FXML
   private TextField details;
+
+
 
 
 
@@ -83,15 +88,8 @@ public class BojuViewImpl implements BojuView {
     }
   }
 
-  /**
-   * Sets the quote or note in the view
-   *
-   * @param text the quote or note text
-   */
-  public void setQuoteOrNote(String text) {
-    quoteOrNote.equals(text);
-  }
 
+  /*
   //these methods are to simulate a mini viewer -> might need edits
   public void openEventWindow(Event event) {
     try {
@@ -135,10 +133,29 @@ public class BojuViewImpl implements BojuView {
     }
   }
 
+*/
+
+  /**
+   * makes a popup
+   *
+   * @param popup the popup created
+   * @param stage of where the popup is placed
+   */
   @FXML
   public void makePopup(Popup popup, Stage stage) {
     popup.show(stage);
   }
+
+
+  /**
+   * updates the quote/note area with user input
+   * @param userStatement
+   */
+  public void addQuotOrNote(String userStatement, Stage stage) {
+    stage.setTitle("Text Area Button Example");
+    quoteOrNote.setText(userStatement);
+  }
+
 
 
 
