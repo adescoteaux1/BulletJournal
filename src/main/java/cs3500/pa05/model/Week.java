@@ -158,8 +158,6 @@ public class Week {
     return null; // Task not found
   }
 
-
-  // edit
   /**
    * adds an event to the week
    *
@@ -167,9 +165,9 @@ public class Week {
    */
   public void addEvent(Event e) {
     for (Day d : days) {
-      d.getDayOfWeek();
-      List<Event> events = d.getEvents();
-      events.add(e);
+      if (d.getDayOfWeek().equals(e.getDayOfWeek())) {
+        d.addEvent(e);
+      }
     }
   }
 
@@ -180,9 +178,9 @@ public class Week {
    */
   public void addTask(Task t) {
     for (Day d : days) {
-      d.getDayOfWeek();
-      List<Task> tasks = d.getTasks();
-      tasks.add(t);
+      if (d.getDayOfWeek().equals(t.getDayOfWeek())) {
+        d.addTask(t);
+      }
     }
   }
 
