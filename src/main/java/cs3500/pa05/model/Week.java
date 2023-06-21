@@ -1,19 +1,20 @@
 package cs3500.pa05.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * represents a week
  */
-public class Week {
+public class Week implements Serializable {
 
-  private List<Day> days;
-  private int taskLimit;
-  private int eventLimit;
-  private int numEvents;
-  private int numTasks;
-  private Theme selectedTheme; // default is always light
+  private transient List<Day> days;
+  private transient int taskLimit;
+  private transient int eventLimit;
+  private transient int numEvents;
+  private transient int numTasks;
+  private transient Theme selectedTheme; // default is always light
   private String quoteOrNote;
 
   /**

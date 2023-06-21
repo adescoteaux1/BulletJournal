@@ -5,9 +5,11 @@ import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Event;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Week;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +17,7 @@ import java.util.Properties;
 
 public class ReadFile {
 
-  public static Week readBujoFile(String bujoPath) throws IOException {
+  public static Week readBujoFile(String bujoPath) throws IOException, ClassNotFoundException {
     Week week;
 
     if (bujoPath.isEmpty()) {
@@ -33,9 +35,14 @@ public class ReadFile {
 
       return new Week(Days, 100, 100);
     } else {
-      Properties properties = new Properties();
-      properties.load(new FileInputStream(bujoPath));
-      week = (Week) properties.get("week");
+      FileInputStream fi = new FileInputStream(new File(bujoPath));
+      ObjectInputStream oi = new ObjectInputStream(fi);
+
+      // Read object
+      week = (Week) oi.readObject();
+
+      oi.close();
+      fi.close();
 
       return week;
     }
