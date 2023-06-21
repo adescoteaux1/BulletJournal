@@ -11,6 +11,7 @@ import cs3500.pa05.model.writer.BujoWriter;
 import cs3500.pa05.model.writer.FileAppendable;
 import cs3500.pa05.model.json.TaskJson;
 import cs3500.pa05.model.writer.ReadFile;
+import cs3500.pa05.model.writer.WriteToFile;
 import cs3500.pa05.model.writer.Writer;
 import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
@@ -96,8 +97,10 @@ public class BojuControllerImpl implements BojuController {
         throw new RuntimeException(ex);
       }
       WeekView();});
+  }
 
-
+  public void save() throws IOException {
+    WriteToFile.write(bujoPath, week);
   }
 
   public void WeekView() {

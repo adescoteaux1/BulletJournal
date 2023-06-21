@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class WriteToFile {
 
-  public void write(String bujoPath, Week week) throws IOException {
+  public static void write(String bujoPath, Week week) throws IOException {
 
     Properties properties = new Properties();
 
