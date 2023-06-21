@@ -185,5 +185,27 @@ public class Week {
     }
   }
 
+  public void deleteEvent(String eventName){
+    for (Day day : days) {
+      for (Event event : day.getEvents()) {
+        if (event.getName().equals(eventName)) {
+          day.removeEvent(event);
+          break;
+        }
+      }
+    }
+  }
+
+  public void deleteTask(String taskName){
+    for (Day day : days) {
+      for (Task task : day.getTasks()) {
+        if (task.getName().equals(taskName)) {
+          day.removeTask(task);
+          break;
+        }
+      }
+    }
+  }
+
 
 }

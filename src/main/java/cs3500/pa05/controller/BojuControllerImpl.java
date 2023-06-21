@@ -149,8 +149,10 @@ public class BojuControllerImpl implements BojuController {
     stage.setScene(uiv.load());
     enterTitle.setText("Enter Event to delete");
 
-    enterButton.setOnAction(e -> {String eventToDelete = enterField.getText();});
-    //call method to delete event to bujo
+    enterButton.setOnAction(e -> {String eventToDelete = enterField.getText();
+    week.deleteEvent(eventToDelete);
+    WeekView();
+    });
   }
 
   private void deleteTask() {
@@ -158,9 +160,9 @@ public class BojuControllerImpl implements BojuController {
     stage.setScene(uiv.load());
     enterTitle.setText("Enter Task to delete");
 
-    enterButton.setOnAction(e -> {String taskToDelete = enterField.getText();});
-    //call method to delete task to bujo
-
+    enterButton.setOnAction(e -> {String taskToDelete = enterField.getText();
+    week.deleteTask(taskToDelete);
+    WeekView();});
   }
 
   private void addEvent() throws IOException {
