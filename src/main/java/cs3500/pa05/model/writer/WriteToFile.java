@@ -11,12 +11,12 @@ import java.util.Properties;
 
 public class WriteToFile {
 
-  public void write(String weekName, String bujoPath, Week week) throws IOException {
+  public void write(String bujoPath, Week week) throws IOException {
 
     Properties properties = new Properties();
 
-    properties.put(weekName, week);
+    properties.put("week", week);
 
-    properties.store(new FileOutputStream(weekName), null);
+    properties.store(new FileOutputStream("week"), null);
   }
 }

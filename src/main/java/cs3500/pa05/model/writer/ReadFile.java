@@ -8,12 +8,12 @@ import java.util.Properties;
 
 public class ReadFile {
 
-  public Week readFile(String weekName, String bujoPath) throws IOException {
+  public static Week readBujoFile(String bujoPath) throws IOException {
     Week week;
 
     Properties properties = new Properties();
     properties.load(new FileInputStream(bujoPath));
-    week = (Week) properties.get(weekName);
+    week = (Week) properties.get("week");
 
     return week;
   }
