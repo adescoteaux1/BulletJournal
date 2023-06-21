@@ -98,7 +98,7 @@ public class BojuControllerImpl implements BojuController {
 
     //button actions
     addTask.setOnAction(e -> {
-      makeTaskPopup();
+      bvi.makePopup(taskPopup, stage);
       try {
         addTask();
       } catch (IOException ex) {
@@ -106,7 +106,7 @@ public class BojuControllerImpl implements BojuController {
       }
     });
     addEvent.setOnAction(e -> {
-      makeEventPopup();
+      bvi.makePopup(eventPopup, stage);
       try {
         addEvent();
       } catch (IOException ex) {
@@ -205,13 +205,5 @@ public class BojuControllerImpl implements BojuController {
     taskPopup.getContent().add(enterButton);
   }
 
-  @FXML
-  private void makeEventPopup() {
-    this.eventPopup.show(this.stage);
-  }
 
-  @FXML
-  private void makeTaskPopup() {
-    this.taskPopup.show(this.stage);
-  }
 }

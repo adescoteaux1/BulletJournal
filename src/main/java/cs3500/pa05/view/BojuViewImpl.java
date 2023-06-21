@@ -15,6 +15,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 /**
@@ -136,6 +137,12 @@ public class BojuViewImpl implements BojuView {
       e.printStackTrace();
     }
   }
+
+  @FXML
+  public void makePopup(Popup popup, Stage stage) {
+    popup.show(stage);
+  }
+
 
 
 }
