@@ -90,13 +90,15 @@ public class BojuControllerImpl implements BojuController {
     enterTitle.setText("Enter a .boju file");
 
     enterButton.setOnAction(e -> {bujoPath = enterField.getText();
-      stage.setScene(bvi.load());
+
       try {
         week = ReadFile.readBujoFile(bujoPath);
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
-      WeekView();});
+      stage.setScene(bvi.load());
+      WeekView();
+    });
   }
 
   public void save() throws IOException {
@@ -117,6 +119,7 @@ public class BojuControllerImpl implements BojuController {
         throw new RuntimeException(ex);
       }
     });
+
     addEvent.setOnAction(e -> {
       bvi.makePopup(eventPopup, stage);
       try {
@@ -125,14 +128,10 @@ public class BojuControllerImpl implements BojuController {
         throw new RuntimeException(ex);
       }
     });
-    //addQnotee.setOnAction(e -> Note());
+
+    //addNote.setOnAction(e -> Note());
     //removeTask.setOnAction(e -> deleteTask());
     //removeEvent.setOnAction(e -> deleteEvent());
-    //save
-    //open
-    //newWeek
-    //setTaskLimit
-    //setEventLimit
   }
 
   private void newTheme() {
