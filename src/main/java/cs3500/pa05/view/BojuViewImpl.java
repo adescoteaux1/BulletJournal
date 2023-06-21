@@ -31,9 +31,6 @@ public class BojuViewImpl implements BojuView {
   private TextArea quoteOrNote;
 
   @FXML
-  private Button addQnote;
-
-  @FXML
   private Label eventOrTask;
 
   @FXML
