@@ -43,9 +43,6 @@ public class BojuViewImpl implements BojuView {
 
 
 
-
-
-
   /**
    * Loads an instance of a GUI layout from disk.
    *
