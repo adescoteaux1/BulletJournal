@@ -2,8 +2,6 @@ package cs3500.pa05;
 
 import cs3500.pa05.controller.BojuController;
 import cs3500.pa05.controller.BojuControllerImpl;
-import cs3500.pa05.model.BujoWriter;
-import cs3500.pa05.model.FileAppendable;
 import cs3500.pa05.view.BojuView;
 import cs3500.pa05.view.UserInputView;
 import java.io.IOException;
