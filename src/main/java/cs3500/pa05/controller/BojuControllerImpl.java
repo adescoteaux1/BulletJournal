@@ -47,8 +47,6 @@ public class BojuControllerImpl implements BojuController {
   @FXML
   private Button addEvent;
   @FXML
-  private ToggleButton changeTheme;
-  @FXML
   private Button addNote;
   private Writer writer;
   private Popup eventPopup;
@@ -160,7 +158,7 @@ public class BojuControllerImpl implements BojuController {
     });
 
     //removeTask.setOnAction(e -> deleteTask());
-    //removeEvent.setOnAction(e -> deleteEvent());
+    //deEvent.setOnAction(e -> deleteEvent());
   }
 
   private void setTaskLimit() throws IOException {
@@ -197,9 +195,6 @@ public class BojuControllerImpl implements BojuController {
       WeekView();});
 
     limitPopup.getContent().add(enterButton);
-  }
-  private void newTheme() {
-    //To-Do
   }
 
   private void Note() {
