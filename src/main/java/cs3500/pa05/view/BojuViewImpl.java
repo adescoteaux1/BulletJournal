@@ -88,15 +88,8 @@ public class BojuViewImpl implements BojuView {
     }
   }
 
-  /**
-   * Sets the quote or note in the view
-   *
-   * @param text the quote or note text
-   */
-  public void setQuoteOrNote(String text) {
-    quoteOrNote.equals(text);
-  }
 
+  /*
   //these methods are to simulate a mini viewer -> might need edits
   public void openEventWindow(Event event) {
     try {
@@ -140,6 +133,14 @@ public class BojuViewImpl implements BojuView {
     }
   }
 
+*/
+
+  /**
+   * makes a popup
+   *
+   * @param popup the popup created
+   * @param stage of where the popup is placed
+   */
   @FXML
   public void makePopup(Popup popup, Stage stage) {
     popup.show(stage);
@@ -150,8 +151,7 @@ public class BojuViewImpl implements BojuView {
    * updates the quote/note area with user input
    * @param userStatement
    */
-  public void addQuotOrNote(String userStatement) {
-    Stage stage = new Stage();
+  public void addQuotOrNote(String userStatement, Stage stage) {
     stage.setTitle("Text Area Button Example");
     quoteOrNote.setText(userStatement);
   }
