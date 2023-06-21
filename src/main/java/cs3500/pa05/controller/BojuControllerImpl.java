@@ -1,5 +1,6 @@
 package cs3500.pa05.controller;
 
+import cs3500.pa05.model.Action;
 import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.json.EventJson;
 import cs3500.pa05.model.json.JsonUtils;
@@ -22,6 +23,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
@@ -53,12 +55,14 @@ public class BojuControllerImpl implements BojuController {
   @FXML
   private TextField descriptionInput;
   @FXML
-  private ChoiceBox dayBox;
+  private ChoiceBox<DayOfWeek> dayBox;
   @FXML
   private TextField startInput;
   @FXML
   private TextField durationInput;
   private BojuViewImpl bvi;
+  @FXML
+  private GridPane weekGrid;
 
 
 
@@ -155,11 +159,12 @@ public class BojuControllerImpl implements BojuController {
 
       String name = nameInput.getText();
       String desc = descriptionInput.getText();
-      Object day = dayBox.getSelectionModel().getSelectedItem();
+      DayOfWeek day = dayBox.getValue();
       String start = startInput.getText();
       String duration = durationInput.getText();
-      Event newEvent = new Event(name, desc, (DayOfWeek) day, start, duration);
+      Event newEvent = new Event(name, desc, day, start, duration);
       //week.addEvent(newEvent);
+      addAction(newEvent);
       writer.write(JsonUtils.serializeRecord(new EventJson(newEvent)).toString());
     });
 
@@ -183,13 +188,19 @@ public class BojuControllerImpl implements BojuController {
       taskPopup.hide();
       String name = nameInput.getText();
       String desc = descriptionInput.getText();
-      Object day = dayBox.getSelectionModel().getSelectedItem();
-      Task newTask = new Task(name, desc, (DayOfWeek) day, false);
+      DayOfWeek day = dayBox.getValue();
+      Task newTask = new Task(name, desc, day, false);
       //week.addTask(newTask);
+      addAction(newTask);
       writer.write(JsonUtils.serializeRecord(new TaskJson(newTask)).toString());
     });
 
     taskPopup.getContent().add(enterButton);
+  }
+
+  public void addAction(Action action) {
+    DayOfWeek day = action.getDayOfWeek();
+    weekGrid.add(new Label(action.getName()), day.getValue(), 2);
   }
 
 

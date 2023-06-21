@@ -1,6 +1,8 @@
 package cs3500.pa05.view;
 
 import cs3500.pa05.controller.BojuController;
+import cs3500.pa05.model.Action;
+import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Event;
 import cs3500.pa05.model.Task;
 import java.io.IOException;
@@ -13,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Popup;
@@ -35,6 +38,8 @@ public class BojuViewImpl implements BojuView {
 
   @FXML
   private TextField details;
+  @FXML
+  private GridPane weekGrid;
 
 
 
@@ -141,6 +146,11 @@ public class BojuViewImpl implements BojuView {
   @FXML
   public void makePopup(Popup popup, Stage stage) {
     popup.show(stage);
+  }
+
+  public void addAction(Action action) {
+    DayOfWeek day = action.getDayOfWeek();
+    weekGrid.add(new Label(action.getName()), day.getValue(), 2);
   }
 
 

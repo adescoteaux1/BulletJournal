@@ -10,6 +10,7 @@
 
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
+<?import cs3500.pa05.model.DayOfWeek?>
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane prefHeight="200" prefWidth="200">
         <children>
@@ -20,13 +21,13 @@
             <ChoiceBox id="dayBox" fx:id="dayBox" layoutX="50.0" layoutY="138.0" prefHeight="26.0" prefWidth="88.0">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="MONDAY"/>
-                        <String fx:value="TUESDAY"/>
-                        <String fx:value="WEDNESDAY"/>
-                        <String fx:value="THURSDAY"/>
-                        <String fx:value="FRIDAY"/>
-                        <String fx:value="SATURDAY"/>
-                        <String fx:value="SUNDAY"/>
+                        <DayOfWeek fx:value="MONDAY"/>
+                        <DayOfWeek fx:value="TUESDAY"/>
+                        <DayOfWeek fx:value="WEDNESDAY"/>
+                        <DayOfWeek fx:value="THURSDAY"/>
+                        <DayOfWeek fx:value="FRIDAY"/>
+                        <DayOfWeek fx:value="SATURDAY"/>
+                        <DayOfWeek fx:value="SUNDAY"/>
                     </FXCollections>
                 </items>
             </ChoiceBox>
