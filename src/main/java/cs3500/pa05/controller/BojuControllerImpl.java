@@ -86,6 +86,8 @@ public class BojuControllerImpl implements BojuController {
   private Button setEventLimit;
   @FXML
   private Button setTaskLimit;
+  @FXML
+  private ChoiceBox<DayOfWeek> startDay;
 
 
   public BojuControllerImpl(Stage stage) {
@@ -148,6 +150,10 @@ public class BojuControllerImpl implements BojuController {
     //newWeek
     //setTaskLimit
     //setEventLimit
+
+    week.setStartDay(startDay.getValue());
+
+    bvi.displayWeek(week);
   }
 
   @FXML
