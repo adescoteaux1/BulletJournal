@@ -277,6 +277,11 @@ public class BojuControllerImpl implements BojuController {
     weekGrid.add(new Label(action.getName()), day.getValue(), 2);
   }
 
+  /**
+   * adds qnote to week
+   *
+   * @throws IOException if error occurs
+   */
   private void addQnote() throws IOException {
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("qnotePop.fxml"));
