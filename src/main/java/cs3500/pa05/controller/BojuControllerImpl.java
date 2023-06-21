@@ -63,8 +63,7 @@ public class BojuControllerImpl implements BojuController {
   @FXML
   private TextField descriptionInput;
   @FXML
-  private ChoiceBox dayBox = new ChoiceBox(FXCollections.observableArrayList(
-      MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY));
+  private ChoiceBox dayBox;
   @FXML
   private TextField startInput;
   @FXML
