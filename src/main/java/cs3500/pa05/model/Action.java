@@ -10,6 +10,8 @@ public abstract class Action {
   private final String description;
   private DayOfWeek dayOfWeek;
 
+  //comment
+
   /**
    * constructor for action
    *
