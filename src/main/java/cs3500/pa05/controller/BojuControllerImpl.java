@@ -9,13 +9,14 @@ import static cs3500.pa05.model.DayOfWeek.TUESDAY;
 import static cs3500.pa05.model.DayOfWeek.WEDNESDAY;
 
 import cs3500.pa05.model.Action;
+import cs3500.pa05.model.EventJson;
+import cs3500.pa05.model.JsonUtils;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Event;
 import cs3500.pa05.model.BujoWriter;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.FileAppendable;
 import cs3500.pa05.model.Writer;
-import cs3500.pa05.view.BojuView;
 import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
 import java.io.IOException;
@@ -52,7 +53,8 @@ public class BojuControllerImpl implements BojuController {
   @FXML
   private Button addNote;
   private Writer writer;
-  private Popup popup;
+  private Popup eventPopup;
+  private Popup taskPopup;
   @FXML
   private Button createTaskButton;
   @FXML
@@ -60,24 +62,25 @@ public class BojuControllerImpl implements BojuController {
   @FXML
   private TextField descriptionInput;
   @FXML
-  private ChoiceBox dayBox;
+  private ChoiceBox dayBox = new ChoiceBox(FXCollections.observableArrayList(
+      MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY));
   @FXML
   private TextField startInput;
   @FXML
   private TextField durationInput;
+  private BojuViewImpl bvi;
 
 
 
   public BojuControllerImpl(Stage stage) {
     this.stage = stage;
-    this.popup = new Popup();
-    dayBox = new ChoiceBox(FXCollections.observableArrayList(
-        MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY));
+    this.eventPopup = new Popup();
+    this.taskPopup = new Popup();
+    bvi = new BojuViewImpl(this);
   }
 
   @Override
   public void run() throws IllegalStateException, IOException {
-    BojuView bvi = new BojuViewImpl(this);
     enterTitle.setText("Enter a .boju file");
 
     enterButton.setOnAction(e -> {bujoPath = enterField.getText();
@@ -95,6 +98,7 @@ public class BojuControllerImpl implements BojuController {
     //button actions
     addTask.setOnAction(e -> {
       try {
+        makePopup();
         addTask();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
@@ -102,6 +106,7 @@ public class BojuControllerImpl implements BojuController {
     });
     addEvent.setOnAction(e -> {
       try {
+        makePopup();
         addEvent();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
@@ -149,26 +154,27 @@ public class BojuControllerImpl implements BojuController {
     //UserInputView uiv = new UserInputView(this);
     //stage.setScene(uiv.load());
 
-
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("newEvent.fxml"));
     loader.setController(this);
     Scene s = loader.load();
     stage.setScene(s);
     enterTitle.setText("Enter the new Event");
-    popup.getContent().add((Node)s.getRoot());
+    eventPopup.getContent().add((Node)s.getRoot());
+
     enterButton.setOnAction(e -> {
+      eventPopup.hide();
+
       String name = nameInput.getText();
       String desc = descriptionInput.getText();
       Object day = dayBox.getSelectionModel().getSelectedItem();
       String start = startInput.getText();
       String duration = durationInput.getText();
-      Action newEvent = new Event(name, desc, (Day) day, start, duration);
-      writer.write(newEvent.toString());
-      popup.hide();
+      Event newEvent = new Event(name, desc, (Day) day, start, duration);
+      writer.write(JsonUtils.serializeRecord(new EventJson(newEvent)).toString());
     });
 
-    //popup.getContent().add(enterButton);
+    //eventPopup.getContent().add(enterButton);
 
     //enterButton.setOnAction(e -> {String newEvent = enterField.getText();
       //writer.write(newEvent);});
@@ -185,7 +191,7 @@ public class BojuControllerImpl implements BojuController {
     Scene s = loader.load();
     stage.setScene(s);
     enterTitle.setText("Enter the new Task");
-    popup.getContent().add((Node)s.getRoot());
+    taskPopup.getContent().add((Node)s.getRoot());
     enterButton.setOnAction(e -> {
       String name = nameInput.getText();
       String desc = descriptionInput.getText();
@@ -193,14 +199,14 @@ public class BojuControllerImpl implements BojuController {
       Action newTask = new Task(name, desc, (Day) day, false);
 
       writer.write(newTask.toString());
-      popup.hide();
+      taskPopup.hide();
     });
 
-    popup.getContent().add(enterButton);
+    taskPopup.getContent().add(enterButton);
   }
 
   @FXML
   private void makePopup() {
-    this.popup.show(this.stage);
+    this.eventPopup.show(this.stage);
   }
 }

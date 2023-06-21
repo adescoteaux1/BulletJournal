@@ -97,7 +97,7 @@ public class BojuViewImpl implements BojuView {
   //there might be an easier approach
   public void openEventWindow(Event event) {
     try {
-      FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("EventWindow.fxml"));
+      FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("event.fxml"));
       Parent root = loader.load();
 
       //EventWindowController controller = loader.getController();
