@@ -2,6 +2,7 @@ package cs3500.pa05.controller;
 
 import cs3500.pa05.model.Action;
 import cs3500.pa05.model.DayOfWeek;
+import cs3500.pa05.model.Week;
 import cs3500.pa05.model.json.EventJson;
 import cs3500.pa05.model.json.JsonUtils;
 import cs3500.pa05.model.Task;
@@ -9,6 +10,7 @@ import cs3500.pa05.model.Event;
 import cs3500.pa05.model.writer.BujoWriter;
 import cs3500.pa05.model.writer.FileAppendable;
 import cs3500.pa05.model.json.TaskJson;
+import cs3500.pa05.model.writer.ReadFile;
 import cs3500.pa05.model.writer.Writer;
 import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
@@ -30,6 +32,7 @@ import javafx.stage.Stage;
 public class BojuControllerImpl implements BojuController {
   Stage stage;
   String bujoPath;
+  Week week;
 
   @FXML
   private Label enterTitle;
@@ -87,6 +90,11 @@ public class BojuControllerImpl implements BojuController {
 
     enterButton.setOnAction(e -> {bujoPath = enterField.getText();
       stage.setScene(bvi.load());
+      try {
+        week = ReadFile.readBujoFile(bujoPath);
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
       WeekView();});
 
 
@@ -171,7 +179,7 @@ public class BojuControllerImpl implements BojuController {
       String start = startInput.getText();
       String duration = durationInput.getText();
       Event newEvent = new Event(name, desc, day, start, duration);
-      //week.addEvent(newEvent);
+      week.addEvent(newEvent);
       addAction(newEvent);
       writer.write(JsonUtils.serializeRecord(new EventJson(newEvent)).toString());
     });
@@ -198,7 +206,7 @@ public class BojuControllerImpl implements BojuController {
       String desc = descriptionInput.getText();
       DayOfWeek day = dayBox.getValue();
       Task newTask = new Task(name, desc, day, false);
-      //week.addTask(newTask);
+      week.addTask(newTask);
       addAction(newTask);
       writer.write(JsonUtils.serializeRecord(new TaskJson(newTask)).toString());
     });
