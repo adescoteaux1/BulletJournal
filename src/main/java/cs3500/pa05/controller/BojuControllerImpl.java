@@ -148,8 +148,6 @@ public class BojuControllerImpl implements BojuController {
         getClass().getClassLoader().getResource("newEvent.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    //stage.setScene(s);
-    //enterTitle.setText("Enter the new Event");
     eventPopup.getContent().add((Node)s.getRoot());
 
     enterButton.setOnAction(e -> {
@@ -161,6 +159,7 @@ public class BojuControllerImpl implements BojuController {
       String start = startInput.getText();
       String duration = durationInput.getText();
       Event newEvent = new Event(name, desc, (DayOfWeek) day, start, duration);
+      //week.addEvent(newEvent);
       writer.write(JsonUtils.serializeRecord(new EventJson(newEvent)).toString());
     });
 
@@ -179,8 +178,6 @@ public class BojuControllerImpl implements BojuController {
         getClass().getClassLoader().getResource("newTask.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    //stage.setScene(s);
-    //enterTitle.setText("Enter the new Task");
     taskPopup.getContent().add((Node)s.getRoot());
     enterButton.setOnAction(e -> {
       taskPopup.hide();
@@ -188,6 +185,7 @@ public class BojuControllerImpl implements BojuController {
       String desc = descriptionInput.getText();
       Object day = dayBox.getSelectionModel().getSelectedItem();
       Task newTask = new Task(name, desc, (DayOfWeek) day, false);
+      //week.addTask(newTask);
       writer.write(JsonUtils.serializeRecord(new TaskJson(newTask)).toString());
     });
 
