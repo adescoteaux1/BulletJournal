@@ -115,6 +115,6 @@ public class BojuViewImpl implements BojuView {
 
 
   public void displayWeek(Week week) {
-    //TODO:
+    //TODO: show week
   }
 }
