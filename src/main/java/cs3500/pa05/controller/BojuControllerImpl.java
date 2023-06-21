@@ -168,7 +168,7 @@ public class BojuControllerImpl implements BojuController {
       popup.hide();
     });
 
-    popup.getContent().add(enterButton);
+    //popup.getContent().add(enterButton);
 
     //enterButton.setOnAction(e -> {String newEvent = enterField.getText();
       //writer.write(newEvent);});
