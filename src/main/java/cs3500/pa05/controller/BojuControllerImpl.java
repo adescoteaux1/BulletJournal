@@ -187,7 +187,7 @@ public class BojuControllerImpl implements BojuController {
     enterButton.setOnAction(e -> {
       int eventLimit = Integer.parseInt(enterField.getText());
       limitPopup.hide();
-      week.setTaskLimit(eventLimit);
+      week.setEventLimit(eventLimit);
       WeekView();});
 
     limitPopup.getContent().add(enterButton);
