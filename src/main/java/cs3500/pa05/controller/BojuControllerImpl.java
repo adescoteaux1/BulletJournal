@@ -128,10 +128,14 @@ public class BojuControllerImpl implements BojuController {
         throw new RuntimeException(ex);
       }
     });
-
-    //addNote.setOnAction(e -> Note());
+    //addQnotee.setOnAction(e -> Note());
     //removeTask.setOnAction(e -> deleteTask());
     //removeEvent.setOnAction(e -> deleteEvent());
+    //save
+    //open
+    //newWeek
+    //setTaskLimit
+    //setEventLimit
   }
 
   private void newTheme() {
