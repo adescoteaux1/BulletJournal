@@ -2,9 +2,9 @@
 
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <AnchorPane prefHeight="460.0" prefWidth="1019.0">
+    <AnchorPane prefHeight="478.0" prefWidth="1019.0">
         <children>
             <VBox layoutX="36.0" layoutY="68.0" prefHeight="182.0" prefWidth="719.0">
                 <children>
@@ -34,30 +34,28 @@
                                     <RowConstraints maxHeight="222.0" minHeight="10.0" prefHeight="188.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                 <children>
-                                    <Label fx:id="sunday" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="98.0" text="Sunday" />
-                                    <Label fx:id="monday" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Monday" GridPane.columnIndex="1" />
-                                    <Label fx:id="tuesday" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Tuesday" GridPane.columnIndex="2" />
-                                    <Label fx:id="wednesday" alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Wednesday" GridPane.columnIndex="3" />
-                                    <Label fx:id="thursday" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Thursday" GridPane.columnIndex="4" />
-                                    <Label fx:id="friday" alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Friday" GridPane.columnIndex="5" />
-                                    <Label fx:id="saturday" alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="Saturday" GridPane.columnIndex="6" />
+                                    <Label fx:id="day1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="98.0" text="Sunday" />
+                                    <Label fx:id="day2" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Monday" GridPane.columnIndex="1" />
+                                    <Label fx:id="day3" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Tuesday" GridPane.columnIndex="2" />
+                                    <Label fx:id="day4" alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Wednesday" GridPane.columnIndex="3" />
+                                    <Label fx:id="day5" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Thursday" GridPane.columnIndex="4" />
+                                    <Label fx:id="day6" alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Friday" GridPane.columnIndex="5" />
+                                    <Label fx:id="day7" alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="Saturday" GridPane.columnIndex="6" />
+                           <VBox fx:id="day4Actions" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                           <VBox fx:id="day3Actions" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                           <VBox fx:id="day2Actions" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           <VBox fx:id="day1Actions" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1" />
+                           <VBox fx:id="day5Action" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                           <VBox fx:id="day6Actions" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                           <VBox fx:id="day7Actions" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
                                 </children>
                             </GridPane>
                         </children>
                     </HBox>
                 </children>
             </VBox>
-            <Label fx:id="weekName" layoutX="59.0" layoutY="29.0" text="WEEK NAME" />
-            <VBox fx:id="sideBar" layoutX="793.0" layoutY="2.0" prefHeight="449.0" prefWidth="226.0">
-                <children>
-                    <HBox prefHeight="450.0" prefWidth="226.0">
-                        <children>
-                            <Label alignment="BOTTOM_LEFT" contentDisplay="RIGHT" prefHeight="49.0" prefWidth="224.0" text="Task Queue" />
-                        </children>
-                    </HBox>
-                </children>
-            </VBox>
-            <VBox layoutX="416.0" layoutY="250.0" prefHeight="201.0" prefWidth="318.0">
+            <VBox fx:id="sideBar" layoutX="781.0" layoutY="73.0" prefHeight="367.0" prefWidth="226.0" />
+            <VBox layoutX="54.0" layoutY="251.0" prefHeight="201.0" prefWidth="318.0">
                 <children>
                     <HBox prefHeight="21.0" prefWidth="318.0">
                         <children>
@@ -67,19 +65,13 @@
                     <TextArea fx:id="quoteOrNote" prefHeight="200.0" prefWidth="200.0" />
                 </children>
             </VBox>
-            <VBox layoutX="59.0" layoutY="263.0" prefHeight="201.0" prefWidth="318.0">
-                <children>
-                    <HBox prefHeight="25.0" prefWidth="318.0">
-                        <children>
-                            <Label alignment="TOP_LEFT" prefHeight="17.0" prefWidth="319.0" text="Controls" />
-                        </children>
-                    </HBox>
-                    <Button fx:id="addEvent" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="+Event" />
-                    <Button fx:id="addTask" mnemonicParsing="false" prefHeight="26.0" prefWidth="107.0" text="+Task" />
-                    <ToggleButton fx:id="changeTheme" mnemonicParsing="false" prefHeight="26.0" prefWidth="107.0" text="Mode" />
-                    <Button fx:id="addQnote" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="+Quote/Note" />
-                </children>
-            </VBox>
+         <Label layoutX="784.0" layoutY="47.0" text="Task Queue" />
+              <Button fx:id="addTask" layoutX="154.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="107.0" text="Add Tasks" />
+              <Button fx:id="addEvent" layoutX="40.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Add Event" />
+              <Button fx:id="addQnote" layoutX="270.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="Add Qnote" />
+         <Button fx:id="save" layoutX="384.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="Save" />
+         <ChoiceBox fx:id="startDay" layoutX="954.0" layoutY="13.0" prefHeight="26.0" prefWidth="41.0" />
+         <Label layoutX="890.0" layoutY="17.0" text="Start Day:" />
         </children>
     </AnchorPane>
 </Scene>
