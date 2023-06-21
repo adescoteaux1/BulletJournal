@@ -13,6 +13,7 @@ import cs3500.pa05.model.json.TaskJson;
 import cs3500.pa05.model.writer.ReadFile;
 import cs3500.pa05.model.writer.WriteToFile;
 import cs3500.pa05.model.writer.Writer;
+import cs3500.pa05.view.BojuView;
 import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
 import java.io.IOException;
@@ -52,6 +53,7 @@ public class BojuControllerImpl implements BojuController {
   private Writer writer;
   private Popup eventPopup;
   private Popup taskPopup;
+  private Popup limitPopup;
   @FXML
   private Button createTaskButton;
   @FXML
@@ -74,6 +76,10 @@ public class BojuControllerImpl implements BojuController {
   private Button finish;
   @FXML
   private TextField userQnote;
+  @FXML
+  private Button setTaskLimit;
+  @FXML
+  private Button setEventLimit;
 
 
 
@@ -81,6 +87,7 @@ public class BojuControllerImpl implements BojuController {
     this.stage = stage;
     this.eventPopup = new Popup();
     this.taskPopup = new Popup();
+    this.limitPopup = new Popup();
     bvi = new BojuViewImpl(this);
     this.qnotePopup = new Popup();
   }
@@ -125,12 +132,66 @@ public class BojuControllerImpl implements BojuController {
         throw new RuntimeException(ex);
       }
     });
+
+    setTaskLimit.setOnAction(e -> {
+      bvi.makePopup(limitPopup, stage);
+      try {
+        setEventLimit();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
+    });
+
+    setEventLimit.setOnAction(e -> {
+      bvi.makePopup(limitPopup, stage);
+      try {
+        setEventLimit();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
+    });
+
     //addNote.setOnAction(e -> Note());
     //changeTheme.setOnAction(e -> newTheme());
     //removeTask.setOnAction(e -> deleteTask());
     //removeEvent.setOnAction(e -> deleteEvent());
   }
 
+  private void setTaskLimit() throws IOException {
+    FXMLLoader loader = new FXMLLoader(
+        getClass().getClassLoader().getResource("UserInput.fxml"));
+    loader.setController(this);
+    Scene s = loader.load();
+    limitPopup.getContent().add((Node)s.getRoot());
+
+    enterTitle.setText("Enter the Task Limit");
+
+    enterButton.setOnAction(e -> {
+      limitPopup.hide();
+      int taskLimit = Integer.parseInt(enterField.getText());
+      week.setTaskLimit(taskLimit);
+      WeekView();});
+
+    limitPopup.getContent().add(enterButton);
+  }
+
+  private void setEventLimit() throws IOException {
+    FXMLLoader loader = new FXMLLoader(
+        getClass().getClassLoader().getResource("UserInput.fxml"));
+    loader.setController(this);
+    Scene s = loader.load();
+    limitPopup.getContent().add((Node)s.getRoot());
+
+    enterTitle.setText("Enter the Event Limit");
+
+    enterButton.setOnAction(e -> {
+      int eventLimit = Integer.parseInt(enterField.getText());
+      limitPopup.hide();
+      week.setTaskLimit(eventLimit);
+      WeekView();});
+
+    limitPopup.getContent().add(enterButton);
+  }
   private void newTheme() {
     //To-Do
   }
