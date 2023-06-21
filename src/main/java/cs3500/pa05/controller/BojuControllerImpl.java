@@ -26,6 +26,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -74,7 +76,16 @@ public class BojuControllerImpl implements BojuController {
   private Button finish;
   @FXML
   private TextField userQnote;
-
+  @FXML
+  private Button save;
+  @FXML
+  private Button open;
+  @FXML
+  private Button newWeek;
+  @FXML
+  private Button setEventLimit;
+  @FXML
+  private Button setTaskLimit;
 
 
   public BojuControllerImpl(Stage stage) {
@@ -128,6 +139,7 @@ public class BojuControllerImpl implements BojuController {
         throw new RuntimeException(ex);
       }
     });
+
     //addQnotee.setOnAction(e -> Note());
     //removeTask.setOnAction(e -> deleteTask());
     //removeEvent.setOnAction(e -> deleteEvent());
@@ -136,6 +148,21 @@ public class BojuControllerImpl implements BojuController {
     //newWeek
     //setTaskLimit
     //setEventLimit
+  }
+
+  @FXML
+  public void handleKeyPressed(KeyEvent event) {
+    if (event.getCode() == KeyCode.E && event.isControlDown()) {
+      addEvent.fire(); // Trigger button's action
+    } else if (event.getCode() == KeyCode.T && event.isControlDown()) {
+      addTask.fire(); // Trigger button's action
+    } else if (event.getCode() == KeyCode.S && event.isControlDown()) {
+      save.fire(); // Trigger button's action
+    } else if (event.getCode() == KeyCode.O && event.isControlDown()) {
+      open.fire(); // Trigger button's action
+    } else if (event.getCode() == KeyCode.N && event.isControlDown()) {
+      newWeek.fire(); // Trigger button's action
+    }
   }
 
   private void newTheme() {
