@@ -76,6 +76,8 @@ public class BojuControllerImpl implements BojuController {
   private Button setTaskLimit;
   @FXML
   private Button setEventLimit;
+  @FXML
+  private Label quoteOrNote;
 
 
 
@@ -277,7 +279,7 @@ public class BojuControllerImpl implements BojuController {
 
   private void addQnote() throws IOException {
     FXMLLoader loader = new FXMLLoader(
-        getClass().getClassLoader().getResource("newQnote.fxml"));
+        getClass().getClassLoader().getResource("qnotePop.fxml"));
     loader.setController(this);
     Scene s = loader.load();
     qnotePopup.getContent().add((Node)s.getRoot());
@@ -285,7 +287,12 @@ public class BojuControllerImpl implements BojuController {
     finish.setOnAction(e -> {
       qnotePopup.hide();
       String qnote = userQnote.getText();
+      quoteOrNote.setText(qnote);
+
+      //same
       bvi.addQuotOrNote(qnote);
+
+      //week update
       week.setQuoteOrNote(qnote);
       WeekView();
     });

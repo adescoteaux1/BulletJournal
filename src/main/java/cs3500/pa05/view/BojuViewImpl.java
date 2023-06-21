@@ -27,7 +27,7 @@ public class BojuViewImpl implements BojuView {
   private final VBox sideBar;
 
   @FXML
-  private final TextArea quoteOrNote;
+  private Label quoteOrNote;
   @FXML
   private GridPane weekGrid;
 
@@ -44,7 +44,6 @@ public class BojuViewImpl implements BojuView {
     this.loader.setLocation(getClass().getClassLoader().getResource("WeekView.fxml"));
     this.loader.setController(controller);
     this.sideBar = new VBox();
-    this.quoteOrNote = new TextArea();
   }
 
   /**
