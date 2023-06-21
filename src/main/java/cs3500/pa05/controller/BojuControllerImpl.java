@@ -227,9 +227,6 @@ public class BojuControllerImpl implements BojuController {
   }
 
   private void addEvent() throws IOException {
-    //UserInputView uiv = new UserInputView(this);
-    //stage.setScene(uiv.load());
-
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("newEvent.fxml"));
     loader.setController(this);
@@ -251,16 +248,9 @@ public class BojuControllerImpl implements BojuController {
     });
 
     eventPopup.getContent().add(enterButton);
-
-    //enterButton.setOnAction(e -> {String newEvent = enterField.getText();
-      //writer.write(newEvent);});
-    //call method to add event to bujo
   }
 
   private void addTask() throws IOException {
-    //UserInputView uiv = new UserInputView(this);
-    //stage.setScene(uiv.load());
-
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("newTask.fxml"));
     loader.setController(this);
@@ -301,6 +291,7 @@ public class BojuControllerImpl implements BojuController {
       WeekView();
     });
 
+    qnotePopup.getContent().add(finish);
   }
 
 }
