@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane prefHeight="200" prefWidth="200">
         <children>
@@ -16,7 +18,19 @@
                     <Button fx:id="enterButton" layoutX="151.0" layoutY="198.0" mnemonicParsing="false" text="Enter" />
                     <TextField fx:id="nameInput" layoutX="14.0" layoutY="29.0" promptText="Name" />
                     <TextField fx:id="descriptionInput" layoutX="14.0" layoutY="65.0" promptText="Description" />
-                    <ChoiceBox fx:id="dayBox" accessibleText="Bo" layoutX="14.0" layoutY="100.0" prefHeight="26.0" prefWidth="72.0" />
+                    <ChoiceBox fx:id="dayBox" accessibleText="Bo" layoutX="14.0" layoutY="100.0" prefHeight="26.0" prefWidth="72.0" >
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="MONDAY"/>
+                                <String fx:value="TUESDAY"/>
+                                <String fx:value="WEDNESDAY"/>
+                                <String fx:value="THURSDAY"/>
+                                <String fx:value="FRIDAY"/>
+                                <String fx:value="SATURDAY"/>
+                                <String fx:value="SUNDAY"/>
+                            </FXCollections>
+                        </items>
+                    </ChoiceBox>
                     <TextField fx:id="durationInput" layoutX="14.0" layoutY="167.0" promptText="Duration" />
                     <TextField fx:id="startInput" layoutX="14.0" layoutY="135.0" promptText="Start Time" />
                 </children>
