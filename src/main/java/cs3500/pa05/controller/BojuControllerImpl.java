@@ -80,8 +80,8 @@ public class BojuControllerImpl implements BojuController {
   private Button setTaskLimit;
   @FXML
   private Button setEventLimit;
-
-
+  @FXML
+  private Button save;
 
   public BojuControllerImpl(Stage stage) {
     this.stage = stage;
@@ -109,7 +109,7 @@ public class BojuControllerImpl implements BojuController {
   }
 
   public void save() throws IOException {
-    WriteToFile.write(bujoPath, week);
+   bujoPath = WriteToFile.write(bujoPath, week);
   }
 
   public void WeekView() {
@@ -138,7 +138,7 @@ public class BojuControllerImpl implements BojuController {
     setTaskLimit.setOnAction(e -> {
       bvi.makePopup(limitPopup, stage);
       try {
-        setEventLimit();
+        setTaskLimit();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
@@ -148,6 +148,13 @@ public class BojuControllerImpl implements BojuController {
       bvi.makePopup(limitPopup, stage);
       try {
         setEventLimit();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
+    });
+    save.setOnAction(e -> {
+      try {
+        save();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
@@ -172,7 +179,7 @@ public class BojuControllerImpl implements BojuController {
       limitPopup.hide();
       int taskLimit = Integer.parseInt(enterField.getText());
       week.setTaskLimit(taskLimit);
-      WeekView();});
+      });
 
     limitPopup.getContent().add(enterButton);
   }
@@ -190,7 +197,7 @@ public class BojuControllerImpl implements BojuController {
       int eventLimit = Integer.parseInt(enterField.getText());
       limitPopup.hide();
       week.setEventLimit(eventLimit);
-      WeekView();});
+      });
 
     limitPopup.getContent().add(enterButton);
   }

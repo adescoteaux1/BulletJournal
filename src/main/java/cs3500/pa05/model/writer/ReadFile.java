@@ -21,6 +21,7 @@ public class ReadFile {
     Week week;
 
     if (bujoPath.isEmpty()) {
+      System.out.println("empty");
       Day Monday = new Day(DayOfWeek.MONDAY, new ArrayList<Event>(), new ArrayList<Task>());
       Day Tuesday = new Day(DayOfWeek.TUESDAY, new ArrayList<Event>(), new ArrayList<Task>());
       Day Wednesday = new Day(DayOfWeek.WEDNESDAY, new ArrayList<Event>(), new ArrayList<Task>());
@@ -32,8 +33,11 @@ public class ReadFile {
       ArrayList<Day> Days = new ArrayList<>(Arrays.asList(Monday, Tuesday,
           Wednesday, Thursday, Friday, Saturday,Sunday));
 
+      Week newWeek = new Week(Days, 0, 0);
+      newWeek.setTaskLimit(100);
+      newWeek.setEventLimit(100);
+      return newWeek;
 
-      return new Week(Days, 100, 100);
     } else {
       FileInputStream fi = new FileInputStream(new File(bujoPath));
       ObjectInputStream oi = new ObjectInputStream(fi);
