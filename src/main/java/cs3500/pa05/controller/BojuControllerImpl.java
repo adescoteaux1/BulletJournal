@@ -98,16 +98,16 @@ public class BojuControllerImpl implements BojuController {
 
     //button actions
     addTask.setOnAction(e -> {
+      makeTaskPopup();
       try {
-        makePopup();
         addTask();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
     });
     addEvent.setOnAction(e -> {
+      makeEventPopup();
       try {
-        makePopup();
         addEvent();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
@@ -159,8 +159,8 @@ public class BojuControllerImpl implements BojuController {
         getClass().getClassLoader().getResource("newEvent.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    stage.setScene(s);
-    enterTitle.setText("Enter the new Event");
+    //stage.setScene(s);
+    //enterTitle.setText("Enter the new Event");
     eventPopup.getContent().add((Node)s.getRoot());
 
     enterButton.setOnAction(e -> {
@@ -175,7 +175,7 @@ public class BojuControllerImpl implements BojuController {
       writer.write(JsonUtils.serializeRecord(new EventJson(newEvent)).toString());
     });
 
-    //eventPopup.getContent().add(enterButton);
+    eventPopup.getContent().add(enterButton);
 
     //enterButton.setOnAction(e -> {String newEvent = enterField.getText();
       //writer.write(newEvent);});
@@ -190,8 +190,8 @@ public class BojuControllerImpl implements BojuController {
         getClass().getClassLoader().getResource("newTask.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    stage.setScene(s);
-    enterTitle.setText("Enter the new Task");
+    //stage.setScene(s);
+    //enterTitle.setText("Enter the new Task");
     taskPopup.getContent().add((Node)s.getRoot());
     enterButton.setOnAction(e -> {
       taskPopup.hide();
@@ -206,7 +206,12 @@ public class BojuControllerImpl implements BojuController {
   }
 
   @FXML
-  private void makePopup() {
+  private void makeEventPopup() {
     this.eventPopup.show(this.stage);
+  }
+
+  @FXML
+  private void makeTaskPopup() {
+    this.taskPopup.show(this.stage);
   }
 }
