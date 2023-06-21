@@ -107,7 +107,8 @@ public class BojuViewImpl implements BojuView {
 
   /**
    * updates the quote/note area with user input
-   * @param userStatement
+   *
+   * @param userStatement is user input
    */
   public void addQuotOrNote(String userStatement) {
     quoteOrNote.setText(userStatement);
