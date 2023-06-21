@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <AnchorPane prefHeight="478.0" prefWidth="880.0">
+    <AnchorPane prefHeight="478.0" prefWidth="880.0" style="-fx-background-color: 8;">
         <children>
             <VBox layoutX="36.0" layoutY="68.0" prefHeight="182.0" prefWidth="719.0">
                 <children>
@@ -62,7 +62,7 @@
                             <Label alignment="TOP_LEFT" prefHeight="17.0" prefWidth="319.0" text="Quotes and Notes" />
                         </children>
                     </HBox>
-                    <TextArea fx:id="quoteOrNote" prefHeight="200.0" prefWidth="200.0" />
+               <TextArea fx:id="quoteOrNote" prefHeight="200.0" prefWidth="200.0" />
                 </children>
             </VBox>
          <Label layoutX="399.0" layoutY="251.0" text="Task Queue" />
