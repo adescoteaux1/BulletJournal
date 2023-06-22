@@ -1,5 +1,8 @@
 package cs3500.pa05.model;
 
+/**
+ * represents the board of the week
+ */
 public class BoardImpl implements WeekBoard {
   private final Week week;
 

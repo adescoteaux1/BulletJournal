@@ -8,7 +8,7 @@ public interface WeekBoard {
    * gets the events on a day
    *
    * @param day the specified day
-   * @return the list of events
+   * @return the number of events
    */
   int getEvents(Day day);
 
@@ -17,7 +17,7 @@ public interface WeekBoard {
    * gets the tasks on a day
    *
    * @param day the specified day
-   * @return the list of tasks
+   * @return the number of tasks
    */
   int getTasks(Day day);
 }

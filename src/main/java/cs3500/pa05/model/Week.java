@@ -170,6 +170,10 @@ public class Week implements Serializable {
     }
   }
 
+  /**
+   * deletes an event
+   * @param eventName name of event
+   */
   public void deleteEvent(String eventName){
     for (Day day : days) {
       for (Event event : day.getEvents()) {
@@ -181,6 +185,10 @@ public class Week implements Serializable {
     }
   }
 
+  /**
+   * deletes a task
+   * @param taskName nam of task
+   */
   public void deleteTask(String taskName){
     for (Day day : days) {
       for (Task task : day.getTasks()) {
@@ -212,6 +220,9 @@ public class Week implements Serializable {
     days = newDays;
   }
 
+  /**
+   * displays the week
+   */
   public void displayWeek() {
 
   }

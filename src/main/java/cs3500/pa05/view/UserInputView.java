@@ -5,11 +5,15 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+/**
+ * represents the ugui of the user input
+ */
 public class UserInputView implements BojuView {
   private final FXMLLoader loader;
 
   /**
    * Loads an instance of a GUI layout from disk.
+   * @param controller is the controller class
    */
   public UserInputView(BojuController controller) {
     // look up and store the layout

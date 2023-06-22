@@ -7,9 +7,9 @@ import java.util.List;
  * represents a day of the week
  */
 public class Day implements Serializable {
-  private DayOfWeek day;
-  private List<Event> events;
-  private List<Task> tasks;
+  private final DayOfWeek day;
+  private final List<Event> events;
+  private final List<Task> tasks;
 
   /**
    * @param name the day of the week

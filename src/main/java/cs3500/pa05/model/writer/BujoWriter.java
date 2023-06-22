@@ -1,6 +1,5 @@
 package cs3500.pa05.model.writer;
 
-import cs3500.pa05.model.writer.Writer;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -8,7 +7,7 @@ import java.util.Objects;
  * represents a bujo writer
  */
 public class BujoWriter implements Writer {
-  private Appendable appendable;
+  private final Appendable appendable;
 
 
   /**

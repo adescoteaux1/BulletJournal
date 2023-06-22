@@ -40,12 +40,17 @@ public enum DayOfWeek {
    */
   SUNDAY("Sunday");
 
-  private String name;
+  private final String name;
 
   DayOfWeek(String name) {
     this.name = name;
   }
 
+  /**
+   * gets name of the day
+   *
+   * @return name
+   */
   public String getName() {
     return name;
   }

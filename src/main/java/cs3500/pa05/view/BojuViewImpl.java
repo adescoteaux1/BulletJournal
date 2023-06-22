@@ -30,9 +30,9 @@ public class BojuViewImpl implements BojuView {
   private final VBox sideBar;
 
   @FXML
-  private TextArea quoteOrNote = new TextArea();
+  private final TextArea quoteOrNote = new TextArea();
   @FXML
-  private GridPane weekGrid = new GridPane();
+  private final GridPane weekGrid = new GridPane();
 
 
 
