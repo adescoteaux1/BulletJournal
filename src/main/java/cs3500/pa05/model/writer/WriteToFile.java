@@ -26,9 +26,6 @@ public class WriteToFile {
     FileOutputStream f;
     ObjectOutputStream o;
 
-    Properties properties = new Properties();
-    properties.put("week", week);
-
     if (bujoPath.isEmpty()) {
       bujoPath = "newWeek.bujo";
       File output = new File(bujoPath);
