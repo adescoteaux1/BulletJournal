@@ -132,6 +132,8 @@ public class BujoControllerImpl implements BujoController {
   private Popup openPopup;
   private UserInputView uiv;
   private WelcomeView wv;
+  @FXML
+  private Button status;
 
 
   /**
@@ -466,11 +468,22 @@ public class BujoControllerImpl implements BujoController {
     taskPopup.getContent().add(s.getRoot());
 
     enterButton.setOnAction(e -> {
-      taskPopup.hide();
+
+
+
+
       String name = nameInput.getText();
       String desc = descriptionInput.getText();
       DayOfWeek day = dayBox.getValue();
+
       Task newTask = new Task(name, desc, day, false);
+
+      status.setOnAction(event -> {
+        newTask.setIsComplete(!newTask.getIsComplete());
+      });
+
+      taskPopup.hide();
+
       week.addTask(newTask);
       try {
         weekView();
@@ -478,6 +491,7 @@ public class BujoControllerImpl implements BujoController {
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
+
     });
 
     taskPopup.getContent().add(enterButton);
