@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <AnchorPane prefHeight="205.0" prefWidth="276.0" style="-fx-background-color: rgba(160, 167, 224, 0.4);">
+    <AnchorPane prefHeight="205.0" prefWidth="276.0" style="-fx-background-color: rgba(160, 167, 224, 1.0);">
         <children>
             <Label layoutX="36.0" layoutY="34.0" text="New Qnote:" />
             <TextField fx:id="userQnote" layoutX="36.0" layoutY="58.0" prefHeight="83.0" prefWidth="203.0" />
