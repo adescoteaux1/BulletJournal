@@ -166,7 +166,7 @@ public class BujoControllerImpl implements BujoController {
   @Override
   public void run() throws IllegalStateException, IOException {
     //this.runSplash();
-    enterTitle.setText("Enter a .boju file");
+    enterTitle.setText("Enter a .bujo file");
     enterButton.setOnAction(e -> {bujoPath = enterField.getText();
 
       if (uiv.validateFile(bujoPath)) {
