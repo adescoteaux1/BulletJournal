@@ -520,6 +520,7 @@ public class BujoControllerImpl implements BujoController {
    */
   public void displayWeek(Week week) throws IOException {
     week.setStartDay(startDay.getValue());
+    clearVboxes();
 
     for (int i = 0; i < 7; i++) {
       Day d = week.getDays().get(i);
@@ -540,7 +541,7 @@ public class BujoControllerImpl implements BujoController {
         day7.setText(d.getDayOfWeek().getName());
       }
 
-      clearVboxes();
+
       addEvents(d, i);
       addTasks(d, i);
       fillTaskQueue();

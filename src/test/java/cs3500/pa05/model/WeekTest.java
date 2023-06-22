@@ -111,8 +111,4 @@ class WeekTest {
   @Test
   public void setStartDay() {
   }
-
-  @Test
-  public void displayWeek() {
-  }
 }
