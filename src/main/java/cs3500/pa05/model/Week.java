@@ -115,6 +115,10 @@ public class Week implements Serializable {
     this.quoteOrNote = text;
   }
 
+  public String getQuoteOrNote() {
+    return this.quoteOrNote;
+  }
+
   /**
    * gets an event by the name; event is identified
    * by the name to pop up in the mini viewer

@@ -309,6 +309,9 @@ public class BujoControllerImpl implements BujoController {
     newWeek.setOnAction(e -> {
       try {
         week = ReadFile.readBujoFile("");
+        bvi = new BujoViewImpl(this);
+        stage.setScene(bvi.load());
+        weekView();
       } catch (IOException | ClassNotFoundException ex) {
         throw new RuntimeException(ex);
       }
@@ -494,13 +497,12 @@ public class BujoControllerImpl implements BujoController {
     finish.setOnAction(e -> {
       qnotePopup.hide();
       String qnote = userQnote.getText();
-      quoteOrNote.setText(qnote);
 
       //same
-      bvi.addQuotOrNote(qnote);
 
       //week update
       week.setQuoteOrNote(qnote);
+      quoteOrNote.setText(week.getQuoteOrNote());
       try {
         weekView();
       } catch (IOException ex) {
