@@ -468,10 +468,6 @@ public class BujoControllerImpl implements BujoController {
     taskPopup.getContent().add(s.getRoot());
 
     enterButton.setOnAction(e -> {
-
-
-
-
       String name = nameInput.getText();
       String desc = descriptionInput.getText();
       DayOfWeek day = dayBox.getValue();
