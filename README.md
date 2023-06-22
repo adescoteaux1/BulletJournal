@@ -9,9 +9,14 @@ Week GUI View (Temporary):
 
 
 
-
+NOTE: all the images listed below are also manually in the project
+      (this is in case the png images below don't show up)
 Final Week GUI:
 ![img.png](img.png)
+
+Additional UI Images: 
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
 
 Program Pitch: 
 The Bujo Bullet Journal App is the perfect app for those looking to add a personalized and
