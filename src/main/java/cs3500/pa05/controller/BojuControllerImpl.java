@@ -106,7 +106,8 @@ public class BojuControllerImpl implements BojuController {
       } catch (ClassNotFoundException ex) {
         throw new RuntimeException(ex);
       }
-      WeekView();});
+      WeekView();
+    });
   }
 
   public void save() throws IOException {
