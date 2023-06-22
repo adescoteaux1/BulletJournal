@@ -13,13 +13,13 @@
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane prefHeight="200" prefWidth="200">
         <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(204, 204, 255);">
                 <children>
-                    <Label layoutX="7.0" layoutY="6.0" text="New Event" />
-                    <Button fx:id="enterButton" layoutX="151.0" layoutY="198.0" mnemonicParsing="false" text="Enter" />
-                    <TextField fx:id="nameInput" layoutX="14.0" layoutY="29.0" promptText="Name" />
-                    <TextField fx:id="descriptionInput" layoutX="14.0" layoutY="65.0" promptText="Description" />
-                    <ChoiceBox fx:id="dayBox" accessibleText="Bo" layoutX="14.0" layoutY="100.0" prefHeight="26.0" prefWidth="72.0" >
+                    <Label layoutX="7.0" layoutY="6.0" text="New Event" style="-fx-font-family: Georgia;"/>
+                    <Button fx:id="enterButton" layoutX="151.0" layoutY="198.0" mnemonicParsing="false" text="Enter" style="-fx-font-family: Georgia; -fx-background-color: rgb(160, 167, 224);"/>
+                    <TextField fx:id="nameInput" layoutX="14.0" layoutY="29.0" promptText="Name" style="-fx-font-family: Georgia;"/>
+                    <TextField fx:id="descriptionInput" layoutX="14.0" layoutY="65.0" promptText="Description" style="-fx-font-family: Georgia;"/>
+                    <ChoiceBox fx:id="dayBox" accessibleText="Bo" layoutX="14.0" layoutY="100.0" prefHeight="26.0" prefWidth="72.0" style="-fx-font-family: Georgia;">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
                                 <DayOfWeek fx:value="MONDAY"/>
@@ -32,8 +32,8 @@
                             </FXCollections>
                         </items>
                     </ChoiceBox>
-                    <TextField fx:id="durationInput" layoutX="14.0" layoutY="167.0" promptText="Duration" />
-                    <TextField fx:id="startInput" layoutX="14.0" layoutY="135.0" promptText="Start Time" />
+                    <TextField fx:id="durationInput" layoutX="14.0" layoutY="167.0" promptText="Duration" style="-fx-font-family: Georgia;"/>
+                    <TextField fx:id="startInput" layoutX="14.0" layoutY="135.0" promptText="Start Time" style="-fx-font-family: Georgia;"/>
                 </children>
             </AnchorPane>
         </children>
