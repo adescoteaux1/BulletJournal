@@ -24,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Popup;
@@ -77,7 +78,7 @@ public class BojuControllerImpl implements BojuController {
   @FXML
   private Button setEventLimit;
   @FXML
-  private Label quoteOrNote;
+  private TextArea quoteOrNote;
 
 
 
