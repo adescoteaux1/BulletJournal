@@ -449,7 +449,7 @@ public class BujoControllerImpl implements BujoController {
   }
 
   /**
-   * opens a popup for adding a task
+   * opens a popup for adding a task and adds task
    *
    * @throws IOException if there's an error
    */
