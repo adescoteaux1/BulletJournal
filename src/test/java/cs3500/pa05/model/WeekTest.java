@@ -83,6 +83,7 @@ class WeekTest {
     // assertTrue(w.getDays().get(2).getEvents().contains(e)));
   }
 
+  //comment
   @Test
   public void setQuoteOrNote() {
     String input = "Have a good day";
