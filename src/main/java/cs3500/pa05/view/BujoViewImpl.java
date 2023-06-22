@@ -1,21 +1,14 @@
 package cs3500.pa05.view;
 
 import cs3500.pa05.controller.BujoController;
-import cs3500.pa05.model.Action;
-import cs3500.pa05.model.Day;
-import cs3500.pa05.model.DayOfWeek;
-import cs3500.pa05.model.Event;
 import cs3500.pa05.model.Task;
-import cs3500.pa05.model.Week;
 import java.io.IOException;
 import java.util.List;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -31,9 +24,6 @@ public class BujoViewImpl implements BujoView {
 
   @FXML
   private final TextArea quoteOrNote = new TextArea();
-  @FXML
-  private final GridPane weekGrid = new GridPane();
-
 
 
 
@@ -93,16 +83,6 @@ public class BujoViewImpl implements BujoView {
     popup.show(stage);
   }
 
-  /**
-   * adds an action in view
-   *
-   * @param action that needs to be added
-   */
-  public void addAction(Action action) {
-    DayOfWeek day = action.getDayOfWeek();
-    //weekGrid.add(new Label(action.getName()), day.getValue(), 2);
-  }
-
 
   /**
    * updates the quote/note area with user input
@@ -112,99 +92,4 @@ public class BujoViewImpl implements BujoView {
   public void addQuotOrNote(String userStatement) {
     quoteOrNote.setText(userStatement);
   }
-
-
-  /**
-   * displays the week
-   *
-   * @param week is current week
-   */
-  public void displayWeek(Week week) {
-    //TODO: show week
-    for (int i = 0; i < 7; i++) {
-      Day d = week.getDays().get(i);
-      weekGrid.add(new Label(d.getDayOfWeek().getName()), i, 1);
-      addEvents(d, i);
-      addTasks(d, i);
-    }
-  }
-
-  private void addEvents(Day d, int i) {
-    if (i == 0) {
-      for (Event e : d.getEvents()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day1Actions.getChildren().add(new Button(e.getName()));
-      }
-    } else if (i == 1) {
-      for (Event e : d.getEvents()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day2Actions.getChildren().add(new Button(e.getName()));
-      }
-    } else if (i == 2) {
-      for (Event e : d.getEvents()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day3Actions.getChildren().add(new Button(e.getName()));
-      }
-    } else if (i == 3) {
-      for (Event e : d.getEvents()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day4Actions.getChildren().add(new Button(e.getName()));
-      }
-    } else if (i == 4) {
-      for (Event e : d.getEvents()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day5Actions.getChildren().add(new Button(e.getName()));
-      }
-    } else if (i == 5) {
-      for (Event e : d.getEvents()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day6Actions.getChildren().add(new Button(e.getName()));
-      }
-    } else if (i == 6) {
-      for (Event e : d.getEvents()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day7Actions.getChildren().add(new Button(e.getName()));
-      }
-    }
-  }
-
-  private void addTasks(Day d, int i) {
-    if (i == 0) {
-      for (Task t : d.getTasks()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day1Actions.getChildren().add(new Button(t.getName()));
-      }
-    } else if (i == 1) {
-      for (Task t : d.getTasks()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day2Actions.getChildren().add(new Button(t.getName()));
-      }
-    } else if (i == 2) {
-      for (Task t : d.getTasks()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day3Actions.getChildren().add(new Button(t.getName()));
-      }
-    } else if (i == 3) {
-      for (Task t : d.getTasks()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day4Actions.getChildren().add(new Button(t.getName()));
-      }
-    } else if (i == 4) {
-      for (Task t : d.getTasks()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day5Actions.getChildren().add(new Button(t.getName()));
-      }
-    } else if (i == 5) {
-      for (Task t : d.getTasks()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day6Actions.getChildren().add(new Button(t.getName()));
-      }
-    } else if (i == 6) {
-      for (Task t : d.getTasks()) {
-        weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 2);
-        //day7Actions.getChildren().add(new Button(t.getName()));
-      }
-    }
-  }
-
 }
