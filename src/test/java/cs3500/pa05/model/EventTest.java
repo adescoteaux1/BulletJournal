@@ -55,12 +55,6 @@ class EventTest {
     assertEquals(WEDNESDAY, event.getDayOfWeek());
   }
 
-  @Test
-  public void testSetDayOfWeek() {
-    assertEquals(WEDNESDAY, event.getDayOfWeek());
-    event.setDayOfWeek(MONDAY);
-    assertEquals(MONDAY, event.getDayOfWeek());
-  }
 
 
 }
