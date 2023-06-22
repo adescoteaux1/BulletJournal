@@ -1,6 +1,7 @@
 package cs3500.pa05.controller;
 
 import cs3500.pa05.model.Action;
+import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Week;
 import cs3500.pa05.model.json.EventJson;
@@ -27,6 +28,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
@@ -83,6 +85,34 @@ public class BojuControllerImpl implements BojuController {
   private TextArea quoteOrNote;
   @FXML
   private ChoiceBox<DayOfWeek> startDay;
+  @FXML
+  private VBox day1Actions;
+  @FXML
+  private VBox day2Actions;
+  @FXML
+  private VBox day3Actions;
+  @FXML
+  private VBox day4Actions;
+  @FXML
+  private VBox day5Actions;
+  @FXML
+  private VBox day6Actions;
+  @FXML
+  private VBox day7Actions;
+  @FXML
+  private Label day1;
+  @FXML
+  private Label day2;
+  @FXML
+  private Label day3;
+  @FXML
+  private Label day4;
+  @FXML
+  private Label day5;
+  @FXML
+  private Label day6;
+  @FXML
+  private Label day7;
 
 
 
@@ -178,7 +208,7 @@ public class BojuControllerImpl implements BojuController {
     //removeTask.setOnAction(e -> deleteTask());
     //deEvent.setOnAction(e -> deleteEvent());
 
-    bvi.displayWeek(week);
+    displayWeek(week);
   }
 
   private void setTaskLimit() throws IOException {
@@ -267,7 +297,7 @@ public class BojuControllerImpl implements BojuController {
     });
 
     eventPopup.getContent().add(enterButton);
-    bvi.displayWeek(week);
+    displayWeek(week);
   }
 
   private void addTask() throws IOException {
@@ -289,7 +319,7 @@ public class BojuControllerImpl implements BojuController {
     });
 
     taskPopup.getContent().add(enterButton);
-    bvi.displayWeek(week);
+    displayWeek(week);
   }
 /*
   public void addAction(Action action) {
@@ -325,7 +355,118 @@ public class BojuControllerImpl implements BojuController {
     });
 
     qnotePopup.getContent().add(finish);
-    bvi.displayWeek(week);
+    displayWeek(week);
+  }
+
+  /**
+   * displays the week
+   *
+   * @param week is current week
+   */
+  public void displayWeek(Week week) {
+    week.setStartDay(startDay.getValue());
+
+    for (int i = 0; i < 7; i++) {
+      Day d = week.getDays().get(i);
+
+      if (i == 0) {
+        day1.setText(d.getDayOfWeek().getName());
+      } else if (i == 1) {
+        day2.setText(d.getDayOfWeek().getName());
+      } else if (i == 2) {
+        day3.setText(d.getDayOfWeek().getName());
+      } else if (i == 3) {
+        day4.setText(d.getDayOfWeek().getName());
+      } else if (i == 4) {
+        day5.setText(d.getDayOfWeek().getName());
+      } else if (i == 5) {
+        day6.setText(d.getDayOfWeek().getName());
+      } else if (i == 6) {
+        day7.setText(d.getDayOfWeek().getName());
+      }
+
+      //weekGrid.add(new Label(d.getDayOfWeek().getName()), i, 0);
+      addEvents(d, i);
+      addTasks(d, i);
+    }
+  }
+
+  private void addEvents(Day d, int i) {
+    if (i == 0) {
+      for (Event e : d.getEvents()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day1Actions.getChildren().add(new Button(e.getName()));
+      }
+    } else if (i == 1) {
+      for (Event e : d.getEvents()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day2Actions.getChildren().add(new Button(e.getName()));
+      }
+    } else if (i == 2) {
+      for (Event e : d.getEvents()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day3Actions.getChildren().add(new Button(e.getName()));
+      }
+    } else if (i == 3) {
+      for (Event e : d.getEvents()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day4Actions.getChildren().add(new Button(e.getName()));
+      }
+    } else if (i == 4) {
+      for (Event e : d.getEvents()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day5Actions.getChildren().add(new Button(e.getName()));
+      }
+    } else if (i == 5) {
+      for (Event e : d.getEvents()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day6Actions.getChildren().add(new Button(e.getName()));
+      }
+    } else if (i == 6) {
+      for (Event e : d.getEvents()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day7Actions.getChildren().add(new Button(e.getName()));
+      }
+    }
+  }
+
+  private void addTasks(Day d, int i) {
+    if (i == 0) {
+      for (Task t : d.getTasks()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day1Actions.getChildren().add(new Button(t.getName()));
+      }
+    } else if (i == 1) {
+      for (Task t : d.getTasks()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day2Actions.getChildren().add(new Button(t.getName()));
+      }
+    } else if (i == 2) {
+      for (Task t : d.getTasks()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day3Actions.getChildren().add(new Button(t.getName()));
+      }
+    } else if (i == 3) {
+      for (Task t : d.getTasks()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day4Actions.getChildren().add(new Button(t.getName()));
+      }
+    } else if (i == 4) {
+      for (Task t : d.getTasks()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day5Actions.getChildren().add(new Button(t.getName()));
+      }
+    } else if (i == 5) {
+      for (Task t : d.getTasks()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day6Actions.getChildren().add(new Button(t.getName()));
+      }
+    } else if (i == 6) {
+      for (Task t : d.getTasks()) {
+        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
+        day7Actions.getChildren().add(new Button(t.getName()));
+      }
+    }
   }
 
 }
