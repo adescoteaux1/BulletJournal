@@ -175,6 +175,7 @@ public class BojuControllerImpl implements BojuController {
       if (uiv.validateFile(bujoPath)) {
         stage.setScene(bvi.load());
 
+        //commented out for noe
 
         /*
         try {
