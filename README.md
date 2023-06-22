@@ -78,5 +78,5 @@ folder can be created. This class should implement the BuJoView interface and lo
 a Welcome screen; this screen would act as the splash screen. In this class, a method that registers user
 interaction can be created; this method should return a boolean. This way, for the run() method in the
 BuJoControllerImpl class, the splash screen can be loaded for a set amount of time before changing the 
-scene and following the rest of the application. To implement this succesfully, additional changes in Driver
+scene and following the rest of the application. To implement this successfully, additional changes in Driver
 would be required to load the current view GUI.
