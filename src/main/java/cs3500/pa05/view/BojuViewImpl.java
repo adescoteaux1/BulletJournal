@@ -27,7 +27,7 @@ public class BojuViewImpl implements BojuView {
   private final VBox sideBar;
 
   @FXML
-  private Label quoteOrNote;
+  private TextArea quoteOrNote;
   @FXML
   private GridPane weekGrid;
 

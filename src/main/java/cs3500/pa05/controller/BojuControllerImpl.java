@@ -13,7 +13,6 @@ import cs3500.pa05.model.json.TaskJson;
 import cs3500.pa05.model.writer.ReadFile;
 import cs3500.pa05.model.writer.WriteToFile;
 import cs3500.pa05.model.writer.Writer;
-import cs3500.pa05.view.BojuView;
 import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
 import java.io.IOException;
@@ -26,7 +25,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -156,7 +154,6 @@ public class BojuControllerImpl implements BojuController {
       }
     });
 
-
     addQnote.setOnAction(e -> {
       bvi.makePopup(qnotePopup, stage);
       try {
@@ -264,6 +261,7 @@ public class BojuControllerImpl implements BojuController {
     loader.setController(this);
     Scene s = loader.load();
     taskPopup.getContent().add((Node)s.getRoot());
+
     enterButton.setOnAction(e -> {
       taskPopup.hide();
       String name = nameInput.getText();
