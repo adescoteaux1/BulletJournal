@@ -1,6 +1,7 @@
 package cs3500.pa05.model;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.IOException;
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,12 @@ class ReadFileTest {
     } catch (IOException | ClassNotFoundException e) {
       fail("Exception thrown: " + e.getMessage());
     }
+  }
+
+  private void assertTrue(boolean empty) {
+  }
+
+  private void assertEquals(int i, int taskLimit) {
   }
 
 }

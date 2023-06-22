@@ -1,6 +1,5 @@
 package cs3500.pa05.model;
 
-import static cs3500.pa05.model.DayOfWeek.MONDAY;
 import static cs3500.pa05.model.DayOfWeek.WEDNESDAY;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
