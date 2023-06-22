@@ -1,7 +1,7 @@
 package cs3500.pa05.model;
 
 import static cs3500.pa05.model.DayOfWeek.MONDAY;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

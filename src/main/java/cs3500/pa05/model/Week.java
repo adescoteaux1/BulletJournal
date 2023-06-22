@@ -68,6 +68,7 @@ public class Week implements Serializable {
   public void setTaskNum(int input) {
     numTasks = input;
   }
+
   /**
    * sets this week's number of events
    *
@@ -118,7 +119,7 @@ public class Week implements Serializable {
   public void createEvent(Day day, Event e) {
     if (numEvents <= eventLimit) {
       day.addEvent(e);
-      numEvents+=1;
+      numEvents += 1;
     } else {
       System.out.println("Extending event limit."); //delete for MVC?
       //setEventLimit(numEvents);
@@ -134,7 +135,7 @@ public class Week implements Serializable {
   public void createTask(Day day, Task t) {
     if (numTasks <= taskLimit) {
       day.addTask(t);
-      numTasks+=1;
+      numTasks += 1;
     } else {
       System.out.println("Extending event limit."); //delete for MVC?
       //setTaskLimit(numTasks);

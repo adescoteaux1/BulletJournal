@@ -1,26 +1,28 @@
 package cs3500.pa05.model;
 
 import static cs3500.pa05.model.DayOfWeek.TUESDAY;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TaskTest {
-  Task t;
+  Task task;
+
   @BeforeEach
   public void initTask() {
-    t = new Task("HW", "do HW", TUESDAY, false);
+    task = new Task("HW", "do HW", TUESDAY, false);
   }
+
   @Test
   public void testIsComplete() {
-    assertEquals(false, t.getIsComplete());
+    assertEquals(false, task.getIsComplete());
   }
 
   @Test
   public void testSetComplete() {
-    assertEquals(false, t.getIsComplete());
-    t.setIsComplete(true);
-    assertEquals(true, t.getIsComplete());
+    assertEquals(false, task.getIsComplete());
+    task.setIsComplete(true);
+    assertEquals(true, task.getIsComplete());
   }
 }

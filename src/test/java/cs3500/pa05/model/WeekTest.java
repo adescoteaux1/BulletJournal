@@ -7,7 +7,7 @@ import static cs3500.pa05.model.DayOfWeek.SUNDAY;
 import static cs3500.pa05.model.DayOfWeek.THURSDAY;
 import static cs3500.pa05.model.DayOfWeek.TUESDAY;
 import static cs3500.pa05.model.DayOfWeek.WEDNESDAY;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class WeekTest {
-  Week w;
+  Week week;
+
   @BeforeEach
   public void initWeek() {
     List<Day> days = new ArrayList<>();
@@ -27,7 +28,7 @@ class WeekTest {
     days.add(new Day(SATURDAY, new ArrayList<>(), new ArrayList<>()));
     days.add(new Day(SUNDAY, new ArrayList<>(), new ArrayList<>()));
 
-    w = new Week(days, 0, 0);
+    week = new Week(days, 0, 0);
   }
 
   @Test
@@ -46,40 +47,40 @@ class WeekTest {
 
   @Test
   public void getTaskLimit() {
-    assertEquals(0, w.getTaskLimit());
+    assertEquals(0, week.getTaskLimit());
   }
 
   @Test
   public void setTaskLimit() {
-    assertEquals(0, w.getTaskLimit());
-    w.setTaskLimit(30);
-    assertEquals(30, w.getTaskLimit());
+    assertEquals(0, week.getTaskLimit());
+    week.setTaskLimit(30);
+    assertEquals(30, week.getTaskLimit());
   }
 
   @Test
   public void getEventLimit() {
-    assertEquals(0, w.getEventLimit());
+    assertEquals(0, week.getEventLimit());
   }
 
   @Test
   public void setEventLimit() {
-    assertEquals(0, w.getEventLimit());
-    w.setEventLimit(30);
-    assertEquals(30, w.getEventLimit());
+    assertEquals(0, week.getEventLimit());
+    week.setEventLimit(30);
+    assertEquals(30, week.getEventLimit());
   }
 
   @Test
   public void createEvent() {
     Event e = new Event("lab", "last ood lab",
         WEDNESDAY, "11:40", "100");
-    w.createEvent(w.getDays().get(2), e);
+    week.createEvent(week.getDays().get(2), e);
     //assertTrue(w.getDays().get(2).getEvents().contains(e));
   }
 
   @Test
   public void createTask() {
     Task t = new Task("classes", "neu summer 1", MONDAY, false);
-        w.createTask(w.getDays().get(2), t);
+    week.createTask(week.getDays().get(2), t);
     // assertTrue(w.getDays().get(2).getEvents().contains(e)));
   }
 
@@ -87,8 +88,8 @@ class WeekTest {
   @Test
   public void setQuoteOrNote() {
     String input = "Have a good day";
-    w.setQuoteOrNote(input);
-    String qnote = w.getQuoteOrNote();
+    week.setQuoteOrNote(input);
+    String qnote = week.getQuoteOrNote();
     assertEquals(input, qnote);
 
   }
