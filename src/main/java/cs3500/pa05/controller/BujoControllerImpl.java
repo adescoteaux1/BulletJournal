@@ -154,6 +154,7 @@ public class BujoControllerImpl implements BujoController {
     this.qnotePopup = new Popup();
     eventOptionsPopup = new Popup();
     taskOptionsPopup = new Popup();
+    this.openPopup = new Popup();
     sideBar = new VBox();
     bvi = new BujoViewImpl(this);
     uiv = new UserInputView(this);
@@ -175,21 +176,10 @@ public class BujoControllerImpl implements BujoController {
       if (uiv.validateFile(bujoPath)) {
         stage.setScene(bvi.load());
 
-        //commented out for noe
-
-        /*
         try {
           week = ReadFile.readBujoFile(bujoPath);
-        } catch (IOException ex) {
-          throw new RuntimeException(ex);
-        } catch (ClassNotFoundException ex) {
-          throw new RuntimeException(ex);
-        } */
-        try {
-          List<Day> days = new ArrayList<>();
-          this.week = new Week(days, 100, 100);
           WeekView();
-        } catch (IOException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
           throw new RuntimeException(ex);
         }
       }
@@ -541,6 +531,7 @@ public class BujoControllerImpl implements BujoController {
     week.setStartDay(startDay.getValue());
 
     for (int i = 0; i < 7; i++) {
+      System.out.println(week.getDays());
       Day d = week.getDays().get(i);
 
       if (i == 0) {

@@ -43,12 +43,10 @@ public class UserInputView implements BujoView {
     Path path = Paths.get(userInput);
 
     if (!Files.exists(path)) {
-      return false;
-    }
-
-    String fileExtension = getFileExtension(path);
-    if (!fileExtension.equalsIgnoreCase("bujo")) {
-      return false;
+      String fileExtension = getFileExtension(path);
+      if (!fileExtension.equalsIgnoreCase("bujo")) {
+        return false;
+      }
     }
 
     return true;
