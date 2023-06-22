@@ -1,16 +1,12 @@
 package cs3500.pa05.controller;
 
-import cs3500.pa05.model.Action;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Week;
-import cs3500.pa05.model.json.EventJson;
-import cs3500.pa05.model.json.JsonUtils;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Event;
 import cs3500.pa05.model.writer.BujoWriter;
 import cs3500.pa05.model.writer.FileAppendable;
-import cs3500.pa05.model.json.TaskJson;
 import cs3500.pa05.model.writer.ReadFile;
 import cs3500.pa05.model.writer.WriteToFile;
 import cs3500.pa05.model.writer.Writer;
@@ -117,8 +113,11 @@ public class BojuControllerImpl implements BojuController {
   private Button refresh;
 
 
-
-
+  /**
+   * constructor for controller
+   *
+   * @param stage where all the scenes will be displayed
+   */
   public BojuControllerImpl(Stage stage) {
     this.stage = stage;
     this.eventPopup = new Popup();
@@ -128,6 +127,12 @@ public class BojuControllerImpl implements BojuController {
     bvi = new BojuViewImpl(this);
   }
 
+  /**
+   * runs the bujo application
+   *
+   * @throws IllegalStateException if there is an error
+   * @throws IOException if runtime error occurs, class is not ofund, etc.
+   */
   @Override
   public void run() throws IllegalStateException, IOException {
     enterTitle.setText("Enter a .boju file");
@@ -145,10 +150,17 @@ public class BojuControllerImpl implements BojuController {
     });
   }
 
+  /**
+   * saves contents to a bujo file
+   * @throws IOException
+   */
   public void save() throws IOException {
    bujoPath = WriteToFile.write(bujoPath, week);
   }
 
+  /**
+   * view for week; button actions
+   */
   public void WeekView() {
     //call method to read bujo file then setup view using bujo file
     Appendable output = new FileAppendable(Paths.get(bujoPath).toFile());
@@ -216,6 +228,11 @@ public class BojuControllerImpl implements BojuController {
     displayWeek(week);
   }
 
+  /**
+   * sets limit for tasks
+   *
+   * @throws IOException if there's an error
+   */
   private void setTaskLimit() throws IOException {
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("UserInput.fxml"));
@@ -233,6 +250,11 @@ public class BojuControllerImpl implements BojuController {
     limitPopup.getContent().add(enterButton);
   }
 
+  /**
+   * sets limit for events
+   *
+   * @throws IOException if there's an error
+   */
   private void setEventLimit() throws IOException {
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("UserInput.fxml"));
@@ -280,6 +302,11 @@ public class BojuControllerImpl implements BojuController {
     WeekView();});
   }
 
+  /**
+   * opens popup for adding event
+   *
+   * @throws IOException if there's an error
+   */
   private void addEvent() throws IOException {
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("newEvent.fxml"));
@@ -305,6 +332,11 @@ public class BojuControllerImpl implements BojuController {
     displayWeek(week);
   }
 
+  /**
+   * opens a popup for adding a task
+   *
+   * @throws IOException if there's an error
+   */
   private void addTask() throws IOException {
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("newTask.fxml"));
@@ -396,6 +428,12 @@ public class BojuControllerImpl implements BojuController {
     }
   }
 
+  /**
+   * adds events on the grid
+   *
+   * @param d day of event
+   * @param i represents a event
+   */
   private void addEvents(Day d, int i) {
 
     if (i == 0) {
@@ -443,6 +481,12 @@ public class BojuControllerImpl implements BojuController {
     }
   }
 
+  /**
+   * adds tasks on the grid
+   *
+   * @param d day of task
+   * @param i represents a task
+   */
   private void addTasks(Day d, int i) {
     if (i == 0) {
       for (Task t : d.getTasks()) {
@@ -489,6 +533,9 @@ public class BojuControllerImpl implements BojuController {
     }
   }
 
+  /**
+   * clears vboxes in the grid
+   */
   public void clearVboxes() {
     day1Actions.getChildren().clear();
     day2Actions.getChildren().clear();
