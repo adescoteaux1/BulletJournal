@@ -4,6 +4,7 @@ import cs3500.pa05.controller.BujoController;
 import cs3500.pa05.controller.BujoControllerImpl;
 import cs3500.pa05.view.BujoView;
 import cs3500.pa05.view.UserInputView;
+import cs3500.pa05.view.WelcomeView;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.stage.Stage;
