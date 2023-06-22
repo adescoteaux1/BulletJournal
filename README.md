@@ -44,11 +44,34 @@ implemented the same BoJuView interface. This made it possible for all 3 view cl
 load() method slightly differently to display the correct scene for the program. If a new functionality
 needed to be added in the future, it would be easy to create a new view for that functionality.
 
-Liskov Substitution Principle: The Event and Task classes extend the Action class. Therefore, in Event 
+Liskov Substitution Principle: The Event and Task classes extend the Action class. Therefore, an Event 
 or Task is by definition an Action through extension. The two classes share the same 3 fields of name,
-description , and dayOfWeek. T
+description , and dayOfWeek. This way if at any point Action needs to be instantiated, it can be
+instantiated as an Event or Task, depending on the program requirements. This instantiation was not 
+used much in our program, since most of the time it was easier to create a new Event or new Task, however
+by following the Liskov pprinciple, if any extensions are added where the instantiation of an Action is
+required, it would be possible.
 
-Interface Segregation Principle:
-Dependency Inversion Principle:
+Interface Segregation Principle: All of our classes that implement a view or display something implement 
+the BuJoView interface. This makes it so that all the code in each of the classes don't have to rely on 
+methods they don't use. Each class can implement the method declared in the BuJoVeiew interface, load(). 
+By implemeting this interface, classes in the view folder that absolutely need the load() method can implement 
+this interface, and any classes that wouldn't need this method would not have to rely on the interface.
+
+Dependency Inversion Principle: The Event and Task classes use abstraction and are an extension of the 
+Action class. This makes it so Event and Task share similar elements, but also different ones that are
+personalized to the specific class. Action contains a few getter methods, which can be implemented for both
+Event or Task. Individually, Event has specific methods for an Event that manage fields it does not share 
+with Task; the same can be said for Task. This shows that there are no high-level modules that not depend 
+on low-level modules, but rather the classes Event and Task depend on the same abstraction from the Action 
+class.
+
 
 Extensions and More: 
+This program can be extend to add additional features such as a splash screen. A new class in the view 
+folder can be created. This class should implement the BuJoView interface and load a new fxml file displaying
+a Welcome screen; this screen would act as the splash screen. In this class, a method that registers user
+interaction can be created; this method should return a boolean. This way, for the run() method in the
+BuJoControllerImpl class, the splash screen can be loaded for a set amount of time before changing the 
+scene and following the rest of the application. To implement this succesfully, additional changes in Driver
+would be required to load the current view GUI.
