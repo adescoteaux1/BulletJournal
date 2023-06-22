@@ -14,6 +14,7 @@ import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Scanner;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -160,8 +161,8 @@ public class BojuControllerImpl implements BojuController {
    */
   @Override
   public void run() throws IllegalStateException, IOException {
+   // this.runSplash();
     enterTitle.setText("Enter a .boju file");
-
     enterButton.setOnAction(e -> {bujoPath = enterField.getText();
       stage.setScene(bvi.load());
       try {
@@ -286,6 +287,32 @@ public class BojuControllerImpl implements BojuController {
 
     displayWeek(week);
   }
+
+  /*
+  private void runSplash(){
+    bvi.displaySplash();
+    boolean userInteracted = waitForUserInteraction(2000);
+    if (userInteracted) {
+      bvi.displaySplash();
+    } else {
+      bvi.displaySplash();
+    }
+  }
+
+  private static boolean waitForUserInteraction(int timeout) {
+    Scanner scanner = new Scanner(System.in);
+
+    // Check if the user clicked within the timeout duration
+    long startTime = System.currentTimeMillis();
+    while (System.currentTimeMillis() - startTime < timeout) {
+      if (scanner.hasNextLine()) {
+        scanner.nextLine(); // Discard user input
+        return true; // User clicked, return true
+      }
+    }
+
+    return false; // Timeout reached, return false
+  } */
 
   /**
    * sets limit for tasks
