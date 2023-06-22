@@ -86,19 +86,19 @@ public class BojuControllerImpl implements BojuController {
   @FXML
   private ChoiceBox<DayOfWeek> startDay;
   @FXML
-  private VBox day1Actions;
+  private VBox day1Actions = new VBox();
   @FXML
-  private VBox day2Actions;
+  private VBox day2Actions = new VBox();
   @FXML
-  private VBox day3Actions;
+  private VBox day3Actions = new VBox();
   @FXML
-  private VBox day4Actions;
+  private VBox day4Actions = new VBox();
   @FXML
-  private VBox day5Actions;
+  private VBox day5Actions = new VBox();
   @FXML
-  private VBox day6Actions;
+  private VBox day6Actions = new VBox();
   @FXML
-  private VBox day7Actions;
+  private VBox day7Actions = new VBox();
   @FXML
   private Label day1;
   @FXML
@@ -390,47 +390,55 @@ public class BojuControllerImpl implements BojuController {
         day7.setText(d.getDayOfWeek().getName());
       }
 
-      //weekGrid.add(new Label(d.getDayOfWeek().getName()), i, 0);
+      clearVboxes();
       addEvents(d, i);
       addTasks(d, i);
     }
   }
 
   private void addEvents(Day d, int i) {
+
     if (i == 0) {
       for (Event e : d.getEvents()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day1Actions.getChildren().add(new Button(e.getName()));
+        Button b = new Button(e.getName());
+        //b.setOnAction(ev -> );
+        day1Actions.getChildren().add(b);
       }
     } else if (i == 1) {
       for (Event e : d.getEvents()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day2Actions.getChildren().add(new Button(e.getName()));
+        Button b = new Button(e.getName());
+        //b.setOnAction(ev -> );
+        day2Actions.getChildren().add(b);
       }
     } else if (i == 2) {
       for (Event e : d.getEvents()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day3Actions.getChildren().add(new Button(e.getName()));
+        Button b = new Button(e.getName());
+        //b.setOnAction(ev -> );
+        day3Actions.getChildren().add(b);
       }
     } else if (i == 3) {
       for (Event e : d.getEvents()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day4Actions.getChildren().add(new Button(e.getName()));
+        Button b = new Button(e.getName());
+        //b.setOnAction(ev -> );
+        day4Actions.getChildren().add(b);
       }
     } else if (i == 4) {
       for (Event e : d.getEvents()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day5Actions.getChildren().add(new Button(e.getName()));
+        Button b = new Button(e.getName());
+        //b.setOnAction(ev -> );
+        day5Actions.getChildren().add(b);
       }
     } else if (i == 5) {
       for (Event e : d.getEvents()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day6Actions.getChildren().add(new Button(e.getName()));
+        Button b = new Button(e.getName());
+        //b.setOnAction(ev -> );
+        day6Actions.getChildren().add(b);
       }
     } else if (i == 6) {
       for (Event e : d.getEvents()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day7Actions.getChildren().add(new Button(e.getName()));
+        Button b = new Button(e.getName());
+        //b.setOnAction(ev -> );
+        day7Actions.getChildren().add(b);
       }
     }
   }
@@ -438,40 +446,57 @@ public class BojuControllerImpl implements BojuController {
   private void addTasks(Day d, int i) {
     if (i == 0) {
       for (Task t : d.getTasks()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day1Actions.getChildren().add(new Button(t.getName()));
+        Button b = new Button(t.getName());
+        //b.setOnAction(ev -> );
+        day1Actions.getChildren().add(b);
       }
     } else if (i == 1) {
       for (Task t : d.getTasks()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day2Actions.getChildren().add(new Button(t.getName()));
+        Button b = new Button(t.getName());
+        //b.setOnAction(ev -> );
+        day2Actions.getChildren().add(b);
       }
     } else if (i == 2) {
       for (Task t : d.getTasks()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day3Actions.getChildren().add(new Button(t.getName()));
+        Button b = new Button(t.getName());
+        //b.setOnAction(ev -> );
+        day3Actions.getChildren().add(b);
       }
     } else if (i == 3) {
       for (Task t : d.getTasks()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day4Actions.getChildren().add(new Button(t.getName()));
+        Button b = new Button(t.getName());
+        //b.setOnAction(ev -> );
+        day4Actions.getChildren().add(b);
       }
     } else if (i == 4) {
       for (Task t : d.getTasks()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day5Actions.getChildren().add(new Button(t.getName()));
+        Button b = new Button(t.getName());
+        //b.setOnAction(ev -> );
+        day5Actions.getChildren().add(b);
       }
     } else if (i == 5) {
       for (Task t : d.getTasks()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day6Actions.getChildren().add(new Button(t.getName()));
+        Button b = new Button(t.getName());
+        //b.setOnAction(ev -> );
+        day6Actions.getChildren().add(b);
       }
     } else if (i == 6) {
       for (Task t : d.getTasks()) {
-        //weekGrid.add(new VBox(new Button(d.getDayOfWeek().getName())), i, 1);
-        day7Actions.getChildren().add(new Button(t.getName()));
+        Button b = new Button(t.getName());
+        //b.setOnAction(ev -> );
+        day7Actions.getChildren().add(b);
       }
     }
+  }
+
+  public void clearVboxes() {
+    day1Actions.getChildren().clear();
+    day2Actions.getChildren().clear();
+    day3Actions.getChildren().clear();
+    day4Actions.getChildren().clear();
+    day5Actions.getChildren().clear();
+    day6Actions.getChildren().clear();
+    day7Actions.getChildren().clear();
   }
 
 }

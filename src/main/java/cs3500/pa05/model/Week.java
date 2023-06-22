@@ -145,10 +145,15 @@ public class Week implements Serializable {
    * @param e an event we want to add
    */
   public void addEvent(Event e) {
-    for (Day d : days) {
-      if (d.getDayOfWeek().equals(e.getDayOfWeek())) {
-        d.addEvent(e);
+    if (numEvents < eventLimit) {
+      for (Day d : days) {
+        if (d.getDayOfWeek().getName().equals(e.getDayOfWeek().getName())) {
+          d.addEvent(e);
+        }
       }
+      numEvents++;
+    } else {
+      System.out.println("Extending event limit."); //delete for MVC?
     }
   }
 
