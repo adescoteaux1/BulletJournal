@@ -69,6 +69,7 @@ public class BojuViewImpl implements BojuView {
    * @return the layout
    */
   public Scene load() {
+    this.loader.setLocation(getClass().getClassLoader().getResource("WeekView.fxml"));
     // load the layout
     try {
       return this.loader.load();
@@ -165,7 +166,7 @@ public class BojuViewImpl implements BojuView {
       for (Event e : d.getEvents()) {
         day6Actions.getChildren().add(new Button(e.getName()));
       }
-    } else if (i ==6) {
+    } else if (i == 6) {
       for (Event e : d.getEvents()) {
         day7Actions.getChildren().add(new Button(e.getName()));
       }
@@ -197,7 +198,7 @@ public class BojuViewImpl implements BojuView {
       for (Task t : d.getTasks()) {
         day6Actions.getChildren().add(new Button(t.getName()));
       }
-    } else if (i ==6) {
+    } else if (i == 6) {
       for (Task t : d.getTasks()) {
         day7Actions.getChildren().add(new Button(t.getName()));
       }

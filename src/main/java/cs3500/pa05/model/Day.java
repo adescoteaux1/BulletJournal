@@ -82,7 +82,7 @@ public class Day implements Serializable {
    * @return the day of the week
    */
   public DayOfWeek getDayOfWeek() {
-    return this.getDayOfWeek();
+    return day;
   }
 
 }

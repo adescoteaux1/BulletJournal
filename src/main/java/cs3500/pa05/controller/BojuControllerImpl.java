@@ -175,7 +175,7 @@ public class BojuControllerImpl implements BojuController {
     //removeTask.setOnAction(e -> deleteTask());
     //deEvent.setOnAction(e -> deleteEvent());
 
-    bvi.displayWeek(week);
+    //bvi.displayWeek(week);
   }
 
   private void setTaskLimit() throws IOException {
@@ -264,7 +264,7 @@ public class BojuControllerImpl implements BojuController {
     });
 
     eventPopup.getContent().add(enterButton);
-    bvi.displayWeek(week);
+    //bvi.displayWeek(week);
   }
 
   private void addTask() throws IOException {
@@ -286,7 +286,7 @@ public class BojuControllerImpl implements BojuController {
     });
 
     taskPopup.getContent().add(enterButton);
-    bvi.displayWeek(week);
+    //bvi.displayWeek(week);
   }
 /*
   public void addAction(Action action) {
@@ -322,7 +322,7 @@ public class BojuControllerImpl implements BojuController {
     });
 
     qnotePopup.getContent().add(finish);
-    bvi.displayWeek(week);
+    //bvi.displayWeek(week);
   }
 
 }
