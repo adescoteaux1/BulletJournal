@@ -210,8 +210,6 @@ public class BujoControllerImpl implements BujoController {
    */
   public void WeekView() throws IOException {
     //call method to read bujo file then setup view using bujo file
-    //Appendable output = new FileAppendable(Paths.get(bujoPath).toFile());
-    //writer = new BujoWriter(output);
     week.setStartDay(startDay.getValue());
 
     //button actions

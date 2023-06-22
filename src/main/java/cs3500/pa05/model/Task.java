@@ -1,7 +1,5 @@
 package cs3500.pa05.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * represents a task in the Bujo
  */
@@ -16,10 +14,7 @@ public class Task extends Action {
    * @param dayOfWeek when the task needs to be done
    * @param isComplete if the task is complete
    */
-  public Task(@JsonProperty("name") String name,
-              @JsonProperty("description") String description,
-              @JsonProperty("dayOfWeek") DayOfWeek dayOfWeek,
-              @JsonProperty("isComplete") boolean isComplete) {
+  public Task(String name, String description, DayOfWeek dayOfWeek, boolean isComplete) {
     super(name, description, dayOfWeek);
     this.isComplete = isComplete;
   }
