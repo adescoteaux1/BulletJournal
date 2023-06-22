@@ -1,21 +1,21 @@
 ## Section 1: Requirements
-- Week View -> done
-- Event and Task Creation -> done
-- Commitment Warnings -> good enough
-- Persistence -> done
+- Week View
+- Event and Task Creation
+- Commitment Warnings
+- Persistence
 
 ## Section 2: Headlining Features
-- Task Queue -> DO THIS
-- Menu Bar and ShortCuts -> done
+- Task Queue
+- Menu Bar and ShortCuts
 
 ## Section 3: Power Ups
-- Quotes & Notes -> done
-- Mini Viewer -> popups, done
-- Takesie-backsies -> in progress
+- Quotes & Notes
+- Mini Viewer
+- Takesie-backsies
 
 ## Section 4: Quality of Life
-- Mind Changes -> in progress
-- Week Start -> done
+- Mind Changes
+- Week Start
 
 
 ## Section 5: Extra Credit
