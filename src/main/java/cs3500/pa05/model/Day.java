@@ -1,12 +1,11 @@
 package cs3500.pa05.model;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
  * represents a day of the week
  */
-public class Day implements Serializable {
+public class Day {
   private final DayOfWeek day;
   private final List<Event> events;
   private final List<Task> tasks;

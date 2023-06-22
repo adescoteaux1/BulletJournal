@@ -1,13 +1,12 @@
 package cs3500.pa05.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * represents a week
  */
-public class Week implements Serializable {
+public class Week {
 
   private List<Day> days;
   private int taskLimit;

@@ -1,12 +1,10 @@
 package cs3500.pa05.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import java.io.Serializable;
 
 /**
  * represents an action
  */
-public abstract class Action implements Serializable {
+public abstract class Action {
   private final String name;
   private final String description;
   private DayOfWeek dayOfWeek;
@@ -18,9 +16,7 @@ public abstract class Action implements Serializable {
    * @param description of the action
    * @param dayOfWeek of when the action is
    */
-  public Action(@JsonProperty("name") String name,
-                @JsonProperty("description") String description,
-                @JsonProperty("dayOfWeek") DayOfWeek dayOfWeek) {
+  public Action(String name, String description, DayOfWeek dayOfWeek) {
     this.name = name;
     this.description = description;
     this.dayOfWeek = dayOfWeek;
