@@ -134,6 +134,8 @@ public class BujoControllerImpl implements BujoController {
   private Popup taskOptionsPopup;
   @FXML
   private VBox sideBar;
+  @FXML
+  private Popup openPopup;
   private UserInputView uiv;
   private WelcomeView wv;
 
@@ -161,12 +163,12 @@ public class BujoControllerImpl implements BujoController {
    * runs the bujo application
    *
    * @throws IllegalStateException if there is an error
-   * @throws IOException if runtime error occurs, class is not ofund, etc.
+   * @throws IOException if runtime error occurs, class is not found, etc.
    */
   @Override
   public void run() throws IllegalStateException, IOException {
     //this.runSplash();
-    enterTitle.setText("Enter a .boju file");
+    enterTitle.setText("Enter a .bujo file");
     enterButton.setOnAction(e -> {bujoPath = enterField.getText();
 
       if (uiv.validateFile(bujoPath)) {
@@ -269,7 +271,8 @@ public class BujoControllerImpl implements BujoController {
     });
     open.setOnAction(e -> {
       try {
-        run();
+        bvi.makePopup(openPopup, stage);
+        open();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
@@ -296,8 +299,36 @@ public class BujoControllerImpl implements BujoController {
         addQnote.fire();
       }
     });
+    newWeek.setOnAction(e -> {
+      try {
+        week = ReadFile.readBujoFile("");
+      } catch (IOException | ClassNotFoundException ex) {
+        throw new RuntimeException(ex);
+      }
+    });
 
     displayWeek(week);
+  }
+
+  public void open() throws IllegalStateException, IOException {
+    FXMLLoader loader = new FXMLLoader(
+        getClass().getClassLoader().getResource("UserInput.fxml"));
+    loader.setController(this);
+    Scene s = loader.load();
+    enterTitle.setText("Enter a .bujo file");
+    openPopup.getContent().add((Node)s.getRoot());
+
+    enterButton.setOnAction(e -> { bujoPath = enterField.getText();
+      openPopup.hide();
+      try {
+        week = ReadFile.readBujoFile(bujoPath);
+      } catch (IOException | ClassNotFoundException ex) {
+        throw new RuntimeException(ex);
+      }
+
+    });
+
+    openPopup.getContent().add(enterButton);
   }
 
   /*
