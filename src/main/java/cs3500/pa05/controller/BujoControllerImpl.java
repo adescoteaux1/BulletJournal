@@ -5,6 +5,7 @@ import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Week;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Event;
+import cs3500.pa05.model.writer.ReadFile;
 import cs3500.pa05.model.writer.WriteToFile;
 import cs3500.pa05.view.BujoViewImpl;
 import cs3500.pa05.view.UserInputView;
