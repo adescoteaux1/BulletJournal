@@ -61,6 +61,20 @@ public class Week implements Serializable {
   }
 
   /**
+   * gets this week's task limit
+   */
+  public int getTaskLimit() {
+    return taskLimit;
+  }
+
+  /**
+   * gets this week's event limit
+   */
+  public int getEventLimit() {
+    return eventLimit;
+  }
+
+  /**
    * creates a new event
    *
    * @param day the day the event is being created on
@@ -223,12 +237,5 @@ public class Week implements Serializable {
     newDays.addAll(days.subList(0, shiftedAmount));
 
     days = newDays;
-  }
-
-  /**
-   * displays the week
-   */
-  public void displayWeek() {
-
   }
 }
