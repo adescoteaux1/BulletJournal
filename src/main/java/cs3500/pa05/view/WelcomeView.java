@@ -1,7 +1,6 @@
 package cs3500.pa05.view;
 
 import cs3500.pa05.controller.BujoController;
-import cs3500.pa05.controller.BujoControllerImpl;
 import java.io.IOException;
 import java.util.Scanner;
 import javafx.fxml.FXMLLoader;
@@ -35,6 +34,12 @@ public class WelcomeView implements BujoView {
     }
   }
 
+  /**
+   * waits for user to interact
+   *
+   * @param timeout time until time out
+   * @return true or false
+   */
   public boolean waitForUserInteraction(int timeout) {
     Scanner scanner = new Scanner(System.in);
 
