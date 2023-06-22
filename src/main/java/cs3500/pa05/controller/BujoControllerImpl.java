@@ -10,7 +10,6 @@ import cs3500.pa05.model.writer.WriteToFile;
 import cs3500.pa05.view.BujoViewImpl;
 import cs3500.pa05.view.UserInputView;
 import cs3500.pa05.view.WelcomeView;
-import java.util.Scanner;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -555,7 +554,7 @@ public class BujoControllerImpl implements BujoController {
 
     for (Day d : week.getDays()) {
       for (Task t : d.getTasks()) {
-        if (t.getIsComplete()){
+        if (t.getIsComplete()) {
           sideBar.getChildren().add(new Label(t.getName() + " - Complete"));
         } else {
           sideBar.getChildren().add(new Label(t.getName() + " - Not Complete"));

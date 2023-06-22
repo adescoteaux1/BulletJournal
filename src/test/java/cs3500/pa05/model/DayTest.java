@@ -1,7 +1,7 @@
 package cs3500.pa05.model;
 
 import static cs3500.pa05.model.DayOfWeek.THURSDAY;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +10,12 @@ import org.junit.jupiter.api.Test;
 
 class DayTest {
   Day thursday;
+
   @BeforeEach
   public void createDays() {
     thursday = new Day(THURSDAY, new ArrayList<>(), new ArrayList<>());
   }
+
   @Test
   public void testAddEvent() {
     Event newEvent = new Event("class", "last ood class",
