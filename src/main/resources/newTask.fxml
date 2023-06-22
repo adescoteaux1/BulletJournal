@@ -11,13 +11,13 @@
 <?import cs3500.pa05.model.DayOfWeek?>
 
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <AnchorPane prefHeight="200" prefWidth="200">
+    <AnchorPane prefHeight="200" prefWidth="200" style="-fx-background-color: rgb(204, 204, 255);">
         <children>
             <TextField fx:id="nameInput" layoutX="14.0" layoutY="37.0" prefHeight="26.0" prefWidth="140.0"
-                       promptText="Name"/>
+                       promptText="Name" style="-fx-font-family: Georgia;"/>
             <TextField fx:id="descriptionInput" layoutX="14.0" layoutY="75.0" prefHeight="50.0" prefWidth="160.0"
-                       promptText="Description"/>
-            <ChoiceBox id="dayBox" fx:id="dayBox" layoutX="50.0" layoutY="138.0" prefHeight="26.0" prefWidth="88.0">
+                       promptText="Description" style="-fx-font-family: Georgia;"/>
+            <ChoiceBox id="dayBox" fx:id="dayBox" layoutX="50.0" layoutY="138.0" prefHeight="26.0" prefWidth="88.0" style="-fx-font-family: Georgia;">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
                         <DayOfWeek fx:value="MONDAY"/>
@@ -30,9 +30,9 @@
                     </FXCollections>
                 </items>
             </ChoiceBox>
-            <Label layoutX="14.0" layoutY="6.0" text="New Task"/>
-            <Label layoutX="14.0" layoutY="142.0" text="Day"/>
-            <Button fx:id="enterButton" layoutX="138.0" layoutY="173.0" mnemonicParsing="false" text="Enter"/>
+            <Label layoutX="14.0" layoutY="6.0" text="New Task" style="-fx-font-family: Georgia;"/>
+            <Label layoutX="14.0" layoutY="142.0" text="Day" style="-fx-font-family: Georgia;"/>
+            <Button fx:id="enterButton" layoutX="138.0" layoutY="173.0" mnemonicParsing="false" text="Enter" style="-fx-font-family: Georgia; -fx-background-color: rgb(160, 167, 224);"/>
         </children>
     </AnchorPane>
 </Scene>
