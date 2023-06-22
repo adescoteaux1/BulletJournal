@@ -37,13 +37,13 @@
                                     <RowConstraints maxHeight="222.0" minHeight="10.0" prefHeight="151.76820373535156" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                 <children>
-                                    <Label fx:id="day1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="98.0" text="Sunday" />
-                                    <Label fx:id="day2" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Monday" GridPane.columnIndex="1" />
-                                    <Label fx:id="day3" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Tuesday" GridPane.columnIndex="2" />
-                                    <Label fx:id="day4" alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Wednesday" GridPane.columnIndex="3" />
-                                    <Label fx:id="day5" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Thursday" GridPane.columnIndex="4" />
-                                    <Label fx:id="day6" alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Friday" GridPane.columnIndex="5" />
-                                    <Label fx:id="day7" alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="Saturday" GridPane.columnIndex="6" />
+                                    <Label fx:id="day1" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="98.0" text="Sunday" style="-fx-font-family: Georgia;"/>
+                                    <Label fx:id="day2" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Monday" GridPane.columnIndex="1" style="-fx-font-family: Georgia;"/>
+                                    <Label fx:id="day3" alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Tuesday" GridPane.columnIndex="2" style="-fx-font-family: Georgia;"/>
+                                    <Label fx:id="day4" alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Wednesday" GridPane.columnIndex="3" style="-fx-font-family: Georgia;"/>
+                                    <Label fx:id="day5" alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Thursday" GridPane.columnIndex="4" style="-fx-font-family: Georgia;"/>
+                                    <Label fx:id="day6" alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Friday" GridPane.columnIndex="5" style="-fx-font-family: Georgia;"/>
+                                    <Label fx:id="day7" alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="Saturday" GridPane.columnIndex="6" style="-fx-font-family: Georgia;"/>
                            <VBox fx:id="day4Actions" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                            <VBox fx:id="day3Actions" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                            <VBox fx:id="day2Actions" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -61,7 +61,7 @@
             <children>
                <HBox prefHeight="67.0" prefWidth="337.0" style="-fx-border-color: rgb(160, 167, 224); -fx-border-width: 5;">
                   <children>
-                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="329.0" text="task queue">
+                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="329.0" text="task queue" style="-fx-font-family: Georgia;">
                         <padding>
                            <Insets top="3.0" />
                         </padding>
@@ -74,17 +74,17 @@
                 <children>
                     <HBox prefHeight="36.0" prefWidth="318.0" style="-fx-border-color: rgb(160, 167, 224); -fx-border-width: 5;">
                         <children>
-                            <Label alignment="CENTER" prefHeight="26.0" prefWidth="308.0" text="quotes and notes" />
+                            <Label alignment="CENTER" prefHeight="26.0" prefWidth="308.0" text="quotes and notes" style="-fx-font-family: Georgia;"/>
                         </children>
                     </HBox>
                <TextArea fx:id="quoteOrNote" prefHeight="168.0" prefWidth="318.0" />
                 </children>
             </VBox>
-              <Button fx:id="addTask" layoutX="327.0" layoutY="21.0" maxWidth="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Add Task" />
-              <Button fx:id="addEvent" layoutX="417.0" layoutY="21.0" maxWidth="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Add Event" />
-              <Button fx:id="addQnote" layoutX="508.0" layoutY="21.0" maxWidth="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="Add Qnote" />
-         <Button fx:id="save" layoutX="237.0" layoutY="21.0" maxWidth="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="Save" />
-         <ChoiceBox fx:id="startDay" layoutX="812.0" layoutY="406.0" prefHeight="26.0" prefWidth="41.0">
+              <Button fx:id="addTask" layoutX="327.0" layoutY="21.0" maxWidth="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Add Task" style="-fx-background-color: rgb(160, 167, 224); -fx-font-family: Georgia;"/>
+              <Button fx:id="addEvent" layoutX="417.0" layoutY="21.0" maxWidth="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Add Event" style="-fx-background-color: rgb(160, 167, 224); -fx-font-family: Georgia;"/>
+              <Button fx:id="addQnote" layoutX="508.0" layoutY="21.0" maxWidth="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="Add Qnote" style="-fx-background-color: rgb(160, 167, 224); -fx-font-family: Georgia;"/>
+         <Button fx:id="save" layoutX="237.0" layoutY="21.0" maxWidth="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="Save" style="-fx-background-color: rgb(160, 167, 224); -fx-font-family: Georgia;"/>
+         <ChoiceBox fx:id="startDay" layoutX="812.0" layoutY="406.0" prefHeight="26.0" prefWidth="41.0" style="-fx-font-family: Georgia;">
              <items>
                  <FXCollections fx:factory="observableArrayList">
                      <DayOfWeek fx:value="MONDAY"/>
@@ -98,11 +98,11 @@
              </items>
          </ChoiceBox>
          <Label layoutX="752.0" layoutY="411.0" text="Start Day:" />
-         <Button fx:id="open" layoutX="146.0" layoutY="21.0" maxWidth="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="113.0" text="Open" />
-         <Button fx:id="newWeek" layoutX="57.0" layoutY="21.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" text="New Week" />
-         <Button fx:id="setTaskLimit" layoutX="598.0" layoutY="21.0" minWidth="100.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" text="Set Task Limit" />
-         <Button fx:id="setEventLimit" layoutX="709.0" layoutY="21.0" minWidth="100.0" mnemonicParsing="false" text="Set Event Limit" />
-         <Button fx:id="refresh" layoutX="783.0" layoutY="439.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="73.0" text="Refresh" />
+         <Button fx:id="open" layoutX="146.0" layoutY="21.0" maxWidth="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="113.0" text="Open" style="-fx-background-color: rgb(160, 167, 224); -fx-font-family: Georgia;"/>
+         <Button fx:id="newWeek" layoutX="57.0" layoutY="21.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" text="New Week" style="-fx-background-color: rgb(160, 167, 224); -fx-font-family: Georgia;"/>
+         <Button fx:id="setTaskLimit" layoutX="598.0" layoutY="21.0" minWidth="100.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" text="Set Task Limit" style="-fx-background-color: rgb(160, 167, 224); -fx-font-family: Georgia;"/>
+         <Button fx:id="setEventLimit" layoutX="709.0" layoutY="21.0" minWidth="100.0" mnemonicParsing="false" text="Set Event Limit" style="-fx-background-color: rgb(160, 167, 224); -fx-font-family: Georgia;"/>
+         <Button fx:id="refresh" layoutX="783.0" layoutY="439.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="73.0" text="Refresh" style="-fx-background-color: rgb(160, 167, 224); -fx-font-family: Georgia;"/>
         </children>
       <padding>
          <Insets right="50.0" top="50.0" />
