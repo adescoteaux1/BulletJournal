@@ -47,8 +47,6 @@ public class BojuControllerImpl implements BojuController {
   @FXML
   private Button addEvent;
   @FXML
-  private ToggleButton changeTheme;
-  @FXML
   private Button addNote;
   private Writer writer;
   private Popup eventPopup;
@@ -82,6 +80,11 @@ public class BojuControllerImpl implements BojuController {
   private Button setEventLimit;
   @FXML
   private Button save;
+  @FXML
+  private Label quoteOrNote;
+
+
+
 
   public BojuControllerImpl(Stage stage) {
     this.stage = stage;
@@ -152,18 +155,19 @@ public class BojuControllerImpl implements BojuController {
         throw new RuntimeException(ex);
       }
     });
-    save.setOnAction(e -> {
+
+
+    addQnote.setOnAction(e -> {
+      bvi.makePopup(qnotePopup, stage);
       try {
-        save();
+        addQnote();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
     });
 
-    //addNote.setOnAction(e -> Note());
-    //changeTheme.setOnAction(e -> newTheme());
     //removeTask.setOnAction(e -> deleteTask());
-    //removeEvent.setOnAction(e -> deleteEvent());
+    //deEvent.setOnAction(e -> deleteEvent());
   }
 
   private void setTaskLimit() throws IOException {
@@ -171,9 +175,8 @@ public class BojuControllerImpl implements BojuController {
         getClass().getClassLoader().getResource("UserInput.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    limitPopup.getContent().add((Node)s.getRoot());
-
     enterTitle.setText("Enter the Task Limit");
+    limitPopup.getContent().add((Node)s.getRoot());
 
     enterButton.setOnAction(e -> {
       limitPopup.hide();
@@ -189,9 +192,8 @@ public class BojuControllerImpl implements BojuController {
         getClass().getClassLoader().getResource("UserInput.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    limitPopup.getContent().add((Node)s.getRoot());
-
     enterTitle.setText("Enter the Event Limit");
+    limitPopup.getContent().add((Node)s.getRoot());
 
     enterButton.setOnAction(e -> {
       int eventLimit = Integer.parseInt(enterField.getText());
@@ -200,9 +202,6 @@ public class BojuControllerImpl implements BojuController {
       });
 
     limitPopup.getContent().add(enterButton);
-  }
-  private void newTheme() {
-    //To-Do
   }
 
   private void Note() {
@@ -236,9 +235,6 @@ public class BojuControllerImpl implements BojuController {
   }
 
   private void addEvent() throws IOException {
-    //UserInputView uiv = new UserInputView(this);
-    //stage.setScene(uiv.load());
-
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("newEvent.fxml"));
     loader.setController(this);
@@ -260,16 +256,9 @@ public class BojuControllerImpl implements BojuController {
     });
 
     eventPopup.getContent().add(enterButton);
-
-    //enterButton.setOnAction(e -> {String newEvent = enterField.getText();
-      //writer.write(newEvent);});
-    //call method to add event to bujo
   }
 
   private void addTask() throws IOException {
-    //UserInputView uiv = new UserInputView(this);
-    //stage.setScene(uiv.load());
-
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("newTask.fxml"));
     loader.setController(this);
@@ -294,20 +283,32 @@ public class BojuControllerImpl implements BojuController {
     weekGrid.add(new Label(action.getName()), day.getValue(), 2);
   }
 
+  /**
+   * adds qnote to week
+   *
+   * @throws IOException if error occurs
+   */
   private void addQnote() throws IOException {
     FXMLLoader loader = new FXMLLoader(
-        getClass().getClassLoader().getResource("newQnote.fxml"));
+        getClass().getClassLoader().getResource("qnotePop.fxml"));
     loader.setController(this);
     Scene s = loader.load();
     qnotePopup.getContent().add((Node)s.getRoot());
+
     finish.setOnAction(e -> {
       qnotePopup.hide();
       String qnote = userQnote.getText();
+      quoteOrNote.setText(qnote);
+
+      //same
       bvi.addQuotOrNote(qnote);
+
+      //week update
       week.setQuoteOrNote(qnote);
       WeekView();
     });
 
+    qnotePopup.getContent().add(finish);
   }
 
 }

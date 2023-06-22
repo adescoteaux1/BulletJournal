@@ -1,6 +1,6 @@
 ## Section 1: Requirements
-- Week View -> MainMenuGui and BojuViewImpl
-- Event and Task Creation -> with adds
+- Week View -> in progress...
+- Event and Task Creation -> in progress...
 - Commitment Warnings -> with creating tasks/events, sout
 - Persistence
 

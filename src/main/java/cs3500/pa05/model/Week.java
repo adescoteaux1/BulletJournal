@@ -9,12 +9,13 @@ import java.util.List;
  */
 public class Week implements Serializable {
 
-  private  List<Day> days;
-  public  int taskLimit;
-  public  int eventLimit;
-  private  int numEvents;
-  private  int numTasks;
-  private  String quoteOrNote;
+  private List<Day> days;
+  private int taskLimit;
+  private int eventLimit;
+  private int numEvents;
+  private int numTasks;
+  private Theme selectedTheme; // default is always light
+  private String quoteOrNote;
 
   /**
    * constructor for Week
@@ -30,6 +31,7 @@ public class Week implements Serializable {
     this.eventLimit = eventLimit;
     numEvents = 0;
     numTasks = 0;
+    selectedTheme = Theme.LIGHT;
     quoteOrNote = "";
   }
 

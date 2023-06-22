@@ -3,22 +3,17 @@ package cs3500.pa05.view;
 import cs3500.pa05.controller.BojuController;
 import cs3500.pa05.model.Action;
 import cs3500.pa05.model.DayOfWeek;
-import cs3500.pa05.model.Event;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Week;
 import java.io.IOException;
 import java.util.List;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
@@ -32,13 +27,7 @@ public class BojuViewImpl implements BojuView {
   private final VBox sideBar;
 
   @FXML
-  private TextArea quoteOrNote;
-
-  @FXML
-  private Label eventOrTask;
-
-  @FXML
-  private TextField details;
+  private Label quoteOrNote;
   @FXML
   private GridPane weekGrid;
 
@@ -55,7 +44,6 @@ public class BojuViewImpl implements BojuView {
     this.loader.setLocation(getClass().getClassLoader().getResource("WeekView.fxml"));
     this.loader.setController(controller);
     this.sideBar = new VBox();
-    this.quoteOrNote = new TextArea();
   }
 
   /**
@@ -99,6 +87,11 @@ public class BojuViewImpl implements BojuView {
     popup.show(stage);
   }
 
+  /**
+   * adds an action in view
+   *
+   * @param action that needs to be added
+   */
   public void addAction(Action action) {
     DayOfWeek day = action.getDayOfWeek();
     weekGrid.add(new Label(action.getName()), day.getValue(), 2);
@@ -115,6 +108,11 @@ public class BojuViewImpl implements BojuView {
   }
 
 
+  /**
+   * displays the week
+   *
+   * @param week is current week
+   */
   public void displayWeek(Week week) {
     //TODO: show week
   }

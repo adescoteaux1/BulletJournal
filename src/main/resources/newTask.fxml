@@ -6,11 +6,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.stage.Stage?>
 
 <?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
 <?import cs3500.pa05.model.DayOfWeek?>
+
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane prefHeight="200" prefWidth="200">
         <children>
