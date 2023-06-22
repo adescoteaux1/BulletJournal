@@ -51,10 +51,11 @@ dependencies {
 
     // JavaFX
     implementation('org.controlsfx:controlsfx:11.1.2')
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
 
     // JUnit
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 
     // TestFX
@@ -69,6 +70,11 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    testLogging {
+        showStandardStreams = true
+        events "failed"
+        exceptionFormat "full"
+    }
 }
 
 jlink {

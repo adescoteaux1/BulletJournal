@@ -113,6 +113,16 @@ public class BojuControllerImpl implements BojuController {
   private Button refresh;
   @FXML
   private Button open;
+  @FXML
+  private Button eventDelete;
+  @FXML
+  private Button eventEdit;
+  @FXML
+  private Button taskDelete;
+  @FXML
+  private Button taskEdit;
+  @FXML
+  private Popup eventOptionsPopup;
 
 
   /**
@@ -126,6 +136,7 @@ public class BojuControllerImpl implements BojuController {
     this.taskPopup = new Popup();
     this.limitPopup = new Popup();
     this.qnotePopup = new Popup();
+    eventOptionsPopup = new Popup();
     bvi = new BojuViewImpl(this);
   }
 
@@ -148,7 +159,11 @@ public class BojuControllerImpl implements BojuController {
       } catch (ClassNotFoundException ex) {
         throw new RuntimeException(ex);
       }
-      WeekView();
+      try {
+        WeekView();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
     });
   }
 
@@ -163,7 +178,7 @@ public class BojuControllerImpl implements BojuController {
   /**
    * view for week; button actions
    */
-  public void WeekView() {
+  public void WeekView() throws IOException {
     //call method to read bujo file then setup view using bujo file
     Appendable output = new FileAppendable(Paths.get(bujoPath).toFile());
     writer = new BujoWriter(output);
@@ -221,7 +236,11 @@ public class BojuControllerImpl implements BojuController {
       }
     });
     refresh.setOnAction(e -> {
-      displayWeek(week);
+      try {
+        displayWeek(week);
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
     });
     open.setOnAction(e -> {
       try {
@@ -297,7 +316,11 @@ public class BojuControllerImpl implements BojuController {
 
     enterButton.setOnAction(e -> {String eventToDelete = enterField.getText();
     week.deleteEvent(eventToDelete);
-    WeekView();
+      try {
+        WeekView();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
     });
   }
 
@@ -308,7 +331,12 @@ public class BojuControllerImpl implements BojuController {
 
     enterButton.setOnAction(e -> {String taskToDelete = enterField.getText();
     week.deleteTask(taskToDelete);
-    WeekView();});
+      try {
+        WeekView();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
+    });
   }
 
   /**
@@ -397,7 +425,11 @@ public class BojuControllerImpl implements BojuController {
 
       //week update
       week.setQuoteOrNote(qnote);
-      WeekView();
+      try {
+        WeekView();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
     });
 
     qnotePopup.getContent().add(finish);
@@ -409,7 +441,7 @@ public class BojuControllerImpl implements BojuController {
    *
    * @param week is current week
    */
-  public void displayWeek(Week week) {
+  public void displayWeek(Week week) throws IOException {
     week.setStartDay(startDay.getValue());
 
     for (int i = 0; i < 7; i++) {
@@ -443,52 +475,127 @@ public class BojuControllerImpl implements BojuController {
    * @param d day of event
    * @param i represents a event
    */
-  private void addEvents(Day d, int i) {
+  private void addEvents(Day d, int i) throws IOException {
 
     if (i == 0) {
       for (Event e : d.getEvents()) {
         Button b = new Button(e.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(eventOptionsPopup, stage);
+          try {
+            handleEventClick(e);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day1Actions.getChildren().add(b);
       }
     } else if (i == 1) {
       for (Event e : d.getEvents()) {
         Button b = new Button(e.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(eventOptionsPopup, stage);
+          try {
+            handleEventClick(e);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day2Actions.getChildren().add(b);
       }
     } else if (i == 2) {
       for (Event e : d.getEvents()) {
         Button b = new Button(e.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(eventOptionsPopup, stage);
+          try {
+            handleEventClick(e);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day3Actions.getChildren().add(b);
       }
     } else if (i == 3) {
       for (Event e : d.getEvents()) {
         Button b = new Button(e.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(eventOptionsPopup, stage);
+          try {
+            handleEventClick(e);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day4Actions.getChildren().add(b);
       }
     } else if (i == 4) {
       for (Event e : d.getEvents()) {
         Button b = new Button(e.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(eventOptionsPopup, stage);
+          try {
+            handleEventClick(e);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day5Actions.getChildren().add(b);
       }
     } else if (i == 5) {
       for (Event e : d.getEvents()) {
         Button b = new Button(e.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(eventOptionsPopup, stage);
+          try {
+            handleEventClick(e);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day6Actions.getChildren().add(b);
       }
     } else if (i == 6) {
       for (Event e : d.getEvents()) {
         Button b = new Button(e.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(eventOptionsPopup, stage);
+          try {
+            handleEventClick(e);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day7Actions.getChildren().add(b);
       }
     }
   }
+
+  private void handleEventClick(Event event) throws IOException {
+    FXMLLoader loader = new FXMLLoader(
+        getClass().getClassLoader().getResource("EventWindow.fxml"));
+    loader.setController(this);
+    Scene s = loader.load();
+    eventOptionsPopup.getContent().add((Node)s.getRoot());
+
+    eventDelete.setOnAction(e -> {
+      eventOptionsPopup.hide();
+      week.deleteEvent(event.getName());
+
+    });
+    eventEdit.setOnAction(e -> {
+      eventOptionsPopup.hide();
+      week.deleteEvent(event.getName());
+      try {
+        addEvent();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
+    });
+
+    eventOptionsPopup.getContent().add(enterButton);
+  }
+
 
   /**
    * adds tasks on the grid
