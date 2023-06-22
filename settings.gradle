@@ -9,4 +9,6 @@ include 'src:test'
 findProject(':src:test')?.name = 'test'
 include 'src:alpacas'
 findProject(':src:alpacas')?.name = 'alpacas'
+include 'src:test'
+findProject(':src:test')?.name = 'test'
 
