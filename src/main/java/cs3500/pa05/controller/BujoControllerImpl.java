@@ -479,7 +479,7 @@ public class BujoControllerImpl implements BujoController {
   }
 
   /**
-   * adds qnote to week
+   * adds qnote to the week
    *
    * @throws IOException if error occurs
    */
