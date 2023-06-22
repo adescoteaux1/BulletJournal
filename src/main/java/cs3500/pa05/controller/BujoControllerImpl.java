@@ -352,33 +352,6 @@ public class BujoControllerImpl implements BujoController {
     openPopup.getContent().add(enterButton);
   }
 
-/*
-  private void runSplash(){
-    wv.load();
-    boolean userInteracted = waitForUserInteraction(2000);
-    if (userInteracted) {
-      uiv.load();
-    } else {
-      uiv.load();
-    }
-  }
-
-  private static boolean waitForUserInteraction(int timeout) {
-    Scanner scanner = new Scanner(System.in);
-
-    // Check if the user clicked within the timeout duration
-    long startTime = System.currentTimeMillis();
-    while (System.currentTimeMillis() - startTime < timeout) {
-      if (scanner.hasNextLine()) {
-        scanner.nextLine(); // Discard user input
-        return true; // User clicked, return true
-      }
-    }
-
-    return false; // Timeout reached, return false
-  }
-*/
-
   /**
    * sets limit for tasks
    *
