@@ -135,6 +135,8 @@ public class BojuControllerImpl implements BojuController {
   private Popup eventOptionsPopup;
   @FXML
   private Popup taskOptionsPopup;
+  @FXML
+  private VBox sideBar;
 
 
   /**
@@ -150,6 +152,7 @@ public class BojuControllerImpl implements BojuController {
     this.qnotePopup = new Popup();
     eventOptionsPopup = new Popup();
     taskOptionsPopup = new Popup();
+    sideBar = new VBox();
     bvi = new BojuViewImpl(this);
   }
 
@@ -424,8 +427,6 @@ public class BojuControllerImpl implements BojuController {
       String duration = durationInput.getText();
       Event newEvent = new Event(name, desc, day, start, duration);
       week.addEvent(newEvent);
-      //addAction(newEvent);
-      //writer.write(JsonUtils.serializeRecord(new EventJson(newEvent)).toString());
     });
 
     eventPopup.getContent().add(enterButton);
@@ -451,20 +452,11 @@ public class BojuControllerImpl implements BojuController {
       DayOfWeek day = dayBox.getValue();
       Task newTask = new Task(name, desc, day, false);
       week.addTask(newTask);
-      //addAction(newTask);
-      //writer.write(JsonUtils.serializeRecord(new TaskJson(newTask)).toString());
     });
 
     taskPopup.getContent().add(enterButton);
     displayWeek(week);
   }
-/*
-  public void addAction(Action action) {
-    DayOfWeek day = action.getDayOfWeek();
-    //weekGrid.add(new Label(action.getName()), day.getValue(), 2);
-  }
-
- */
 
   /**
    * adds qnote to week
@@ -529,6 +521,17 @@ public class BojuControllerImpl implements BojuController {
       clearVboxes();
       addEvents(d, i);
       addTasks(d, i);
+      fillTaskQueue();
+    }
+  }
+
+  private void fillTaskQueue() {
+    sideBar.getChildren().clear();
+
+    for (Day d : week.getDays()) {
+      for (Task t : d.getTasks()) {
+        sideBar.getChildren().add(new Label(t.getName()));
+      }
     }
   }
 
