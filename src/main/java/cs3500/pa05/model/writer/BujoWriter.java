@@ -1,11 +1,11 @@
-package cs3500.pa05.model.writer;
+/*package cs3500.pa05.model.writer;
 
 import java.io.IOException;
 import java.util.Objects;
 
 /**
  * represents a bujo writer
- */
+ */ /*
 public class BujoWriter implements Writer {
   private final Appendable appendable;
 
@@ -14,7 +14,7 @@ public class BujoWriter implements Writer {
    * initializes a bujo writer
    *
    * @param appendable the appendable to append to
-   */
+   */ /*
   public BujoWriter(Appendable appendable) {
     this.appendable = Objects.requireNonNull(appendable);
   }
@@ -23,7 +23,7 @@ public class BujoWriter implements Writer {
    * Writes a given message.
    *
    * @param phrase the content to write
-   */
+   */ /*
   @Override
   public void write(String phrase) {
     try {
@@ -35,3 +35,4 @@ public class BujoWriter implements Writer {
 }
 
 
+*/

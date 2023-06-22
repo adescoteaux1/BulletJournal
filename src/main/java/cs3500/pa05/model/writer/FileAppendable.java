@@ -1,4 +1,4 @@
-package cs3500.pa05.model.writer;
+/*package cs3500.pa05.model.writer;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -7,7 +7,7 @@ import java.util.Objects;
 
 /**
  * Enables writing text to files and supports the Appendable interface.
- */
+ *//*
 public class FileAppendable implements Appendable {
   File file;
 
@@ -15,7 +15,7 @@ public class FileAppendable implements Appendable {
    * Creates a new FileAppendable.
    *
    * @param file where to write outputs.
-   */
+   *//*
   public FileAppendable(File file) {
     this.file = Objects.requireNonNull(file);
   }
@@ -24,7 +24,7 @@ public class FileAppendable implements Appendable {
    * Writes a given message to the file.
    *
    * @param value the message to write
-   */
+   *//*
   private void write(String value) {
     try (FileWriter writer = new FileWriter(this.file, true)) {
       writer.write(value);
@@ -41,7 +41,7 @@ public class FileAppendable implements Appendable {
    *            appended to this Appendable.
    * @return a reference to this Appendable
    * @throws IOException if an I/O error occurs
-   */
+   *//*
   @Override
   public Appendable append(CharSequence csq) throws IOException {
     write(String.valueOf(csq));
@@ -60,7 +60,7 @@ public class FileAppendable implements Appendable {
    *              subsequence
    * @return a reference to this Appendable
    * @throws IOException if an I/O error occurs
-   */
+   *//*
   @Override
   public Appendable append(CharSequence csq, int start, int end) throws IOException {
     write(String.valueOf(csq).substring(start, end));
@@ -73,10 +73,11 @@ public class FileAppendable implements Appendable {
    * @param c The character to append
    * @return a reference to this Appendable
    * @throws IOException if an I/O error occurs
-   */
+   *//*
   @Override
   public Appendable append(char c) throws IOException {
     write(String.valueOf(c));
     return this;
   }
 }
+*/

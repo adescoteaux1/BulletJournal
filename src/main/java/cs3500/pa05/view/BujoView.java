@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 /**
  * Represents a GUI view for a bullet journal.
  */
-public interface BojuView {
+public interface BujoView {
   /**
    * Loads a scene from a bullet journal GUI layout.
    *

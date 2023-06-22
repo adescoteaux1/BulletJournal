@@ -1,6 +1,6 @@
 package cs3500.pa05.view;
 
-import cs3500.pa05.controller.BojuController;
+import cs3500.pa05.controller.BujoController;
 import cs3500.pa05.model.Action;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayOfWeek;
@@ -23,9 +23,8 @@ import javafx.stage.Stage;
 /**
  * represents the main View class
  */
-public class BojuViewImpl implements BojuView {
+public class BujoViewImpl implements BujoView {
   private final FXMLLoader loader;
-  private final FXMLLoader loadSplash;
 
   @FXML
   private final VBox sideBar;
@@ -43,16 +42,11 @@ public class BojuViewImpl implements BojuView {
    *
    * @param controller is the controller
    */
-  public BojuViewImpl(BojuController controller) {
+  public BujoViewImpl(BujoController controller) {
     // look up and store the layout
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("WeekView.fxml"));
     this.loader.setController(controller);
-
-    this.loadSplash = new FXMLLoader();
-    this.loadSplash.setLocation(getClass().getClassLoader().getResource("splash.fxml"));
-    this.loadSplash.setController(controller);
-
     this.sideBar = new VBox();
   }
 
@@ -71,19 +65,6 @@ public class BojuViewImpl implements BojuView {
     }
   }
 
-  /**
-   * displays splash screen
-   *
-   * @return splash screen
-   */
-  public Scene displaySplash() {
-    this.loadSplash.setLocation(getClass().getClassLoader().getResource("splash.fxml"));
-    try {
-      return this.loadSplash.load();
-    } catch (IOException exc) {
-      throw new IllegalStateException("Unable to load layout.");
-    }
-  }
 
   /**
    * displays task queue in the side bar

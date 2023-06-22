@@ -5,17 +5,13 @@ import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Week;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Event;
-import cs3500.pa05.model.writer.BujoWriter;
-import cs3500.pa05.model.writer.FileAppendable;
-import cs3500.pa05.model.writer.ReadFile;
 import cs3500.pa05.model.writer.WriteToFile;
-import cs3500.pa05.model.writer.Writer;
-import cs3500.pa05.view.BojuView;
-import cs3500.pa05.view.BojuViewImpl;
+import cs3500.pa05.view.BujoViewImpl;
 import cs3500.pa05.view.UserInputView;
+import cs3500.pa05.view.WelcomeView;
 import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -31,7 +27,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
-public class BojuControllerImpl implements BojuController {
+public class BujoControllerImpl implements BujoController {
   Stage stage;
   String bujoPath;
   Week week;
@@ -48,7 +44,7 @@ public class BojuControllerImpl implements BojuController {
   private Button addEvent;
   @FXML
   private Button addNote;
-  private Writer writer;
+  //private Writer writer;
   private Popup eventPopup;
   private Popup taskPopup;
   private Popup limitPopup;
@@ -65,7 +61,7 @@ public class BojuControllerImpl implements BojuController {
   private TextField startInput;
   @FXML
   private TextField durationInput;
-  private BojuViewImpl bvi;
+  private BujoViewImpl bvi;
   @FXML
   private GridPane weekGrid;
   @FXML
@@ -140,6 +136,8 @@ public class BojuControllerImpl implements BojuController {
   private VBox sideBar;
   @FXML
   private Popup openPopup;
+  private UserInputView uiv;
+  private WelcomeView wv;
 
 
   /**
@@ -147,7 +145,7 @@ public class BojuControllerImpl implements BojuController {
    *
    * @param stage where all the scenes will be displayed
    */
-  public BojuControllerImpl(Stage stage) {
+  public BujoControllerImpl(Stage stage) {
     this.stage = stage;
     this.eventPopup = new Popup();
     this.taskPopup = new Popup();
@@ -155,9 +153,10 @@ public class BojuControllerImpl implements BojuController {
     this.qnotePopup = new Popup();
     eventOptionsPopup = new Popup();
     taskOptionsPopup = new Popup();
-    this.openPopup = new Popup();
     sideBar = new VBox();
-    bvi = new BojuViewImpl(this);
+    bvi = new BujoViewImpl(this);
+    uiv = new UserInputView(this);
+    wv = new WelcomeView(this);
   }
 
   /**
@@ -168,24 +167,32 @@ public class BojuControllerImpl implements BojuController {
    */
   @Override
   public void run() throws IllegalStateException, IOException {
-   // this.runSplash();
-    BojuView uiv = new UserInputView(this);
-
-    // instantiate a simple GUI view
-    stage.setScene(uiv.load());
-    enterTitle.setText("Enter a .boju file");
+    //this.runSplash();
+    enterTitle.setText("Enter a .bujo file");
     enterButton.setOnAction(e -> {bujoPath = enterField.getText();
-      try {
-        week = ReadFile.readBujoFile(bujoPath);
+
+      if (uiv.validateFile(bujoPath)) {
         stage.setScene(bvi.load());
-      } catch (IOException | ClassNotFoundException ex) {
-        throw new RuntimeException(ex);
+
+        //commented out for noe
+
+        /*
+        try {
+          week = ReadFile.readBujoFile(bujoPath);
+        } catch (IOException ex) {
+          throw new RuntimeException(ex);
+        } catch (ClassNotFoundException ex) {
+          throw new RuntimeException(ex);
+        } */
+        try {
+          List<Day> days = new ArrayList<>();
+          this.week = new Week(days, 100, 100);
+          WeekView();
+        } catch (IOException ex) {
+          throw new RuntimeException(ex);
+        }
       }
-      try {
-        WeekView();
-      } catch (IOException ex) {
-        throw new RuntimeException(ex);
-      }
+
     });
   }
 
@@ -202,9 +209,8 @@ public class BojuControllerImpl implements BojuController {
    */
   public void WeekView() throws IOException {
     //call method to read bujo file then setup view using bujo file
-
-    Appendable output = new FileAppendable(Paths.get(bujoPath).toFile());
-    writer = new BujoWriter(output);
+    //Appendable output = new FileAppendable(Paths.get(bujoPath).toFile());
+    //writer = new BujoWriter(output);
     week.setStartDay(startDay.getValue());
 
     //button actions

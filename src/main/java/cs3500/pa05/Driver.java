@@ -1,8 +1,8 @@
 package cs3500.pa05;
 
-import cs3500.pa05.controller.BojuController;
-import cs3500.pa05.controller.BojuControllerImpl;
-import cs3500.pa05.view.BojuView;
+import cs3500.pa05.controller.BujoController;
+import cs3500.pa05.controller.BujoControllerImpl;
+import cs3500.pa05.view.BujoView;
 import cs3500.pa05.view.UserInputView;
 import java.io.IOException;
 import javafx.application.Application;
@@ -29,15 +29,24 @@ public class Driver extends Application {
    * @param stage the JavaFX stage to add elements to
    */
   @Override
-  public void start(Stage stage) throws IOException {
+  public void start(Stage stage) {
     // add a title to the stage
     stage.setTitle("Weekly Bujo");
 
-    BojuController bojuController = new BojuControllerImpl(stage);
+    BujoController bojuController = new BujoControllerImpl(stage);
+    BujoView uiv = new UserInputView(bojuController);
 
+    // instantiate a simple GUI view
+    try {
+
+      stage.setScene(uiv.load());
       // fetch the view's controller
       bojuController.run();
+
       // render the stage
       stage.show();
+    } catch (IllegalStateException | IOException e) {
+      System.err.println("Unable to load GUI.");
+    }
   }
 }
