@@ -175,7 +175,7 @@ public class BojuControllerImpl implements BojuController {
     //removeTask.setOnAction(e -> deleteTask());
     //deEvent.setOnAction(e -> deleteEvent());
 
-    //bvi.displayWeek(week);
+    bvi.displayWeek(week);
   }
 
   private void setTaskLimit() throws IOException {
@@ -260,11 +260,11 @@ public class BojuControllerImpl implements BojuController {
       Event newEvent = new Event(name, desc, day, start, duration);
       week.addEvent(newEvent);
       //addAction(newEvent);
-      writer.write(JsonUtils.serializeRecord(new EventJson(newEvent)).toString());
+      //writer.write(JsonUtils.serializeRecord(new EventJson(newEvent)).toString());
     });
 
     eventPopup.getContent().add(enterButton);
-    //bvi.displayWeek(week);
+    bvi.displayWeek(week);
   }
 
   private void addTask() throws IOException {
@@ -282,11 +282,11 @@ public class BojuControllerImpl implements BojuController {
       Task newTask = new Task(name, desc, day, false);
       week.addTask(newTask);
       //addAction(newTask);
-      writer.write(JsonUtils.serializeRecord(new TaskJson(newTask)).toString());
+      //writer.write(JsonUtils.serializeRecord(new TaskJson(newTask)).toString());
     });
 
     taskPopup.getContent().add(enterButton);
-    //bvi.displayWeek(week);
+    bvi.displayWeek(week);
   }
 /*
   public void addAction(Action action) {
@@ -322,7 +322,7 @@ public class BojuControllerImpl implements BojuController {
     });
 
     qnotePopup.getContent().add(finish);
-    //bvi.displayWeek(week);
+    bvi.displayWeek(week);
   }
 
 }

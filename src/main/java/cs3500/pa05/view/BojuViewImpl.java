@@ -32,7 +32,7 @@ public class BojuViewImpl implements BojuView {
   @FXML
   private TextArea quoteOrNote;
   @FXML
-  private GridPane weekGrid;
+  private GridPane weekGrid = new GridPane();
   @FXML
   private VBox day1Actions;
   @FXML
