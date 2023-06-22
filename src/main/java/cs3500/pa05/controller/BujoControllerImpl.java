@@ -5,6 +5,7 @@ import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Week;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Event;
+import cs3500.pa05.model.writer.ReadFile;
 import cs3500.pa05.model.writer.WriteToFile;
 import cs3500.pa05.view.BujoViewImpl;
 import cs3500.pa05.view.UserInputView;
@@ -137,7 +138,6 @@ public class BujoControllerImpl implements BujoController {
   @FXML
   private Popup openPopup;
   private UserInputView uiv;
-  private WelcomeView wv;
 
 
   /**
@@ -156,7 +156,6 @@ public class BujoControllerImpl implements BujoController {
     sideBar = new VBox();
     bvi = new BujoViewImpl(this);
     uiv = new UserInputView(this);
-    wv = new WelcomeView(this);
   }
 
   /**
@@ -167,23 +166,13 @@ public class BujoControllerImpl implements BujoController {
    */
   @Override
   public void run() throws IllegalStateException, IOException {
-    //this.runSplash();
+
     enterTitle.setText("Enter a .bujo file");
     enterButton.setOnAction(e -> {bujoPath = enterField.getText();
 
       if (uiv.validateFile(bujoPath)) {
         stage.setScene(bvi.load());
 
-        //commented out for noe
-
-        /*
-        try {
-          week = ReadFile.readBujoFile(bujoPath);
-        } catch (IOException ex) {
-          throw new RuntimeException(ex);
-        } catch (ClassNotFoundException ex) {
-          throw new RuntimeException(ex);
-        } */
         try {
           List<Day> days = new ArrayList<>();
           this.week = new Week(days, 100, 100);
