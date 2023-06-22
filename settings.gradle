@@ -5,4 +5,8 @@ include 'src:test:java'
 findProject(':src:test:java')?.name = 'java'
 include 'src:test'
 findProject(':src:test')?.name = 'test'
+include 'src:test'
+findProject(':src:test')?.name = 'test'
+include 'src:alpacas'
+findProject(':src:alpacas')?.name = 'alpacas'
 
