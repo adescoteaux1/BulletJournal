@@ -123,11 +123,17 @@ public class BojuControllerImpl implements BojuController {
   @FXML
   private Button eventEdit;
   @FXML
+  private Button eventClose;
+  @FXML
   private Button taskDelete;
   @FXML
   private Button taskEdit;
   @FXML
+  private Button taskClose;
+  @FXML
   private Popup eventOptionsPopup;
+  @FXML
+  private Popup taskOptionsPopup;
 
 
   /**
@@ -142,6 +148,7 @@ public class BojuControllerImpl implements BojuController {
     this.limitPopup = new Popup();
     this.qnotePopup = new Popup();
     eventOptionsPopup = new Popup();
+    taskOptionsPopup = new Popup();
     bvi = new BojuViewImpl(this);
   }
 
@@ -619,8 +626,11 @@ public class BojuControllerImpl implements BojuController {
         throw new RuntimeException(ex);
       }
     });
+    eventClose.setOnAction(e -> {
+      eventOptionsPopup.hide();
+    });
 
-    eventOptionsPopup.getContent().add(enterButton);
+    eventOptionsPopup.getContent().add(eventClose);
   }
 
 
@@ -634,46 +644,123 @@ public class BojuControllerImpl implements BojuController {
     if (i == 0) {
       for (Task t : d.getTasks()) {
         Button b = new Button(t.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(taskOptionsPopup, stage);
+          try {
+            handleTaskClick(t);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day1Actions.getChildren().add(b);
       }
     } else if (i == 1) {
       for (Task t : d.getTasks()) {
         Button b = new Button(t.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(taskOptionsPopup, stage);
+          try {
+            handleTaskClick(t);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day2Actions.getChildren().add(b);
       }
     } else if (i == 2) {
       for (Task t : d.getTasks()) {
         Button b = new Button(t.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(taskOptionsPopup, stage);
+          try {
+            handleTaskClick(t);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day3Actions.getChildren().add(b);
       }
     } else if (i == 3) {
       for (Task t : d.getTasks()) {
         Button b = new Button(t.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(taskOptionsPopup, stage);
+          try {
+            handleTaskClick(t);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day4Actions.getChildren().add(b);
       }
     } else if (i == 4) {
       for (Task t : d.getTasks()) {
         Button b = new Button(t.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(taskOptionsPopup, stage);
+          try {
+            handleTaskClick(t);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day5Actions.getChildren().add(b);
       }
     } else if (i == 5) {
       for (Task t : d.getTasks()) {
         Button b = new Button(t.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(taskOptionsPopup, stage);
+          try {
+            handleTaskClick(t);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day6Actions.getChildren().add(b);
       }
     } else if (i == 6) {
       for (Task t : d.getTasks()) {
         Button b = new Button(t.getName());
-        //b.setOnAction(ev -> );
+        b.setOnAction(ev -> {
+          bvi.makePopup(taskOptionsPopup, stage);
+          try {
+            handleTaskClick(t);
+          } catch (IOException ex) {
+            throw new RuntimeException(ex);
+          }
+        });
         day7Actions.getChildren().add(b);
       }
     }
+  }
+
+  private void handleTaskClick(Task task) throws IOException {
+    FXMLLoader loader = new FXMLLoader(
+        getClass().getClassLoader().getResource("TaskWindow.fxml"));
+    loader.setController(this);
+    Scene s = loader.load();
+    taskOptionsPopup.getContent().add((Node)s.getRoot());
+
+    taskDelete.setOnAction(e -> {
+      taskOptionsPopup.hide();
+      week.deleteTask(task.getName());
+
+    });
+    taskEdit.setOnAction(e -> {
+      taskOptionsPopup.hide();
+      week.deleteTask(task.getName());
+      try {
+        addEvent();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
+    });
+    taskClose.setOnAction(e -> {
+      taskOptionsPopup.hide();
+    });
+
+    taskOptionsPopup.getContent().add(taskClose);
   }
 
   /**
