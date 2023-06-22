@@ -192,7 +192,25 @@ public class BujoControllerImpl implements BujoController {
    * @throws IOException
    */
   public void save() throws IOException {
-   bujoPath = WriteToFile.write(bujoPath, week);
+    FXMLLoader loader = new FXMLLoader(
+        getClass().getClassLoader().getResource("UserInput.fxml"));
+    loader.setController(this);
+    Scene s = loader.load();
+    enterTitle.setText("Enter file name to save");
+    openPopup.getContent().add((Node)s.getRoot());
+
+    enterButton.setOnAction(e -> { bujoPath = enterField.getText();
+      openPopup.hide();
+      try {
+        bujoPath = WriteToFile.write(bujoPath, week);
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
+
+
+    });
+
+    openPopup.getContent().add(enterButton);
   }
 
   /**
@@ -248,6 +266,7 @@ public class BujoControllerImpl implements BujoController {
     });
     save.setOnAction(e -> {
       try {
+        bvi.makePopup(openPopup, stage);
         save();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
