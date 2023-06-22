@@ -17,7 +17,6 @@
 - Mind Changes
 - Week Start
 
-
 ## Section 5: Extra Credit
 - splash screen?
 - visual flourish?
