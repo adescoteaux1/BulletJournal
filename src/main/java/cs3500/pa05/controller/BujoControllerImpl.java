@@ -21,7 +21,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -137,6 +136,8 @@ public class BujoControllerImpl implements BujoController {
   private Button status;
   @FXML
   private VBox eventInfo = new VBox();
+  @FXML
+  private VBox taskInfo = new VBox();
 
 
   /**
@@ -580,7 +581,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
-          miniView(e);
+          miniEventView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -594,7 +595,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
-          miniView(e);
+          miniEventView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -608,7 +609,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
-          miniView(e);
+          miniEventView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -622,7 +623,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
-          miniView(e);
+          miniEventView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -636,7 +637,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
-          miniView(e);
+          miniEventView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -650,7 +651,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
-          miniView(e);
+          miniEventView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -664,7 +665,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
-          miniView(e);
+          miniEventView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -676,10 +677,19 @@ public class BujoControllerImpl implements BujoController {
     }
   }
 
-  private void miniView(Action e) {
+  private void miniEventView(Event e) {
     eventInfo.getChildren().add(new Label("Name: " + e.getName()));
     eventInfo.getChildren().add(new Label("Description: " + e.getDescription()));
     eventInfo.getChildren().add(new Label("Day: " + e.getDayOfWeek().getName()));
+    eventInfo.getChildren().add(new Label("Start Time: " + e.getStartTime()));
+    eventInfo.getChildren().add(new Label("Duration: " + e.getDuration()));
+  }
+
+  private void miniTaskView(Task e) {
+    taskInfo.getChildren().add(new Label("Name: " + e.getName()));
+    taskInfo.getChildren().add(new Label("Description: " + e.getDescription()));
+    taskInfo.getChildren().add(new Label("Day: " + e.getDayOfWeek().getName()));
+    taskInfo.getChildren().add(new Label("Complete: " + e.getIsComplete()));
   }
 
   private void handleEventClick(Event event) throws IOException {
@@ -687,7 +697,7 @@ public class BujoControllerImpl implements BujoController {
         getClass().getClassLoader().getResource("EventWindow.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    miniView(event);
+    miniEventView(event);
     eventOptionsPopup.getContent().add(s.getRoot());
 
     eventDelete.setOnAction(e -> {
@@ -824,6 +834,7 @@ public class BujoControllerImpl implements BujoController {
         getClass().getClassLoader().getResource("TaskWindow.fxml"));
     loader.setController(this);
     Scene s = loader.load();
+    miniTaskView(task);
     taskOptionsPopup.getContent().add(s.getRoot());
 
     taskDelete.setOnAction(e -> {

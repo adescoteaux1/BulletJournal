@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
+<?import javafx.scene.layout.VBox?>
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane prefHeight="203.0" prefWidth="395.0" style="-fx-background-color: rgb(160, 167, 224);">
         <children>
@@ -13,7 +14,7 @@
             <Button fx:id="taskDelete" layoutX="22.0" layoutY="162.0" mnemonicParsing="false" text="Delete" />
             <Button fx:id="taskEdit" layoutX="83.0" layoutY="162.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0" text="Edit" />
          <Button fx:id="taskClose" layoutX="143.0" layoutY="162.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Close" />
-         <HBox layoutX="35.0" layoutY="30.0" prefHeight="109.0" prefWidth="311.0" />
+         <VBox fx:id="taskInfo" layoutX="35.0" layoutY="30.0" prefHeight="109.0" prefWidth="311.0" />
         </children>
     </AnchorPane>
 </Scene>
