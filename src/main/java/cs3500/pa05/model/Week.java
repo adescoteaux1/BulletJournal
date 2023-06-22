@@ -81,12 +81,12 @@ public class Week implements Serializable {
    * @param e the new event
    */
   public void createEvent(Day day, Event e) {
-    if (numEvents < eventLimit) {
+    if (numEvents <= eventLimit) {
       day.addEvent(e);
       numEvents++;
     } else {
       System.out.println("Extending event limit."); //delete for MVC?
-      setEventLimit(numEvents);
+      //setEventLimit(numEvents);
     }
   }
 
@@ -97,12 +97,12 @@ public class Week implements Serializable {
    * @param t the new task
    */
   public void createTask(Day day, Task t) {
-    if (numTasks < taskLimit) {
+    if (numTasks <= taskLimit) {
       day.addTask(t);
       numTasks++;
     } else {
       System.out.println("Extending event limit."); //delete for MVC?
-      setTaskLimit(numTasks);
+      //setTaskLimit(numTasks);
     }
   }
 
@@ -163,7 +163,7 @@ public class Week implements Serializable {
    * @param e an event we want to add
    */
   public void addEvent(Event e) {
-    if (numEvents < eventLimit) {
+    if (numEvents <= eventLimit) {
       for (Day d : days) {
         if (d.getDayOfWeek().getName().equals(e.getDayOfWeek().getName())) {
           d.addEvent(e);
@@ -181,10 +181,15 @@ public class Week implements Serializable {
    * @param t an event we want to add
    */
   public void addTask(Task t) {
-    for (Day d : days) {
-      if (d.getDayOfWeek().equals(t.getDayOfWeek())) {
-        d.addTask(t);
+    if (numTasks <= taskLimit) {
+      for (Day d : days) {
+        if (d.getDayOfWeek().equals(t.getDayOfWeek())) {
+          d.addTask(t);
+        }
       }
+      numTasks++;
+    } else {
+      System.out.println("Extending task limit.");
     }
   }
 
