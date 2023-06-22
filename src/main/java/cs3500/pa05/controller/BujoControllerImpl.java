@@ -222,19 +222,30 @@ public class BujoControllerImpl implements BujoController {
 
     //button actions
     addTask.setOnAction(e -> {
-      bvi.makePopup(taskPopup, stage);
-      try {
-        addTask();
-      } catch (IOException ex) {
-        throw new RuntimeException(ex);
+      if (week.getTaskLimit() <= week.getNumTasks()) {
+        System.out.println("hit task limit");
+      } else {
+        bvi.makePopup(taskPopup, stage);
+        try {
+          addTask();
+          week.setTaskNum(week.getNumTasks() + 1);
+        } catch (IOException ex) {
+          throw new RuntimeException(ex);
+        }
       }
     });
     addEvent.setOnAction(e -> {
-      bvi.makePopup(eventPopup, stage);
-      try {
-        addEvent();
-      } catch (IOException ex) {
-        throw new RuntimeException(ex);
+      if (week.getEventLimit() <= week.getNumEvents()) {
+        System.out.println("hit event limit");
+
+      } else {
+        bvi.makePopup(eventPopup, stage);
+        try {
+          addEvent();
+          week.setEventNum(week.getNumEvents() + 1);
+        } catch (IOException ex) {
+          throw new RuntimeException(ex);
+        }
       }
     });
 

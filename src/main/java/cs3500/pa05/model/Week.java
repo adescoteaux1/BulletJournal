@@ -61,6 +61,23 @@ public class Week implements Serializable {
   }
 
   /**
+   * sets this week's number of tasks
+   *
+   * @param input an integer
+   */
+  public void setTaskNum(int input) {
+    numTasks = input;
+  }
+  /**
+   * sets this week's number of events
+   *
+   * @param input an integer
+   */
+  public void setEventNum(int input) {
+    numEvents = input;
+  }
+
+  /**
    * gets this week's task limit
    */
   public int getTaskLimit() {
@@ -75,6 +92,24 @@ public class Week implements Serializable {
   }
 
   /**
+   * gets the number of tasks that have been set
+   *
+   * @return an integer
+   */
+  public int getNumTasks() {
+    return this.numTasks;
+  }
+
+  /**
+   * gets the number of events that have been set
+   *
+   * @return an integer
+   */
+  public int getNumEvents() {
+    return this.numEvents;
+  }
+
+  /**
    * creates a new event
    *
    * @param day the day the event is being created on
@@ -83,7 +118,7 @@ public class Week implements Serializable {
   public void createEvent(Day day, Event e) {
     if (numEvents < eventLimit) {
       day.addEvent(e);
-      numEvents++;
+      numEvents+=1;
     } else {
       System.out.println("Extending event limit."); //delete for MVC?
       setEventLimit(numEvents);
@@ -99,7 +134,7 @@ public class Week implements Serializable {
   public void createTask(Day day, Task t) {
     if (numTasks < taskLimit) {
       day.addTask(t);
-      numTasks++;
+      numTasks+=1;
     } else {
       System.out.println("Extending event limit."); //delete for MVC?
       setTaskLimit(numTasks);
