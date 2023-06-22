@@ -23,6 +23,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
@@ -113,6 +114,10 @@ public class BojuControllerImpl implements BojuController {
   private Button refresh;
   @FXML
   private Button open;
+  @FXML
+  private Scene s;
+  @FXML
+  private Button newWeek;
   @FXML
   private Button eventDelete;
   @FXML
@@ -252,6 +257,28 @@ public class BojuControllerImpl implements BojuController {
 
     //removeTask.setOnAction(e -> deleteTask());
     //deEvent.setOnAction(e -> deleteEvent());
+
+    s.setOnKeyPressed(e -> {
+      if (e.getCode() == KeyCode.E && e.isControlDown()) {
+        addEvent.fire();
+      } else if (e.getCode() == KeyCode.T && e.isControlDown()) {
+        addTask.fire();
+      } else if (e.getCode() == KeyCode.S && e.isControlDown()) {
+        save.fire();
+      } else if (e.getCode() == KeyCode.O && e.isControlDown()) {
+        open.fire();
+      } else if (e.getCode() == KeyCode.N && e.isControlDown()) {
+        newWeek.fire();
+      } else if (e.getCode() == KeyCode.DIGIT1 && e.isControlDown()) {
+        setEventLimit.fire();
+      } else if (e.getCode() == KeyCode.DIGIT2 && e.isControlDown()) {
+        setTaskLimit.fire();
+      } else if (e.getCode() == KeyCode.R && e.isControlDown()) {
+        refresh.fire();
+      } else if (e.getCode() == KeyCode.Q && e.isControlDown()) {
+        addQnote.fire();
+      }
+    });
 
     displayWeek(week);
   }

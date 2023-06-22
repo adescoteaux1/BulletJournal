@@ -1,21 +1,21 @@
 ## Section 1: Requirements
-- Week View -> in progress...
-- Event and Task Creation -> in progress...
-- Commitment Warnings -> with creating tasks/events, sout
-- Persistence
+- Week View -> done
+- Event and Task Creation -> done
+- Commitment Warnings -> good enough
+- Persistence -> done
 
 ## Section 2: Headlining Features
-- Task Queue -> in BojuView
-- Menu Bar and ShortCuts 
+- Task Queue -> DO THIS
+- Menu Bar and ShortCuts -> done
 
 ## Section 3: Power Ups
-- Quotes & Notes -> in week and view
-- Mini Viewer -> in view and week, might need to change
-- Takesie-backsies -> with removes
+- Quotes & Notes -> done
+- Mini Viewer -> popups, done
+- Takesie-backsies -> in progress
 
 ## Section 4: Quality of Life
-- Mind Changes
-- Week Start
+- Mind Changes -> in progress
+- Week Start -> done
 
 
 ## Section 5: Extra Credit
