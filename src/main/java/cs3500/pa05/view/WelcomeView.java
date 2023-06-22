@@ -5,16 +5,25 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+/**
+ * represents the gui of the welcome screen
+ */
 public class WelcomeView implements BujoView {
 
-  private FXMLLoader loader;
+  private final FXMLLoader loader;
 
+  /**
+   * initializes a welcome view
+   *
+   * @param controller the controller to use
+   */
   public WelcomeView(BujoControllerImpl controller) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("splash.fxml"));
     this.loader.setController(controller);
   }
 
+  @Override
   public Scene load() {
     // load the layout
     try {

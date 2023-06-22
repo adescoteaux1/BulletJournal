@@ -39,14 +39,18 @@ public class UserInputView implements BujoView {
     }
   }
 
+  /**
+   * determines if the input is a valid bujo file
+   *
+   * @param userInput the inputted string
+   * @return if it is valid
+   */
   public boolean validateFile(String userInput) {
     Path path = Paths.get(userInput);
 
     if (!Files.exists(path)) {
       String fileExtension = getFileExtension(path);
-      if (!fileExtension.equalsIgnoreCase("bujo")) {
-        return false;
-      }
+      return fileExtension.equalsIgnoreCase("bujo");
     }
 
     return true;
