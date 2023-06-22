@@ -2,9 +2,9 @@ package cs3500.pa05.controller;
 
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayOfWeek;
-import cs3500.pa05.model.Week;
-import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Event;
+import cs3500.pa05.model.Task;
+import cs3500.pa05.model.Week;
 import cs3500.pa05.model.writer.ReadFile;
 import cs3500.pa05.model.writer.WriteToFile;
 import cs3500.pa05.view.BujoViewImpl;
@@ -13,7 +13,6 @@ import cs3500.pa05.view.WelcomeView;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -21,7 +20,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -108,7 +106,7 @@ public class BujoControllerImpl implements BujoController {
   @FXML
   private Button open;
   @FXML
-  private Scene s;
+  private Scene scene;
   @FXML
   private Button newWeek;
   @FXML
@@ -164,7 +162,8 @@ public class BujoControllerImpl implements BujoController {
   public void run() throws IllegalStateException {
 
     enterTitle.setText("Enter a .bujo file");
-    enterButton.setOnAction(e -> {bujoPath = enterField.getText();
+    enterButton.setOnAction(e -> {
+      bujoPath = enterField.getText();
 
       if (uiv.validateFile(bujoPath)) {
         stage.setScene(bvi.load());
@@ -182,7 +181,9 @@ public class BujoControllerImpl implements BujoController {
 
   /**
    * saves contents to a bujo file
+   *
    * @throws IOException if the file can't be written to
+   *
    */
   public void save() throws IOException {
     FXMLLoader loader = new FXMLLoader(
@@ -192,7 +193,8 @@ public class BujoControllerImpl implements BujoController {
     enterTitle.setText("Enter file name to save");
     openPopup.getContent().add(s.getRoot());
 
-    enterButton.setOnAction(e -> { bujoPath = enterField.getText();
+    enterButton.setOnAction(e -> {
+      bujoPath = enterField.getText();
       openPopup.hide();
       try {
         bujoPath = WriteToFile.write(bujoPath, week);
@@ -283,7 +285,7 @@ public class BujoControllerImpl implements BujoController {
       }
     });
 
-    s.setOnKeyPressed(e -> {
+    scene.setOnKeyPressed(e -> {
       if (e.getCode() == KeyCode.E && e.isControlDown()) {
         addEvent.fire();
       } else if (e.getCode() == KeyCode.T && e.isControlDown()) {
@@ -329,7 +331,8 @@ public class BujoControllerImpl implements BujoController {
     enterTitle.setText("Enter a .bujo file");
     openPopup.getContent().add(s.getRoot());
 
-    enterButton.setOnAction(e -> { bujoPath = enterField.getText();
+    enterButton.setOnAction(e -> {
+      bujoPath = enterField.getText();
       openPopup.hide();
       try {
         week = ReadFile.readBujoFile(bujoPath);
@@ -385,7 +388,7 @@ public class BujoControllerImpl implements BujoController {
       limitPopup.hide();
       int taskLimit = Integer.parseInt(enterField.getText());
       week.setTaskLimit(taskLimit);
-      });
+    });
 
     limitPopup.getContent().add(enterButton);
   }
@@ -407,7 +410,7 @@ public class BujoControllerImpl implements BujoController {
       int eventLimit = Integer.parseInt(enterField.getText());
       limitPopup.hide();
       week.setEventLimit(eventLimit);
-      });
+    });
 
     limitPopup.getContent().add(enterButton);
   }

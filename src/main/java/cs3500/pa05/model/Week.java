@@ -172,9 +172,10 @@ public class Week implements Serializable {
 
   /**
    * deletes an event
+   *
    * @param eventName name of event
    */
-  public void deleteEvent(String eventName){
+  public void deleteEvent(String eventName) {
     for (Day day : days) {
       for (Event event : day.getEvents()) {
         if (event.getName().equals(eventName)) {
@@ -187,9 +188,11 @@ public class Week implements Serializable {
 
   /**
    * deletes a task
+   *
    * @param taskName nam of task
+   *
    */
-  public void deleteTask(String taskName){
+  public void deleteTask(String taskName) {
     for (Day day : days) {
       for (Task task : day.getTasks()) {
         if (task.getName().equals(taskName)) {
@@ -203,7 +206,9 @@ public class Week implements Serializable {
 
   /**
    * changes the order of the days based on the given start day
+   *
    * @param day the given start day
+   *
    */
   public void setStartDay(DayOfWeek day) {
     List<Day> newDays;

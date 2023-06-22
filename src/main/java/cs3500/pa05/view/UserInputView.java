@@ -16,7 +16,9 @@ public class UserInputView implements BujoView {
 
   /**
    * Loads an instance of a GUI layout from disk.
+   *
    * @param controller is the controller class
+   *
    */
   public UserInputView(BujoController controller) {
     // look up and store the layout

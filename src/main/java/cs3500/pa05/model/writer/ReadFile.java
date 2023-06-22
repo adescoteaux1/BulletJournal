@@ -16,6 +16,7 @@ public class ReadFile {
 
   /**
    * reads the week bujo file
+   *
    * @param bujoPath the path of the bujo file
    *
    * @return a week
@@ -26,20 +27,18 @@ public class ReadFile {
     Week week;
 
     if (bujoPath.isEmpty()) {
-      Day Monday = new Day(DayOfWeek.MONDAY, new ArrayList<>(), new ArrayList<>());
-      Day Tuesday = new Day(DayOfWeek.TUESDAY, new ArrayList<>(), new ArrayList<>());
-      Day Wednesday = new Day(DayOfWeek.WEDNESDAY, new ArrayList<>(), new ArrayList<>());
-      Day Thursday = new Day(DayOfWeek.THURSDAY, new ArrayList<>(), new ArrayList<>());
-      Day Friday = new Day(DayOfWeek.FRIDAY, new ArrayList<>(), new ArrayList<>());
-      Day Saturday = new Day(DayOfWeek.SATURDAY, new ArrayList<>(), new ArrayList<>());
-      Day Sunday = new Day(DayOfWeek.SUNDAY, new ArrayList<>(), new ArrayList<>());
+      Day monday = new Day(DayOfWeek.MONDAY, new ArrayList<>(), new ArrayList<>());
+      Day tuesday = new Day(DayOfWeek.TUESDAY, new ArrayList<>(), new ArrayList<>());
+      Day wednesday = new Day(DayOfWeek.WEDNESDAY, new ArrayList<>(), new ArrayList<>());
+      Day thursday = new Day(DayOfWeek.THURSDAY, new ArrayList<>(), new ArrayList<>());
+      Day friday = new Day(DayOfWeek.FRIDAY, new ArrayList<>(), new ArrayList<>());
+      Day saturday = new Day(DayOfWeek.SATURDAY, new ArrayList<>(), new ArrayList<>());
+      Day sunday = new Day(DayOfWeek.SUNDAY, new ArrayList<>(), new ArrayList<>());
 
-      ArrayList<Day> Days = new ArrayList<>(Arrays.asList(Monday, Tuesday,
-          Wednesday, Thursday, Friday, Saturday,Sunday));
+      ArrayList<Day> days = new ArrayList<>(Arrays.asList(monday, tuesday,
+          wednesday, thursday, friday, saturday, sunday));
 
-      System.out.println(Days);
-
-      Week newWeek = new Week(Days, 0, 0);
+      Week newWeek = new Week(days, 0, 0);
       newWeek.setTaskLimit(100);
       newWeek.setEventLimit(100);
       return newWeek;

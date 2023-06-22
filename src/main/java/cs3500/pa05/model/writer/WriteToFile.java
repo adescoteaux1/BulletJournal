@@ -14,7 +14,9 @@ public class WriteToFile {
 
   /**
    * writes contents of week to the bujo file
+   *
    * @param bujoPath path of the file
+   *
    * @param week object; contents will be written in the file
    *
    * @return a string of contents for the file
