@@ -250,6 +250,14 @@ public class BojuControllerImpl implements BojuController {
         open.fire();
       } else if (e.getCode() == KeyCode.N && e.isControlDown()) {
         newWeek.fire();
+      } else if (e.getCode() == KeyCode.DIGIT1 && e.isControlDown()) {
+        setEventLimit.fire();
+      } else if (e.getCode() == KeyCode.DIGIT2 && e.isControlDown()) {
+        setTaskLimit.fire();
+      } else if (e.getCode() == KeyCode.R && e.isControlDown()) {
+        refresh.fire();
+      } else if (e.getCode() == KeyCode.Q && e.isControlDown()) {
+        addQnote.fire();
       }
     });
 
