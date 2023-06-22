@@ -560,7 +560,9 @@ public class BujoControllerImpl implements BujoController {
 
     for (Day d : week.getDays()) {
       for (Task t : d.getTasks()) {
-        sideBar.getChildren().add(new Label(t.getName()));
+        if (!t.getIsComplete()){
+          sideBar.getChildren().add(new Label(t.getName()));
+        }
       }
     }
   }
