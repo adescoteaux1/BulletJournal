@@ -81,6 +81,8 @@ public class BojuControllerImpl implements BojuController {
   private Button save;
   @FXML
   private TextArea quoteOrNote;
+  @FXML
+  private ChoiceBox<DayOfWeek> startDay;
 
 
 
@@ -119,6 +121,7 @@ public class BojuControllerImpl implements BojuController {
     //call method to read bujo file then setup view using bujo file
     Appendable output = new FileAppendable(Paths.get(bujoPath).toFile());
     writer = new BujoWriter(output);
+    week.setStartDay(startDay.getValue());
 
     //button actions
     addTask.setOnAction(e -> {
