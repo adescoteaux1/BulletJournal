@@ -6,6 +6,9 @@
 Week GUI View (Temporary):
 ![WeekGUI.png](WeekGUI.png)
 
+Final Week GUI:
+![img.png](img.png)
+
 
 
 Program Pitch: 
