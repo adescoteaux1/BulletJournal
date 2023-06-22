@@ -14,8 +14,6 @@
     exports cs3500.pa05.model;
     exports cs3500.pa05.view;
     opens cs3500.pa05.controller to javafx.fxml;
-      //exports cs3500.pa05.model.json;
-        exports cs3500.pa05.model.writer;
     }
 
 
