@@ -1,10 +1,12 @@
 package cs3500.pa05.model;
 
 
+import java.io.Serializable;
+
 /**
  * represents an action
  */
-public abstract class Action {
+public abstract class Action implements Serializable {
   private final String name;
   private final String description;
   private DayOfWeek dayOfWeek;
