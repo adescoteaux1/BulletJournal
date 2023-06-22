@@ -9,7 +9,7 @@
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane prefHeight="205.0" prefWidth="276.0" style="-fx-background-color: rgba(160, 167, 224, 0.4);">
         <children>
-            <Label layoutX="36.0" layoutY="34.0" prefHeight="17.0" prefWidth="199.0" style="-fx-background-color: rgb(160, 167, 224,;" text="New Qnote:" />
+            <Label layoutX="36.0" layoutY="34.0" text="New Qnote:" />
             <TextField fx:id="userQnote" layoutX="36.0" layoutY="58.0" prefHeight="83.0" prefWidth="203.0" />
             <Button fx:id="finish" layoutX="36.0" layoutY="149.0" mnemonicParsing="false" text="Finish" />
         </children>

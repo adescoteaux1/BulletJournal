@@ -7,10 +7,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <AnchorPane prefHeight="130.0" prefWidth="200.0" style="-fx-background-color: rgba(160, 167, 224, 0.4);">
+    <AnchorPane prefHeight="134.0" prefWidth="200.0" style="-fx-background-color: rgba(160, 167, 224, 0.4);">
       <children>
-         <Label fx:id="enterTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="14.0" prefHeight="20.0" prefWidth="149.0" text="title" />
-         <TextField fx:id="enterField" layoutX="25.0" layoutY="44.0" prefHeight="30.0" prefWidth="150.0" />
-         <Button fx:id="enterButton" layoutX="77.0" layoutY="84.0" mnemonicParsing="false" text="Enter" />
+         <Label fx:id="enterTitle" alignment="CENTER" layoutX="40.0" layoutY="20.0" prefHeight="20.0" prefWidth="120.0" text="title" />
+         <TextField fx:id="enterField" layoutX="25.0" layoutY="46.0" prefHeight="30.0" prefWidth="150.0" />
+         <Button fx:id="enterButton" layoutX="77.0" layoutY="94.0" mnemonicParsing="false" text="Enter" />
       </children></AnchorPane>
 </Scene>
