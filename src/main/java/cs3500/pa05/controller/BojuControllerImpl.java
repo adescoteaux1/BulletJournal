@@ -113,6 +113,8 @@ public class BojuControllerImpl implements BojuController {
   private Label day6;
   @FXML
   private Label day7;
+  @FXML
+  private Button refresh;
 
 
 
@@ -203,6 +205,9 @@ public class BojuControllerImpl implements BojuController {
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
+    });
+    refresh.setOnAction(e -> {
+      displayWeek(week);
     });
 
     //removeTask.setOnAction(e -> deleteTask());
