@@ -33,6 +33,7 @@
             <Label layoutX="14.0" layoutY="6.0" text="New Task" style="-fx-font-family: Georgia;"/>
             <Label layoutX="14.0" layoutY="142.0" text="Day" style="-fx-font-family: Georgia;"/>
             <Button fx:id="enterButton" layoutX="138.0" layoutY="173.0" mnemonicParsing="false" text="Enter" style="-fx-font-family: Georgia; -fx-background-color: rgb(160, 167, 224);"/>
+            <Button fx:id="status" layoutX="48.0" layoutY="173.0" mnemonicParsing="false" text="Complete" style="-fx-font-family: Georgia; -fx-background-color: rgb(160, 167, 224);"/>
         </children>
     </AnchorPane>
 </Scene>
