@@ -14,7 +14,6 @@ public class Week implements Serializable {
   private int eventLimit;
   private int numEvents;
   private int numTasks;
-  private Theme selectedTheme; // default is always light
   private String quoteOrNote;
 
   /**
@@ -31,7 +30,6 @@ public class Week implements Serializable {
     this.eventLimit = eventLimit;
     numEvents = 0;
     numTasks = 0;
-    selectedTheme = Theme.LIGHT;
     quoteOrNote = "";
   }
 

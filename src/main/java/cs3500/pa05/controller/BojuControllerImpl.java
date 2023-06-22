@@ -163,6 +163,13 @@ public class BojuControllerImpl implements BojuController {
         throw new RuntimeException(ex);
       }
     });
+    save.setOnAction(e -> {
+      try {
+        save();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
+    });
 
     //removeTask.setOnAction(e -> deleteTask());
     //deEvent.setOnAction(e -> deleteEvent());
