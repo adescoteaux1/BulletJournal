@@ -340,6 +340,7 @@ public class BujoControllerImpl implements BujoController {
       openPopup.hide();
       try {
         week = ReadFile.readBujoFile(bujoPath);
+        displayWeek(week);
       } catch (IOException | ClassNotFoundException ex) {
         throw new RuntimeException(ex);
       }
