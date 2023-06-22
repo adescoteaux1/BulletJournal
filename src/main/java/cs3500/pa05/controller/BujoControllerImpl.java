@@ -706,6 +706,7 @@ public class BujoControllerImpl implements BujoController {
    * @param i represents a task
    */
   private void addTasks(Day d, int i) {
+
     if (i == 0) {
       for (Task t : d.getTasks()) {
         Button b = new Button(t.getName());
