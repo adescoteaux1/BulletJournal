@@ -51,12 +51,5 @@ public abstract class Action implements Serializable {
     return this.dayOfWeek;
   }
 
-  /**
-   * sets the day of an action
-   *
-   * @param dayOfWeek of action
-   */
-  public void setDayOfWeek(DayOfWeek dayOfWeek) {
-    this.dayOfWeek = dayOfWeek;
-  }
+
 }
