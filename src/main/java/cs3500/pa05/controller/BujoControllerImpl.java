@@ -1,13 +1,12 @@
 package cs3500.pa05.controller;
 
-import cs3500.pa05.model.Action;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Event;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Week;
-import cs3500.pa05.model.writer.ReadFile;
-import cs3500.pa05.model.writer.WriteToFile;
+import cs3500.pa05.model.ReadFile;
+import cs3500.pa05.model.WriteToFile;
 import cs3500.pa05.view.BujoViewImpl;
 import cs3500.pa05.view.UserInputView;
 import cs3500.pa05.view.WelcomeView;

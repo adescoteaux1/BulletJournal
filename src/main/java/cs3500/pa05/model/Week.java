@@ -111,38 +111,6 @@ public class Week implements Serializable {
   }
 
   /**
-   * creates a new event
-   *
-   * @param day the day the event is being created on
-   * @param e the new event
-   */
-  public void createEvent(Day day, Event e) {
-    if (numEvents <= eventLimit) {
-      day.addEvent(e);
-      numEvents += 1;
-    } else {
-      System.out.println("Extending event limit."); //delete for MVC?
-      //setEventLimit(numEvents);
-    }
-  }
-
-  /**
-   * creates a new task
-   *
-   * @param day the day the task is being created on
-   * @param t the new task
-   */
-  public void createTask(Day day, Task t) {
-    if (numTasks <= taskLimit) {
-      day.addTask(t);
-      numTasks += 1;
-    } else {
-      System.out.println("Extending event limit."); //delete for MVC?
-      //setTaskLimit(numTasks);
-    }
-  }
-
-  /**
    * sets the quote or note to a string
    *
    * @param text string quote/note should be set to
@@ -202,6 +170,7 @@ public class Week implements Serializable {
       for (Event event : day.getEvents()) {
         if (event.getName().equals(eventName)) {
           day.removeEvent(event);
+          setEventNum(getNumEvents() - 1);
           break;
         }
       }
@@ -219,6 +188,7 @@ public class Week implements Serializable {
       for (Task task : day.getTasks()) {
         if (task.getName().equals(taskName)) {
           day.removeTask(task);
+          setTaskNum(getNumTasks() - 1);
           break;
         }
       }

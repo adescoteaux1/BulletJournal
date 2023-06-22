@@ -8,6 +8,7 @@ import static cs3500.pa05.model.DayOfWeek.THURSDAY;
 import static cs3500.pa05.model.DayOfWeek.TUESDAY;
 import static cs3500.pa05.model.DayOfWeek.WEDNESDAY;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,20 +87,6 @@ class WeekTest {
     assertEquals(30, week.getEventLimit());
   }
 
-  @Test
-  public void createEvent() {
-    Event e = new Event("lab", "last ood lab",
-        WEDNESDAY, "11:40", "100");
-    week.createEvent(week.getDays().get(2), e);
-    //assertTrue(w.getDays().get(2).getEvents().contains(e));
-  }
-
-  @Test
-  public void createTask() {
-    Task t = new Task("classes", "neu summer 1", MONDAY, false);
-    week.createTask(week.getDays().get(2), t);
-    // assertTrue(w.getDays().get(2).getEvents().contains(e)));
-  }
 
   //comment
   @Test
@@ -111,51 +98,95 @@ class WeekTest {
 
   }
 
-  @Test
-  public void getEventByName() {
-
-  }
 
   @Test
-  public void getTaskByName() {
-  }
-
-  @Test
-  public void addEvent() {
-  }
-
-  @Test
-  public void addTask() {
-  }
-
-  @Test
-  public void deleteEvent() {
-  }
-
-  @Test
-  public void deleteTask() {
-  }
-
-  @Test
-  public void setStartDay() {
-  }
-
-  @Test
-  public void getNumTasks() {
+  public void addTasks() {
     assertEquals(0, week.getNumTasks());
+    week.addTask(new Task("n", "n", MONDAY, true));
+    assertEquals(1, week.getNumTasks());
+    week.setTaskLimit(0);
+    week.setTaskNum(1);
     week.addTask(new Task("n", "n", MONDAY, true));
     assertEquals(1, week.getNumTasks());
   }
 
   @Test
-  public void getNumEvents() {
+  public void addEvents() {
     assertEquals(0, week.getNumEvents());
+    week.addEvent(new Event("n", "n", MONDAY, "4", "5"));
+    assertEquals(1, week.getNumEvents());
+    week.setEventLimit(0);
+    week.setEventNum(1);
     week.addEvent(new Event("n", "n", MONDAY, "4", "5"));
     assertEquals(1, week.getNumEvents());
   }
 
   @Test
   public void setTaskNum() {
-    //assertEquals
+    assertEquals(0, week.getNumTasks());
+    week.setTaskNum(5);
+    assertEquals(5, week.getNumTasks());
+  }
+
+  @Test
+  public void setEventtNum() {
+    assertEquals(0, week.getNumEvents());
+    week.setEventNum(5);
+    assertEquals(5, week.getNumEvents());
+  }
+
+  @Test
+  public void deleteEvents() {
+    week.addEvent(new Event("n", "n", MONDAY, "4", "5"));
+    assertEquals(1, week.getNumEvents());
+    week.deleteEvent("n");
+    assertEquals(0, week.getNumEvents());
+  }
+
+  @Test
+  public void deleteTasks() {
+    week.addTask(new Task("n", "n", MONDAY, false));
+    assertEquals(1, week.getNumTasks());
+    week.deleteTask("n");
+    assertEquals(0, week.getNumTasks());
+  }
+
+  @Test
+  public void testSetStartDay() {
+    List<Day> expected = new ArrayList<>();
+    expected.add(new Day(MONDAY, new ArrayList<>(), new ArrayList<>()));
+    expected.add(new Day(TUESDAY, new ArrayList<>(), new ArrayList<>()));
+    expected.add(new Day(WEDNESDAY, new ArrayList<>(), new ArrayList<>()));
+    expected.add(new Day(THURSDAY, new ArrayList<>(), new ArrayList<>()));
+    expected.add(new Day(FRIDAY, new ArrayList<>(), new ArrayList<>()));
+    expected.add(new Day(SATURDAY, new ArrayList<>(), new ArrayList<>()));
+    expected.add(new Day(SUNDAY, new ArrayList<>(), new ArrayList<>()));
+
+    Day originalStartDay = week.getDays().get(0);
+
+    week.setStartDay(TUESDAY);
+
+    Day changedStartDay = week.getDays().get(0);
+
+    assertEquals(expected.size(), week.getDays().size());
+    assertNotEquals(originalStartDay.getDayOfWeek(), changedStartDay.getDayOfWeek());
+
+    List<DayOfWeek> days = new ArrayList<>();
+    for (Day d : week.getDays()) {
+      days.add(d.getDayOfWeek());
+    }
+
+    List<DayOfWeek> expectedDays = new ArrayList<>();
+
+    expectedDays.add(TUESDAY);
+    expectedDays.add(WEDNESDAY);
+    expectedDays.add(THURSDAY);
+    expectedDays.add(FRIDAY);
+    expectedDays.add(SATURDAY);
+    expectedDays.add(SUNDAY);
+    expectedDays.add(MONDAY);
+
+    assertEquals(expectedDays, days);
+
   }
 }
