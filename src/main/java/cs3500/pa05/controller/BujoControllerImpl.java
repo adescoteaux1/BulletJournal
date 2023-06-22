@@ -10,6 +10,7 @@ import cs3500.pa05.model.writer.WriteToFile;
 import cs3500.pa05.view.BujoViewImpl;
 import cs3500.pa05.view.UserInputView;
 import cs3500.pa05.view.WelcomeView;
+import java.util.Scanner;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -348,14 +349,14 @@ public class BujoControllerImpl implements BujoController {
     openPopup.getContent().add(enterButton);
   }
 
-  /*
+/*
   private void runSplash(){
-    bvi.displaySplash();
+    wv.load();
     boolean userInteracted = waitForUserInteraction(2000);
     if (userInteracted) {
-      bvi.displaySplash();
+      uiv.load();
     } else {
-      bvi.displaySplash();
+      uiv.load();
     }
   }
 
@@ -372,7 +373,8 @@ public class BujoControllerImpl implements BujoController {
     }
 
     return false; // Timeout reached, return false
-  } */
+  }
+*/
 
   /**
    * sets limit for tasks
@@ -522,6 +524,7 @@ public class BujoControllerImpl implements BujoController {
    */
   public void displayWeek(Week week) throws IOException {
     week.setStartDay(startDay.getValue());
+    clearVboxes();
 
     for (int i = 0; i < 7; i++) {
       Day d = week.getDays().get(i);
@@ -542,7 +545,7 @@ public class BujoControllerImpl implements BujoController {
         day7.setText(d.getDayOfWeek().getName());
       }
 
-      clearVboxes();
+
       addEvents(d, i);
       addTasks(d, i);
       fillTaskQueue();

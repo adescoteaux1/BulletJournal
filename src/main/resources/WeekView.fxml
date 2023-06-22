@@ -48,7 +48,7 @@
                            <VBox fx:id="day3Actions" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                            <VBox fx:id="day2Actions" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            <VBox fx:id="day1Actions" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1" />
-                           <VBox fx:id="day5Action" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                           <VBox fx:id="day5Actions" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
                            <VBox fx:id="day6Actions" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
                            <VBox fx:id="day7Actions" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
                                 </children>
