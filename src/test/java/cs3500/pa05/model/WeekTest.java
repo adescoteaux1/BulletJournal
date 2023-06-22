@@ -42,7 +42,24 @@ class WeekTest {
     expected.add(new Day(SATURDAY, new ArrayList<>(), new ArrayList<>()));
     expected.add(new Day(SUNDAY, new ArrayList<>(), new ArrayList<>()));
 
-    //assertEquals(expected, w.getDays());
+    assertEquals(expected.size(), week.getDays().size());
+
+    List<DayOfWeek> days = new ArrayList<>();
+    for (Day d : week.getDays()) {
+      days.add(d.getDayOfWeek());
+    }
+
+    List<DayOfWeek> expectedDays = new ArrayList<>();
+    expectedDays.add(MONDAY);
+    expectedDays.add(TUESDAY);
+    expectedDays.add(WEDNESDAY);
+    expectedDays.add(THURSDAY);
+    expectedDays.add(FRIDAY);
+    expectedDays.add(SATURDAY);
+    expectedDays.add(SUNDAY);
+
+    assertEquals(expectedDays, days);
+
   }
 
   @Test
@@ -121,5 +138,24 @@ class WeekTest {
 
   @Test
   public void setStartDay() {
+  }
+
+  @Test
+  public void getNumTasks() {
+    assertEquals(0, week.getNumTasks());
+    week.addTask(new Task("n", "n", MONDAY, true));
+    assertEquals(1, week.getNumTasks());
+  }
+
+  @Test
+  public void getNumEvents() {
+    assertEquals(0, week.getNumEvents());
+    week.addEvent(new Event("n", "n", MONDAY, "4", "5"));
+    assertEquals(1, week.getNumEvents());
+  }
+
+  @Test
+  public void setTaskNum() {
+    //assertEquals
   }
 }
