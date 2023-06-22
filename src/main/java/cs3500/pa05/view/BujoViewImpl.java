@@ -1,6 +1,6 @@
 package cs3500.pa05.view;
 
-import cs3500.pa05.controller.BojuController;
+import cs3500.pa05.controller.BujoController;
 import cs3500.pa05.model.Action;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayOfWeek;
@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 /**
  * represents the main View class
  */
-public class BojuViewImpl implements BojuView {
+public class BujoViewImpl implements BujoView {
   private final FXMLLoader loader;
 
   @FXML
@@ -42,7 +42,7 @@ public class BojuViewImpl implements BojuView {
    *
    * @param controller is the controller
    */
-  public BojuViewImpl(BojuController controller) {
+  public BujoViewImpl(BujoController controller) {
     // look up and store the layout
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("WeekView.fxml"));

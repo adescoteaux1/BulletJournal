@@ -5,16 +5,13 @@ import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Week;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Event;
-import cs3500.pa05.model.writer.ReadFile;
 import cs3500.pa05.model.writer.WriteToFile;
-import cs3500.pa05.view.BojuViewImpl;
+import cs3500.pa05.view.BujoViewImpl;
 import cs3500.pa05.view.UserInputView;
 import cs3500.pa05.view.WelcomeView;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -30,7 +27,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
-public class BojuControllerImpl implements BojuController {
+public class BujoControllerImpl implements BujoController {
   Stage stage;
   String bujoPath;
   Week week;
@@ -64,7 +61,7 @@ public class BojuControllerImpl implements BojuController {
   private TextField startInput;
   @FXML
   private TextField durationInput;
-  private BojuViewImpl bvi;
+  private BujoViewImpl bvi;
   @FXML
   private GridPane weekGrid;
   @FXML
@@ -146,7 +143,7 @@ public class BojuControllerImpl implements BojuController {
    *
    * @param stage where all the scenes will be displayed
    */
-  public BojuControllerImpl(Stage stage) {
+  public BujoControllerImpl(Stage stage) {
     this.stage = stage;
     this.eventPopup = new Popup();
     this.taskPopup = new Popup();
@@ -155,7 +152,7 @@ public class BojuControllerImpl implements BojuController {
     eventOptionsPopup = new Popup();
     taskOptionsPopup = new Popup();
     sideBar = new VBox();
-    bvi = new BojuViewImpl(this);
+    bvi = new BujoViewImpl(this);
     uiv = new UserInputView(this);
     wv = new WelcomeView(this);
   }

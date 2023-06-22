@@ -5,7 +5,7 @@ import java.io.IOException;
 /**
  * interface for controller
  */
-public interface BojuController {
+public interface BujoController {
 
   /**
    * runs the program
