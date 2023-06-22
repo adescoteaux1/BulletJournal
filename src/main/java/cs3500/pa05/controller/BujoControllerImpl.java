@@ -10,6 +10,7 @@ import cs3500.pa05.model.writer.WriteToFile;
 import cs3500.pa05.view.BujoViewImpl;
 import cs3500.pa05.view.UserInputView;
 import cs3500.pa05.view.WelcomeView;
+import java.util.Scanner;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -345,14 +346,14 @@ public class BujoControllerImpl implements BujoController {
     openPopup.getContent().add(enterButton);
   }
 
-  /*
+/*
   private void runSplash(){
-    bvi.displaySplash();
+    wv.load();
     boolean userInteracted = waitForUserInteraction(2000);
     if (userInteracted) {
-      bvi.displaySplash();
+      uiv.load();
     } else {
-      bvi.displaySplash();
+      uiv.load();
     }
   }
 
@@ -369,7 +370,8 @@ public class BujoControllerImpl implements BujoController {
     }
 
     return false; // Timeout reached, return false
-  } */
+  }
+*/
 
   /**
    * sets limit for tasks
