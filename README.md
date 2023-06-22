@@ -6,10 +6,12 @@
 Week GUI View (Temporary):
 ![WeekGUI.png](WeekGUI.png)
 
+
+
+
+
 Final Week GUI:
 ![img.png](img.png)
-
-
 
 Program Pitch: 
 The Bujo Bullet Journal App is the perfect app for those looking to add a personalized and
@@ -23,7 +25,7 @@ theme, easy on the eyes, and perfect for creating a positive environment around 
 actions. With this BuJo app, people can lay out their weekly schedule with a few easy clicks and save
 it in new .bujo files for later use!
 
-GUI Screenshot:
+
 
 SOLID Principles
 Single Responsibility Principle: The UserInputView class is located in the View folder of this project.
@@ -42,7 +44,10 @@ implemented the same BoJuView interface. This made it possible for all 3 view cl
 load() method slightly differently to display the correct scene for the program. If a new functionality
 needed to be added in the future, it would be easy to create a new view for that functionality.
 
-Liskov Substitution Principle:
+Liskov Substitution Principle: The Event and Task classes extend the Action class. Therefore, in Event 
+or Task is by definition an Action through extension. The two classes share the same 3 fields of name,
+description , and dayOfWeek. T
+
 Interface Segregation Principle:
 Dependency Inversion Principle:
 
