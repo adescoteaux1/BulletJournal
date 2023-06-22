@@ -525,6 +525,9 @@ public class BojuControllerImpl implements BojuController {
     }
   }
 
+  /**
+   * adds tasks to the task queue
+   */
   private void fillTaskQueue() {
     sideBar.getChildren().clear();
 
