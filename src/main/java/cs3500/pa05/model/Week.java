@@ -206,4 +206,8 @@ public class Week implements Serializable {
 
     days = newDays;
   }
+
+  public void displayWeek() {
+
+  }
 }

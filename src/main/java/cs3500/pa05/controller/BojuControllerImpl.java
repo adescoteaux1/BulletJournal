@@ -173,6 +173,8 @@ public class BojuControllerImpl implements BojuController {
 
     //removeTask.setOnAction(e -> deleteTask());
     //deEvent.setOnAction(e -> deleteEvent());
+
+    bvi.displayWeek(week);
   }
 
   private void setTaskLimit() throws IOException {
@@ -256,11 +258,12 @@ public class BojuControllerImpl implements BojuController {
       String duration = durationInput.getText();
       Event newEvent = new Event(name, desc, day, start, duration);
       week.addEvent(newEvent);
-      addAction(newEvent);
+      //addAction(newEvent);
       writer.write(JsonUtils.serializeRecord(new EventJson(newEvent)).toString());
     });
 
     eventPopup.getContent().add(enterButton);
+    bvi.displayWeek(week);
   }
 
   private void addTask() throws IOException {
@@ -277,17 +280,20 @@ public class BojuControllerImpl implements BojuController {
       DayOfWeek day = dayBox.getValue();
       Task newTask = new Task(name, desc, day, false);
       week.addTask(newTask);
-      addAction(newTask);
+      //addAction(newTask);
       writer.write(JsonUtils.serializeRecord(new TaskJson(newTask)).toString());
     });
 
     taskPopup.getContent().add(enterButton);
+    bvi.displayWeek(week);
   }
-
+/*
   public void addAction(Action action) {
     DayOfWeek day = action.getDayOfWeek();
-    weekGrid.add(new Label(action.getName()), day.getValue(), 2);
+    //weekGrid.add(new Label(action.getName()), day.getValue(), 2);
   }
+
+ */
 
   /**
    * adds qnote to week
@@ -315,6 +321,7 @@ public class BojuControllerImpl implements BojuController {
     });
 
     qnotePopup.getContent().add(finish);
+    bvi.displayWeek(week);
   }
 
 }

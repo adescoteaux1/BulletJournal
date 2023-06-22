@@ -8,65 +8,46 @@ public enum DayOfWeek {
   /**
    * represents monday
    */
-  MONDAY(1),
+  MONDAY("Monday"),
 
   /**
    * represents tuesday
    */
-  TUESDAY(2),
+  TUESDAY("Tuesday"),
 
   /**
    * represents wednesday
    */
-  WEDNESDAY(3),
+  WEDNESDAY("Wednesday"),
 
   /**
    * represents thursday
    */
-  THURSDAY(4),
+  THURSDAY("Thursday"),
 
   /**
    * represents friday
    */
-  FRIDAY(5),
+  FRIDAY("Friday"),
 
   /**
    * represents saturday
    */
-  SATURDAY(6),
+  SATURDAY("Saturday"),
 
   /**
    * represents sunday
    */
-  SUNDAY(0);
+  SUNDAY("Sunday");
 
-  private int value;
+  private String name;
 
-  DayOfWeek(int value) {
-    this.value = value;
+  DayOfWeek(String name) {
+    this.name = name;
   }
 
-  public int getValue() {
-    return value;
+  public String getName() {
+    return name;
   }
 
-  public static DayOfWeek findDay(String day) {
-    if (day.equals(MONDAY)) {
-      return MONDAY;
-    } else if (day.equals(TUESDAY)) {
-      return TUESDAY;
-    } else if (day.equals(WEDNESDAY)) {
-      return WEDNESDAY;
-    } else if (day.equals(THURSDAY)) {
-      return THURSDAY;
-    } else if (day.equals(FRIDAY)) {
-      return FRIDAY;
-    } else if (day.equals(SATURDAY)) {
-      return SATURDAY;
-    } else if (day.equals(SUNDAY)) {
-      return SUNDAY;
-    } else {
-      throw new IllegalArgumentException();
-    }
-  }
 }
