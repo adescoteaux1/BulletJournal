@@ -262,9 +262,6 @@ public class BojuControllerImpl implements BojuController {
       }
     });
 
-    //removeTask.setOnAction(e -> deleteTask());
-    //deEvent.setOnAction(e -> deleteEvent());
-
     s.setOnKeyPressed(e -> {
       if (e.getCode() == KeyCode.E && e.isControlDown()) {
         addEvent.fire();
@@ -333,6 +330,7 @@ public class BojuControllerImpl implements BojuController {
 
     limitPopup.getContent().add(enterButton);
   }
+  /*
 
   private void Note() {
     UserInputView uiv = new UserInputView(this);
@@ -343,6 +341,8 @@ public class BojuControllerImpl implements BojuController {
     //call method to add note
   }
 
+   */
+/*
   private void deleteEvent() {
     UserInputView uiv = new UserInputView(this);
     stage.setScene(uiv.load());
@@ -372,6 +372,8 @@ public class BojuControllerImpl implements BojuController {
       }
     });
   }
+
+ */
 
   /**
    * opens popup for adding event
@@ -620,6 +622,7 @@ public class BojuControllerImpl implements BojuController {
     eventEdit.setOnAction(e -> {
       eventOptionsPopup.hide();
       week.deleteEvent(event.getName());
+      bvi.makePopup(eventPopup, stage);
       try {
         addEvent();
       } catch (IOException ex) {
@@ -750,8 +753,9 @@ public class BojuControllerImpl implements BojuController {
     taskEdit.setOnAction(e -> {
       taskOptionsPopup.hide();
       week.deleteTask(task.getName());
+      bvi.makePopup(taskPopup, stage);
       try {
-        addEvent();
+        addTask();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
