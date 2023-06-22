@@ -103,7 +103,8 @@ public class BojuControllerImpl implements BojuController {
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
-      WeekView();});
+      WeekView();
+    });
   }
 
   public void save() throws IOException {
