@@ -187,7 +187,7 @@ public class BujoControllerImpl implements BujoController {
         try {
           List<Day> days = new ArrayList<>();
           this.week = new Week(days, 100, 100);
-          WeekView();
+          weekView();
         } catch (IOException ex) {
           throw new RuntimeException(ex);
         }
@@ -207,7 +207,7 @@ public class BujoControllerImpl implements BujoController {
   /**
    * view for week; button actions
    */
-  public void WeekView() throws IOException {
+  public void weekView() throws IOException {
     //call method to read bujo file then setup view using bujo file
     week.setStartDay(startDay.getValue());
 
@@ -467,6 +467,11 @@ public class BujoControllerImpl implements BujoController {
       String duration = durationInput.getText();
       Event newEvent = new Event(name, desc, day, start, duration);
       week.addEvent(newEvent);
+      try {
+        weekView();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
     });
 
     eventPopup.getContent().add(enterButton);
@@ -492,6 +497,11 @@ public class BujoControllerImpl implements BujoController {
       DayOfWeek day = dayBox.getValue();
       Task newTask = new Task(name, desc, day, false);
       week.addTask(newTask);
+      try {
+        weekView();
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
     });
 
     taskPopup.getContent().add(enterButton);
@@ -521,7 +531,7 @@ public class BujoControllerImpl implements BujoController {
       //week update
       week.setQuoteOrNote(qnote);
       try {
-        WeekView();
+        weekView();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
