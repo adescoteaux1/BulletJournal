@@ -48,7 +48,6 @@ public class UserInputView implements BojuView {
 
     String fileExtension = getFileExtension(path);
     if (!fileExtension.equalsIgnoreCase("bujo")) {
-      System.out.println("Invalid file extension. Expected .bujo file.");
       return false;
     }
 

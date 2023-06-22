@@ -14,6 +14,8 @@ import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -137,6 +139,7 @@ public class BojuControllerImpl implements BojuController {
   private Popup taskOptionsPopup;
   @FXML
   private VBox sideBar;
+  private UserInputView uiv;
 
 
   /**
@@ -154,6 +157,7 @@ public class BojuControllerImpl implements BojuController {
     taskOptionsPopup = new Popup();
     sideBar = new VBox();
     bvi = new BojuViewImpl(this);
+    uiv = new UserInputView(this);
   }
 
   /**
@@ -164,22 +168,31 @@ public class BojuControllerImpl implements BojuController {
    */
   @Override
   public void run() throws IllegalStateException, IOException {
-   // this.runSplash();
+    // this.runSplash();
     enterTitle.setText("Enter a .boju file");
     enterButton.setOnAction(e -> {bujoPath = enterField.getText();
-      stage.setScene(bvi.load());
-      try {
-        week = ReadFile.readBujoFile(bujoPath);
-      } catch (IOException ex) {
-        throw new RuntimeException(ex);
-      } catch (ClassNotFoundException ex) {
-        throw new RuntimeException(ex);
+
+      if (uiv.validateFile(bujoPath)) {
+        stage.setScene(bvi.load());
+
+
+        /*
+        try {
+          week = ReadFile.readBujoFile(bujoPath);
+        } catch (IOException ex) {
+          throw new RuntimeException(ex);
+        } catch (ClassNotFoundException ex) {
+          throw new RuntimeException(ex);
+        } */
+        try {
+          List<Day> days = new ArrayList<>();
+          this.week = new Week(days, 100, 100);
+          WeekView();
+        } catch (IOException ex) {
+          throw new RuntimeException(ex);
+        }
       }
-      try {
-        WeekView();
-      } catch (IOException ex) {
-        throw new RuntimeException(ex);
-      }
+
     });
   }
 
