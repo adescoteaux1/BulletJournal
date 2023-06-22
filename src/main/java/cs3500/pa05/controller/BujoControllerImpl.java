@@ -1,5 +1,6 @@
 package cs3500.pa05.controller;
 
+import cs3500.pa05.model.Action;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Event;
@@ -21,6 +22,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -134,6 +136,8 @@ public class BujoControllerImpl implements BujoController {
   private WelcomeView wv;
   @FXML
   private Button status;
+  @FXML
+  private VBox eventInfo = new VBox();
 
 
   /**
@@ -577,6 +581,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
+          miniView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -590,6 +595,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
+          miniView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -603,6 +609,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
+          miniView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -616,6 +623,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
+          miniView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -629,6 +637,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
+          miniView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -642,6 +651,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
+          miniView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -655,6 +665,7 @@ public class BujoControllerImpl implements BujoController {
         Button b = new Button(e.getName());
         b.setOnAction(ev -> {
           bvi.makePopup(eventOptionsPopup, stage);
+          miniView(e);
           try {
             handleEventClick(e);
           } catch (IOException ex) {
@@ -666,11 +677,18 @@ public class BujoControllerImpl implements BujoController {
     }
   }
 
+  private void miniView(Action e) {
+    eventInfo.getChildren().add(new Label("Name: " + e.getName()));
+    eventInfo.getChildren().add(new Label("Description: " + e.getDescription()));
+    eventInfo.getChildren().add(new Label("Day: " + e.getDayOfWeek().getName()));
+  }
+
   private void handleEventClick(Event event) throws IOException {
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("EventWindow.fxml"));
     loader.setController(this);
     Scene s = loader.load();
+    miniView(event);
     eventOptionsPopup.getContent().add(s.getRoot());
 
     eventDelete.setOnAction(e -> {
