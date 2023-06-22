@@ -11,8 +11,6 @@ import cs3500.pa05.view.BujoViewImpl;
 import cs3500.pa05.view.UserInputView;
 import cs3500.pa05.view.WelcomeView;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -28,6 +26,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
+/**
+ * represents a bujo controller implementation
+ */
 public class BujoControllerImpl implements BujoController {
   Stage stage;
   String bujoPath;
@@ -43,15 +44,10 @@ public class BujoControllerImpl implements BujoController {
   private Button addTask;
   @FXML
   private Button addEvent;
-  @FXML
-  private Button addNote;
-  //private Writer writer;
-  private Popup eventPopup;
-  private Popup taskPopup;
-  private Popup limitPopup;
-  private Popup qnotePopup;
-  @FXML
-  private Button createTaskButton;
+  private final Popup eventPopup;
+  private final Popup taskPopup;
+  private final Popup limitPopup;
+  private final Popup qnotePopup;
   @FXML
   private TextField nameInput;
   @FXML
@@ -62,9 +58,7 @@ public class BujoControllerImpl implements BujoController {
   private TextField startInput;
   @FXML
   private TextField durationInput;
-  private BujoViewImpl bvi;
-  @FXML
-  private GridPane weekGrid;
+  private final BujoViewImpl bvi;
   @FXML
   private Button addQnote;
   @FXML
@@ -82,19 +76,19 @@ public class BujoControllerImpl implements BujoController {
   @FXML
   private ChoiceBox<DayOfWeek> startDay;
   @FXML
-  private VBox day1Actions = new VBox();
+  private final VBox day1Actions = new VBox();
   @FXML
-  private VBox day2Actions = new VBox();
+  private final VBox day2Actions = new VBox();
   @FXML
-  private VBox day3Actions = new VBox();
+  private final VBox day3Actions = new VBox();
   @FXML
-  private VBox day4Actions = new VBox();
+  private final VBox day4Actions = new VBox();
   @FXML
-  private VBox day5Actions = new VBox();
+  private final VBox day5Actions = new VBox();
   @FXML
-  private VBox day6Actions = new VBox();
+  private final VBox day6Actions = new VBox();
   @FXML
-  private VBox day7Actions = new VBox();
+  private final VBox day7Actions = new VBox();
   @FXML
   private Label day1;
   @FXML
@@ -130,15 +124,15 @@ public class BujoControllerImpl implements BujoController {
   @FXML
   private Button taskClose;
   @FXML
-  private Popup eventOptionsPopup;
+  private final Popup eventOptionsPopup;
   @FXML
-  private Popup taskOptionsPopup;
+  private final Popup taskOptionsPopup;
   @FXML
-  private VBox sideBar;
+  private final VBox sideBar;
   @FXML
-  private Popup openPopup;
-  private UserInputView uiv;
-  private WelcomeView wv;
+  private final Popup openPopup;
+  private final UserInputView uiv;
+  private final WelcomeView wv;
 
 
   /**
@@ -165,10 +159,9 @@ public class BujoControllerImpl implements BujoController {
    * runs the bujo application
    *
    * @throws IllegalStateException if there is an error
-   * @throws IOException if runtime error occurs, class is not found, etc.
    */
   @Override
-  public void run() throws IllegalStateException, IOException {
+  public void run() throws IllegalStateException {
 
     enterTitle.setText("Enter a .bujo file");
     enterButton.setOnAction(e -> {bujoPath = enterField.getText();
@@ -189,7 +182,7 @@ public class BujoControllerImpl implements BujoController {
 
   /**
    * saves contents to a bujo file
-   * @throws IOException
+   * @throws IOException if the file can't be written to
    */
   public void save() throws IOException {
     FXMLLoader loader = new FXMLLoader(
@@ -197,7 +190,7 @@ public class BujoControllerImpl implements BujoController {
     loader.setController(this);
     Scene s = loader.load();
     enterTitle.setText("Enter file name to save");
-    openPopup.getContent().add((Node)s.getRoot());
+    openPopup.getContent().add(s.getRoot());
 
     enterButton.setOnAction(e -> { bujoPath = enterField.getText();
       openPopup.hide();
@@ -215,6 +208,8 @@ public class BujoControllerImpl implements BujoController {
 
   /**
    * view for week; button actions
+   *
+   * @throws IOException if there is an error in updating
    */
   public void weekView() throws IOException {
     //call method to read bujo file then setup view using bujo file
@@ -320,13 +315,19 @@ public class BujoControllerImpl implements BujoController {
     displayWeek(week);
   }
 
+  /**
+   * opens the beginning scene to enter a file path
+   *
+   * @throws IllegalStateException if there is an error
+   * @throws IOException if there is an error
+   */
   public void open() throws IllegalStateException, IOException {
     FXMLLoader loader = new FXMLLoader(
         getClass().getClassLoader().getResource("UserInput.fxml"));
     loader.setController(this);
     Scene s = loader.load();
     enterTitle.setText("Enter a .bujo file");
-    openPopup.getContent().add((Node)s.getRoot());
+    openPopup.getContent().add(s.getRoot());
 
     enterButton.setOnAction(e -> { bujoPath = enterField.getText();
       openPopup.hide();
@@ -378,7 +379,7 @@ public class BujoControllerImpl implements BujoController {
     loader.setController(this);
     Scene s = loader.load();
     enterTitle.setText("Enter the Task Limit");
-    limitPopup.getContent().add((Node)s.getRoot());
+    limitPopup.getContent().add(s.getRoot());
 
     enterButton.setOnAction(e -> {
       limitPopup.hide();
@@ -400,7 +401,7 @@ public class BujoControllerImpl implements BujoController {
     loader.setController(this);
     Scene s = loader.load();
     enterTitle.setText("Enter the Event Limit");
-    limitPopup.getContent().add((Node)s.getRoot());
+    limitPopup.getContent().add(s.getRoot());
 
     enterButton.setOnAction(e -> {
       int eventLimit = Integer.parseInt(enterField.getText());
@@ -410,50 +411,6 @@ public class BujoControllerImpl implements BujoController {
 
     limitPopup.getContent().add(enterButton);
   }
-  /*
-
-  private void Note() {
-    UserInputView uiv = new UserInputView(this);
-    stage.setScene(uiv.load());
-    enterTitle.setText("Enter the Note");
-
-    enterButton.setOnAction(e -> {String note = enterField.getText();});
-    //call method to add note
-  }
-
-   */
-/*
-  private void deleteEvent() {
-    UserInputView uiv = new UserInputView(this);
-    stage.setScene(uiv.load());
-    enterTitle.setText("Enter Event to delete");
-
-    enterButton.setOnAction(e -> {String eventToDelete = enterField.getText();
-    week.deleteEvent(eventToDelete);
-      try {
-        WeekView();
-      } catch (IOException ex) {
-        throw new RuntimeException(ex);
-      }
-    });
-  }
-
-  private void deleteTask() {
-    UserInputView uiv = new UserInputView(this);
-    stage.setScene(uiv.load());
-    enterTitle.setText("Enter Task to delete");
-
-    enterButton.setOnAction(e -> {String taskToDelete = enterField.getText();
-    week.deleteTask(taskToDelete);
-      try {
-        WeekView();
-      } catch (IOException ex) {
-        throw new RuntimeException(ex);
-      }
-    });
-  }
-
- */
 
   /**
    * opens popup for adding event
@@ -465,7 +422,7 @@ public class BujoControllerImpl implements BujoController {
         getClass().getClassLoader().getResource("newEvent.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    eventPopup.getContent().add((Node)s.getRoot());
+    eventPopup.getContent().add(s.getRoot());
 
     enterButton.setOnAction(e -> {
       eventPopup.hide();
@@ -498,7 +455,7 @@ public class BujoControllerImpl implements BujoController {
         getClass().getClassLoader().getResource("newTask.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    taskPopup.getContent().add((Node)s.getRoot());
+    taskPopup.getContent().add(s.getRoot());
 
     enterButton.setOnAction(e -> {
       taskPopup.hide();
@@ -528,7 +485,7 @@ public class BujoControllerImpl implements BujoController {
         getClass().getClassLoader().getResource("qnotePop.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    qnotePopup.getContent().add((Node)s.getRoot());
+    qnotePopup.getContent().add(s.getRoot());
 
     finish.setOnAction(e -> {
       qnotePopup.hide();
@@ -555,6 +512,7 @@ public class BujoControllerImpl implements BujoController {
    * displays the week
    *
    * @param week is current week
+   * @throws IOException if there is an error in the week view
    */
   public void displayWeek(Week week) throws IOException {
     week.setStartDay(startDay.getValue());
@@ -574,7 +532,7 @@ public class BujoControllerImpl implements BujoController {
         day5.setText(d.getDayOfWeek().getName());
       } else if (i == 5) {
         day6.setText(d.getDayOfWeek().getName());
-      } else if (i == 6) {
+      } else {
         day7.setText(d.getDayOfWeek().getName());
       }
 
@@ -604,7 +562,7 @@ public class BujoControllerImpl implements BujoController {
    * @param d day of event
    * @param i represents a event
    */
-  private void addEvents(Day d, int i) throws IOException {
+  private void addEvents(Day d, int i) {
 
     if (i == 0) {
       for (Event e : d.getEvents()) {
@@ -705,7 +663,7 @@ public class BujoControllerImpl implements BujoController {
         getClass().getClassLoader().getResource("EventWindow.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    eventOptionsPopup.getContent().add((Node)s.getRoot());
+    eventOptionsPopup.getContent().add(s.getRoot());
 
     eventDelete.setOnAction(e -> {
       eventOptionsPopup.hide();
@@ -722,9 +680,7 @@ public class BujoControllerImpl implements BujoController {
         throw new RuntimeException(ex);
       }
     });
-    eventClose.setOnAction(e -> {
-      eventOptionsPopup.hide();
-    });
+    eventClose.setOnAction(e -> eventOptionsPopup.hide());
 
     eventOptionsPopup.getContent().add(eventClose);
   }
@@ -836,7 +792,7 @@ public class BujoControllerImpl implements BujoController {
         getClass().getClassLoader().getResource("TaskWindow.fxml"));
     loader.setController(this);
     Scene s = loader.load();
-    taskOptionsPopup.getContent().add((Node)s.getRoot());
+    taskOptionsPopup.getContent().add(s.getRoot());
 
     taskDelete.setOnAction(e -> {
       taskOptionsPopup.hide();
@@ -853,9 +809,7 @@ public class BujoControllerImpl implements BujoController {
         throw new RuntimeException(ex);
       }
     });
-    taskClose.setOnAction(e -> {
-      taskOptionsPopup.hide();
-    });
+    taskClose.setOnAction(e -> taskOptionsPopup.hide());
 
     taskOptionsPopup.getContent().add(taskClose);
   }
