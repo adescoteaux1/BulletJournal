@@ -5,11 +5,8 @@ import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Week;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Event;
-import cs3500.pa05.model.writer.BujoWriter;
-import cs3500.pa05.model.writer.FileAppendable;
 import cs3500.pa05.model.writer.ReadFile;
 import cs3500.pa05.model.writer.WriteToFile;
-import cs3500.pa05.model.writer.Writer;
 import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
 import java.io.IOException;
@@ -49,7 +46,7 @@ public class BojuControllerImpl implements BojuController {
   private Button addEvent;
   @FXML
   private Button addNote;
-  private Writer writer;
+  //private Writer writer;
   private Popup eventPopup;
   private Popup taskPopup;
   private Popup limitPopup;
@@ -209,8 +206,8 @@ public class BojuControllerImpl implements BojuController {
    */
   public void WeekView() throws IOException {
     //call method to read bujo file then setup view using bujo file
-    Appendable output = new FileAppendable(Paths.get(bujoPath).toFile());
-    writer = new BujoWriter(output);
+    //Appendable output = new FileAppendable(Paths.get(bujoPath).toFile());
+    //writer = new BujoWriter(output);
     week.setStartDay(startDay.getValue());
 
     //button actions
