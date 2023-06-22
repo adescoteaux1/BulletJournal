@@ -56,7 +56,7 @@ public class BujoControllerImpl implements BujoController {
   private TextField startInput;
   @FXML
   private TextField durationInput;
-  private final BujoViewImpl bvi;
+  private BujoViewImpl bvi;
   @FXML
   private Button addQnote;
   @FXML
@@ -74,19 +74,19 @@ public class BujoControllerImpl implements BujoController {
   @FXML
   private ChoiceBox<DayOfWeek> startDay;
   @FXML
-  private final VBox day1Actions = new VBox();
+  private VBox day1Actions = new VBox();
   @FXML
-  private final VBox day2Actions = new VBox();
+  private VBox day2Actions = new VBox();
   @FXML
-  private final VBox day3Actions = new VBox();
+  private VBox day3Actions = new VBox();
   @FXML
-  private final VBox day4Actions = new VBox();
+  private VBox day4Actions = new VBox();
   @FXML
-  private final VBox day5Actions = new VBox();
+  private VBox day5Actions = new VBox();
   @FXML
-  private final VBox day6Actions = new VBox();
+  private VBox day6Actions = new VBox();
   @FXML
-  private final VBox day7Actions = new VBox();
+  private VBox day7Actions = new VBox();
   @FXML
   private Label day1;
   @FXML
@@ -122,15 +122,15 @@ public class BujoControllerImpl implements BujoController {
   @FXML
   private Button taskClose;
   @FXML
-  private final Popup eventOptionsPopup;
+  private Popup eventOptionsPopup;
   @FXML
-  private final Popup taskOptionsPopup;
+  private Popup taskOptionsPopup;
   @FXML
-  private final VBox sideBar;
+  private VBox sideBar;
   @FXML
-  private final Popup openPopup;
-  private final UserInputView uiv;
-  private final WelcomeView wv;
+  private Popup openPopup;
+  private UserInputView uiv;
+  private WelcomeView wv;
 
 
   /**
@@ -469,6 +469,7 @@ public class BujoControllerImpl implements BujoController {
       week.addTask(newTask);
       try {
         weekView();
+        displayWeek(week);
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
@@ -671,6 +672,11 @@ public class BujoControllerImpl implements BujoController {
     eventDelete.setOnAction(e -> {
       eventOptionsPopup.hide();
       week.deleteEvent(event.getName());
+      try {
+        displayWeek(week);
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
 
     });
     eventEdit.setOnAction(e -> {
@@ -686,6 +692,7 @@ public class BujoControllerImpl implements BujoController {
     eventClose.setOnAction(e -> eventOptionsPopup.hide());
 
     eventOptionsPopup.getContent().add(eventClose);
+    displayWeek(week);
   }
 
 
@@ -800,6 +807,11 @@ public class BujoControllerImpl implements BujoController {
     taskDelete.setOnAction(e -> {
       taskOptionsPopup.hide();
       week.deleteTask(task.getName());
+      try {
+        displayWeek(week);
+      } catch (IOException ex) {
+        throw new RuntimeException(ex);
+      }
 
     });
     taskEdit.setOnAction(e -> {
@@ -815,6 +827,7 @@ public class BujoControllerImpl implements BujoController {
     taskClose.setOnAction(e -> taskOptionsPopup.hide());
 
     taskOptionsPopup.getContent().add(taskClose);
+    displayWeek(week);
   }
 
   /**
