@@ -9,6 +9,7 @@ import cs3500.pa05.model.writer.ReadFile;
 import cs3500.pa05.model.writer.WriteToFile;
 import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
+import cs3500.pa05.view.WelcomeView;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -137,6 +138,7 @@ public class BojuControllerImpl implements BojuController {
   @FXML
   private VBox sideBar;
   private UserInputView uiv;
+  private WelcomeView wv;
 
 
   /**
@@ -155,6 +157,7 @@ public class BojuControllerImpl implements BojuController {
     sideBar = new VBox();
     bvi = new BojuViewImpl(this);
     uiv = new UserInputView(this);
+    wv = new WelcomeView(this);
   }
 
   /**
@@ -165,7 +168,7 @@ public class BojuControllerImpl implements BojuController {
    */
   @Override
   public void run() throws IllegalStateException, IOException {
-    // this.runSplash();
+    //this.runSplash();
     enterTitle.setText("Enter a .boju file");
     enterButton.setOnAction(e -> {bujoPath = enterField.getText();
 

@@ -25,7 +25,6 @@ import javafx.stage.Stage;
  */
 public class BojuViewImpl implements BojuView {
   private final FXMLLoader loader;
-  private final FXMLLoader loadSplash;
 
   @FXML
   private final VBox sideBar;
@@ -48,11 +47,6 @@ public class BojuViewImpl implements BojuView {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("WeekView.fxml"));
     this.loader.setController(controller);
-
-    this.loadSplash = new FXMLLoader();
-    this.loadSplash.setLocation(getClass().getClassLoader().getResource("splash.fxml"));
-    this.loadSplash.setController(controller);
-
     this.sideBar = new VBox();
   }
 
@@ -71,19 +65,6 @@ public class BojuViewImpl implements BojuView {
     }
   }
 
-  /**
-   * displays splash screen
-   *
-   * @return splash screen
-   */
-  public Scene displaySplash() {
-    this.loadSplash.setLocation(getClass().getClassLoader().getResource("splash.fxml"));
-    try {
-      return this.loadSplash.load();
-    } catch (IOException exc) {
-      throw new IllegalStateException("Unable to load layout.");
-    }
-  }
 
   /**
    * displays task queue in the side bar
