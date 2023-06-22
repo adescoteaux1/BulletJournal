@@ -78,14 +78,22 @@ class WeekTest {
 
   @Test
   public void createTask() {
+    Task t = new Task("classes", "neu summer 1", MONDAY, false)
+        w.createTask(w.getDays().get(2), t);
+    // assertTrue(w.getDays().get(2).getEvents().contains(e)));
   }
 
   @Test
   public void setQuoteOrNote() {
+    String input = "Have a good day";
+    String qnote = w.setQuoteOrNote(input);
+    aaertEquals(input, qnote);
+
   }
 
   @Test
   public void getEventByName() {
+
   }
 
   @Test
