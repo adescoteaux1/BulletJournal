@@ -106,7 +106,7 @@ public class BujoControllerImpl implements BujoController {
   @FXML
   private Button open;
   @FXML
-  private Scene scene;
+  private Scene s;
   @FXML
   private Button newWeek;
   @FXML
@@ -285,7 +285,7 @@ public class BujoControllerImpl implements BujoController {
       }
     });
 
-    scene.setOnKeyPressed(e -> {
+    s.setOnKeyPressed(e -> {
       if (e.getCode() == KeyCode.E && e.isControlDown()) {
         addEvent.fire();
       } else if (e.getCode() == KeyCode.T && e.isControlDown()) {
