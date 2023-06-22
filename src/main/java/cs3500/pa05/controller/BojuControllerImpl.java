@@ -10,6 +10,7 @@ import cs3500.pa05.model.writer.FileAppendable;
 import cs3500.pa05.model.writer.ReadFile;
 import cs3500.pa05.model.writer.WriteToFile;
 import cs3500.pa05.model.writer.Writer;
+import cs3500.pa05.view.BojuView;
 import cs3500.pa05.view.BojuViewImpl;
 import cs3500.pa05.view.UserInputView;
 import java.io.IOException;
@@ -137,6 +138,8 @@ public class BojuControllerImpl implements BojuController {
   private Popup taskOptionsPopup;
   @FXML
   private VBox sideBar;
+  @FXML
+  private Popup openPopup;
 
 
   /**
@@ -152,6 +155,7 @@ public class BojuControllerImpl implements BojuController {
     this.qnotePopup = new Popup();
     eventOptionsPopup = new Popup();
     taskOptionsPopup = new Popup();
+    this.openPopup = new Popup();
     sideBar = new VBox();
     bvi = new BojuViewImpl(this);
   }
@@ -160,19 +164,21 @@ public class BojuControllerImpl implements BojuController {
    * runs the bujo application
    *
    * @throws IllegalStateException if there is an error
-   * @throws IOException if runtime error occurs, class is not ofund, etc.
+   * @throws IOException if runtime error occurs, class is not found, etc.
    */
   @Override
   public void run() throws IllegalStateException, IOException {
    // this.runSplash();
+    BojuView uiv = new UserInputView(this);
+
+    // instantiate a simple GUI view
+    stage.setScene(uiv.load());
     enterTitle.setText("Enter a .boju file");
     enterButton.setOnAction(e -> {bujoPath = enterField.getText();
-      stage.setScene(bvi.load());
       try {
         week = ReadFile.readBujoFile(bujoPath);
-      } catch (IOException ex) {
-        throw new RuntimeException(ex);
-      } catch (ClassNotFoundException ex) {
+        stage.setScene(bvi.load());
+      } catch (IOException | ClassNotFoundException ex) {
         throw new RuntimeException(ex);
       }
       try {
@@ -196,6 +202,7 @@ public class BojuControllerImpl implements BojuController {
    */
   public void WeekView() throws IOException {
     //call method to read bujo file then setup view using bujo file
+
     Appendable output = new FileAppendable(Paths.get(bujoPath).toFile());
     writer = new BujoWriter(output);
     week.setStartDay(startDay.getValue());
@@ -260,7 +267,8 @@ public class BojuControllerImpl implements BojuController {
     });
     open.setOnAction(e -> {
       try {
-        run();
+        bvi.makePopup(openPopup, stage);
+        open();
       } catch (IOException ex) {
         throw new RuntimeException(ex);
       }
@@ -287,8 +295,36 @@ public class BojuControllerImpl implements BojuController {
         addQnote.fire();
       }
     });
+    newWeek.setOnAction(e -> {
+      try {
+        week = ReadFile.readBujoFile("");
+      } catch (IOException | ClassNotFoundException ex) {
+        throw new RuntimeException(ex);
+      }
+    });
 
     displayWeek(week);
+  }
+
+  public void open() throws IllegalStateException, IOException {
+    FXMLLoader loader = new FXMLLoader(
+        getClass().getClassLoader().getResource("UserInput.fxml"));
+    loader.setController(this);
+    Scene s = loader.load();
+    enterTitle.setText("Enter a .bujo file");
+    openPopup.getContent().add((Node)s.getRoot());
+
+    enterButton.setOnAction(e -> { bujoPath = enterField.getText();
+      openPopup.hide();
+      try {
+        week = ReadFile.readBujoFile(bujoPath);
+      } catch (IOException | ClassNotFoundException ex) {
+        throw new RuntimeException(ex);
+      }
+
+    });
+
+    openPopup.getContent().add(enterButton);
   }
 
   /*

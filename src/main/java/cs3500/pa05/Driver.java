@@ -29,24 +29,15 @@ public class Driver extends Application {
    * @param stage the JavaFX stage to add elements to
    */
   @Override
-  public void start(Stage stage) {
+  public void start(Stage stage) throws IOException {
     // add a title to the stage
     stage.setTitle("Weekly Bujo");
 
     BojuController bojuController = new BojuControllerImpl(stage);
-    BojuView uiv = new UserInputView(bojuController);
 
-    // instantiate a simple GUI view
-    try {
-
-      stage.setScene(uiv.load());
       // fetch the view's controller
       bojuController.run();
-
       // render the stage
       stage.show();
-    } catch (IllegalStateException | IOException e) {
-      System.err.println("Unable to load GUI.");
-    }
   }
 }
